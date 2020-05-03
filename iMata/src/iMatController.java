@@ -1,19 +1,21 @@
+import javafx.event.Event;
+import javafx.event.EventTarget;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.FlowPane;
 import javafx.scene.layout.GridPane;
 
 import se.chalmers.cse.dat216.project.IMatDataHandler;
 import se.chalmers.cse.dat216.project.Product;
+import se.chalmers.cse.dat216.project.ShoppingCart;
 
 import javax.imageio.stream.ImageInputStream;
 import java.net.URL;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.ResourceBundle;
+import java.util.*;
 
 public class iMatController implements Initializable {
 
@@ -31,11 +33,21 @@ public class iMatController implements Initializable {
     @FXML private ImageView rea1;
     @FXML private ImageView rea2;
     @FXML private ImageView rea3;
+    @FXML private FlowPane productFlow;
+
+
 
     private final IMatDataHandler dh = IMatDataHandler.getInstance();
-    private final Image reaImage = new Image(getClass().getClassLoader().getResourceAsStream("resources/rea.png"));
+    private ShoppingCart shoppingCart = dh.getShoppingCart();
+
     private final List<Product> productList = dh.getProducts();
+
+    private Map<String,iMatItem> recipeListItemMap = new HashMap<String, iMatItem>();
+    private iMatItem iMatItem;
+
+    private final Image reaImage = new Image(getClass().getClassLoader().getResourceAsStream("resources/rea.png"));
     private ArrayList<Product> Promotions = new ArrayList<Product>();
+    private ArrayList<ImageView> grid = new ArrayList<>();
     private int page = 0;
 
     @Override
@@ -47,6 +59,8 @@ public class iMatController implements Initializable {
 
         generatePromotions();
         populateGridPromo();
+        populateHashMap();
+        updateRecipeList();
     }
 
     public void generatePromotions(){
@@ -54,16 +68,21 @@ public class iMatController implements Initializable {
             int rNumber = (int) (Math.random() * productList.size());
             Promotions.add(productList.get(rNumber));
         }
+
+        grid.add(grid1);
+        grid.add(grid2);
+        grid.add(grid3);
+        grid.add(grid4);
     }
 
     public void populateGridPromo() {
 
         int n = page * 4; //Go to current page, depends on click on buttons
 
-        grid1.setImage(dh.getFXImage(Promotions.get(n)));
-        grid2.setImage(dh.getFXImage(Promotions.get(n+1)));
-        grid3.setImage(dh.getFXImage(Promotions.get(n+2)));
-        grid4.setImage(dh.getFXImage(Promotions.get(n+3)));
+        for(ImageView i : grid) {
+            i.setImage(dh.getFXImage(Promotions.get(n)));
+            n++;
+        }
 
         rea.setImage(reaImage);
         rea1.setImage(reaImage);
@@ -71,13 +90,24 @@ public class iMatController implements Initializable {
         rea3.setImage(reaImage);
     }
 
+    public void onClick(Event event) {
+        EventTarget target = event.getTarget();
+        if (event.getTarget().equals(grid1)) {
+            System.out.println("a");
+        } else if (target.equals(grid2)) {
+            System.out.println("b");
+        } else if (target.equals(grid3)) {
+            System.out.println("c");
+        } else if (target.equals(grid4)) {
+            System.out.println("d");
+        }
+    }
+
     public void nextPageGrid() {
         if (page<2) {
             page++;
             populateGridPromo();
         }
-
-
     }
 
     public void previousPageGrid() {
@@ -85,6 +115,19 @@ public class iMatController implements Initializable {
             page--;
             populateGridPromo();
         }
+    }
 
+    private void updateRecipeList(){
+        productFlow.getChildren().clear();
+        for (Product p: productList) {
+            productFlow.getChildren().add(recipeListItemMap.get(p.getName()));
+        }
+    }
+
+    private void populateHashMap(){
+        for (Product product : productList){
+            iMatItem = new iMatItem(product, this);
+            recipeListItemMap.put(product.getName(), iMatItem);
+        }
     }
 }

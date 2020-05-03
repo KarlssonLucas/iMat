@@ -3,11 +3,13 @@
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.FlowPane?>
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.RowConstraints?>
@@ -48,10 +50,10 @@
                       <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                     </rowConstraints>
                      <children>
-                        <ImageView fx:id="grid1" fitHeight="150.0" fitWidth="252.0" pickOnBounds="true" preserveRatio="true" />
-                        <ImageView fx:id="grid2" fitHeight="150.0" fitWidth="251.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" />
-                        <ImageView fx:id="grid3" fitHeight="150.0" fitWidth="250.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="2" />
-                        <ImageView fx:id="grid4" fitHeight="150.0" fitWidth="250.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="3" />
+                        <ImageView fx:id="grid1" fitHeight="150.0" fitWidth="252.0" onMouseClicked="#onClick" pickOnBounds="true" preserveRatio="true" />
+                        <ImageView fx:id="grid2" fitHeight="150.0" fitWidth="251.0" onMouseClicked="#onClick" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" />
+                        <ImageView fx:id="grid3" fitHeight="150.0" fitWidth="250.0" onMouseClicked="#onClick" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="2" />
+                        <ImageView fx:id="grid4" fitHeight="150.0" fitWidth="250.0" onMouseClicked="#onClick" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="3" />
                         <ImageView fx:id="rea" fitHeight="40.0" fitWidth="45.0" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@../../../../Downloads/lab3_LucasKarlsson_DavidAndreasson/src/recipesearch/resources/icon_time.png" />
@@ -91,6 +93,15 @@
                   <Button fx:id="checkoutButton" cacheShape="false" centerShape="false" focusTraversable="false" layoutX="921.0" layoutY="93.0" mnemonicParsing="false" prefHeight="85.0" prefWidth="140.0" scaleShape="false" text="Button" AnchorPane.rightAnchor="39.0" AnchorPane.topAnchor="93.0" />
                   <Button fx:id="minaSidorButton" cacheShape="false" centerShape="false" focusTraversable="false" layoutX="780.0" layoutY="93.0" mnemonicParsing="false" prefHeight="85.0" prefWidth="140.0" scaleShape="false" text="Button" AnchorPane.rightAnchor="180.0" AnchorPane.topAnchor="93.0" />
                   <Button fx:id="helpButton" cacheShape="false" centerShape="false" focusTraversable="false" layoutX="29.0" layoutY="99.0" mnemonicParsing="false" prefHeight="85.0" prefWidth="140.0" scaleShape="false" text="Button" />
+                  <AnchorPane layoutX="43.0" layoutY="393.0" prefHeight="393.0" prefWidth="1040.0">
+                     <children>
+                        <ScrollPane prefHeight="354.0" prefWidth="909.0">
+                           <content>
+                              <FlowPane fx:id="productFlow" prefHeight="356.0" prefWidth="910.0" />
+                           </content>
+                        </ScrollPane>
+                     </children>
+                  </AnchorPane>
                </children>
             </AnchorPane>
          </children>

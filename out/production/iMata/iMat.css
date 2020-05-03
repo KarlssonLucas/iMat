@@ -1,0 +1,13 @@
+#minaSidorButton, #checkoutButton, #helpButton {
+    -fx-background-color:transparent;
+    -fx-display: inline-block;
+    -fx-cursor:pointer;
+    -fx-color:#ffffff;
+    -fx-font-size:10px;
+    -fx-padding:32px 45px;
+    -fx-text-decoration:none;
+}
+
+#minaSidorButton:hover, #checkoutButton:hover, #helpButton:hover  {
+    -fx-background-color: grey;
+}
