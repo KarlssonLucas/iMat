@@ -2,6 +2,7 @@ import javafx.event.Event;
 import javafx.event.EventTarget;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.geometry.Orientation;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
@@ -34,6 +35,7 @@ public class iMatController implements Initializable {
     @FXML private ImageView rea2;
     @FXML private ImageView rea3;
     @FXML private FlowPane productFlow;
+    @FXML private FlowPane rowFlow;
 
 
 
@@ -43,6 +45,7 @@ public class iMatController implements Initializable {
     private final List<Product> productList = dh.getProducts();
 
     private Map<String,iMatItem> recipeListItemMap = new HashMap<String, iMatItem>();
+    private ArrayList<FlowPane> flowView = new ArrayList<>();
     private iMatItem iMatItem;
 
     private final Image reaImage = new Image(getClass().getClassLoader().getResourceAsStream("resources/rea.png"));
@@ -119,8 +122,8 @@ public class iMatController implements Initializable {
 
     private void updateRecipeList(){
         productFlow.getChildren().clear();
-        for (Product p: productList) {
-            productFlow.getChildren().add(recipeListItemMap.get(p.getName()));
+        for (Product r: productList) {
+            productFlow.getChildren().add(recipeListItemMap.get(r.getName()));
         }
     }
 

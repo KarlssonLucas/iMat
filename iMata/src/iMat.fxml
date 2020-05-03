@@ -93,11 +93,15 @@
                   <Button fx:id="checkoutButton" cacheShape="false" centerShape="false" focusTraversable="false" layoutX="921.0" layoutY="93.0" mnemonicParsing="false" prefHeight="85.0" prefWidth="140.0" scaleShape="false" text="Button" AnchorPane.rightAnchor="39.0" AnchorPane.topAnchor="93.0" />
                   <Button fx:id="minaSidorButton" cacheShape="false" centerShape="false" focusTraversable="false" layoutX="780.0" layoutY="93.0" mnemonicParsing="false" prefHeight="85.0" prefWidth="140.0" scaleShape="false" text="Button" AnchorPane.rightAnchor="180.0" AnchorPane.topAnchor="93.0" />
                   <Button fx:id="helpButton" cacheShape="false" centerShape="false" focusTraversable="false" layoutX="29.0" layoutY="99.0" mnemonicParsing="false" prefHeight="85.0" prefWidth="140.0" scaleShape="false" text="Button" />
-                  <AnchorPane layoutX="43.0" layoutY="393.0" prefHeight="393.0" prefWidth="1040.0">
+                  <AnchorPane layoutX="285.0" layoutY="384.0" prefHeight="408.0" prefWidth="815.0">
                      <children>
-                        <ScrollPane prefHeight="354.0" prefWidth="909.0">
+                        <ScrollPane prefHeight="408.0" prefWidth="815.0">
                            <content>
-                              <FlowPane fx:id="productFlow" prefHeight="356.0" prefWidth="910.0" />
+                              <FlowPane fx:id="productFlow" prefHeight="416.0" prefWidth="800.0" prefWrapLength="100.0">
+                                 <children>
+                                    <FlowPane fx:id="rowFlow" prefHeight="200.0" prefWidth="800.0" />
+                                 </children>
+                              </FlowPane>
                            </content>
                         </ScrollPane>
                      </children>
