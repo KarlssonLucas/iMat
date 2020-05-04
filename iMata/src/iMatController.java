@@ -42,7 +42,6 @@ public class iMatController implements Initializable {
 
 
 
-
     private final IMatDataHandler dh = IMatDataHandler.getInstance();
     private ShoppingCart shoppingCart = dh.getShoppingCart();
 
