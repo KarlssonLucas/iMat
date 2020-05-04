@@ -40,7 +40,6 @@ public class iMatController implements Initializable {
     @FXML private ScrollPane categoryScroll;
 
 
-
     private final IMatDataHandler dh = IMatDataHandler.getInstance();
     private ShoppingCart shoppingCart = dh.getShoppingCart();
 
