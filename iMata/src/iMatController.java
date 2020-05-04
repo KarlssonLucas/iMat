@@ -11,6 +11,8 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.FlowPane;
 import javafx.scene.layout.GridPane;
 
+import javafx.scene.layout.Pane;
+import javafx.scene.layout.StackPane;
 import se.chalmers.cse.dat216.project.*;
 
 import javax.imageio.stream.ImageInputStream;
@@ -24,8 +26,11 @@ public class iMatController implements Initializable, ShoppingCartListener {
     @FXML private Button minaSidorButton;
     @FXML private Button checkoutButton;
     @FXML private Button helpButton;
+    @FXML private StackPane background;
+
 
     @FXML private GridPane gridPromo;
+    @FXML private Pane paneGrid;
     @FXML private ImageView grid1;
     @FXML private ImageView grid2;
     @FXML private ImageView grid3;
@@ -37,6 +42,8 @@ public class iMatController implements Initializable, ShoppingCartListener {
 
     @FXML private FlowPane productFlow;
     @FXML private ScrollPane categoryScroll;
+    @FXML private ScrollPane scrollItemView;
+    @FXML private GridPane gridCategory;
     @FXML private Label cartTotal;
 
     @FXML private Button bbb;

@@ -17,8 +17,55 @@
 }
 
 #productItem {
+    -fx-border-color: black;
     -fx-border-width: 1px;
-    -fx-border-color: #999999;
+    -fx-border-radius: 5px;
+    -fx-background-radius: 5px;
+    -fx-background-color: grey;
+}
+
+#background {
+    -fx-background-color:#07f2ff;
+}
+
+#scrollItemView {
+    -fx-background-color:#07f2ff;
+}
+
+#productFlow {
+    -fx-background-color: #07f2ff;
+}
+
+#gridCategory {
+    -fx-background-color: grey;
+    -fx-border-color: grey;
+    -fx-border-width: 1px;
     -fx-border-radius: 5px;
     -fx-background-radius: 5px;
 }
+
+#categoryScroll {
+    -fx-background-color: grey;
+}
+
+#paneGrid {
+    -fx-background-color: grey;
+    -fx-border-color: grey;
+    -fx-border-width: 1px;
+    -fx-border-radius: 5px;
+    -fx-background-radius: 5px;
+}
+
+#bbb {
+    -fx-text-fill: black;
+    -fx-background-color: white;
+    -fx-border-color: black;
+    -fx-border-width: 1px;
+    -fx-border-radius: 5px;
+    -fx-background-radius: 5px;
+}
+#bbb:hover {
+    -fx-background-color: black;
+    -fx-text-fill: white;
+}
+

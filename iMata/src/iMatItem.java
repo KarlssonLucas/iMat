@@ -39,6 +39,7 @@ public class iMatItem extends AnchorPane {
             int amount = Integer.parseInt(String.valueOf(amountProduct.getCharacters()));
             parentController.shoppingCart.addProduct(product, amount);
             parentController.updateCart();
+            amountProduct.clear();
         }
     }
 
