@@ -56,7 +56,7 @@
                         <ImageView fx:id="grid4" fitHeight="150.0" fitWidth="250.0" onMouseClicked="#onClick" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="3" />
                         <ImageView fx:id="rea" fitHeight="40.0" fitWidth="45.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@../../../../Downloads/lab3_LucasKarlsson_DavidAndreasson/src/recipesearch/resources/icon_time.png" />
+                              <Image url="@resources/icon_time.png" />
                            </image>
                            <GridPane.margin>
                               <Insets bottom="130.0" left="170.0" />
@@ -64,7 +64,7 @@
                         </ImageView>
                         <ImageView fx:id="rea1" fitHeight="40.0" fitWidth="45.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1">
                            <image>
-                              <Image url="@../../../../Downloads/lab3_LucasKarlsson_DavidAndreasson/src/recipesearch/resources/icon_time.png" />
+                              <Image url="@resources/icon_time.png" />
                            </image>
                            <GridPane.margin>
                               <Insets bottom="130.0" left="170.0" />
@@ -72,7 +72,7 @@
                         </ImageView>
                         <ImageView fx:id="rea2" fitHeight="40.0" fitWidth="45.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="2">
                            <image>
-                              <Image url="@../../../../Downloads/lab3_LucasKarlsson_DavidAndreasson/src/recipesearch/resources/icon_time.png" />
+                              <Image url="@resources/icon_time.png" />
                            </image>
                            <GridPane.margin>
                               <Insets bottom="130.0" left="170.0" />
@@ -80,7 +80,7 @@
                         </ImageView>
                         <ImageView fx:id="rea3" fitHeight="40.0" fitWidth="45.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="3">
                            <image>
-                              <Image url="@../../../../Downloads/lab3_LucasKarlsson_DavidAndreasson/src/recipesearch/resources/icon_time.png" />
+                              <Image url="@resources/icon_time.png" />
                            </image>
                            <GridPane.margin>
                               <Insets bottom="130.0" left="170.0" />
@@ -97,10 +97,16 @@
                      <children>
                         <ScrollPane prefHeight="408.0" prefWidth="815.0">
                            <content>
-                              <FlowPane fx:id="productFlow" prefHeight="416.0" prefWidth="800.0" prefWrapLength="100.0">
+                              <FlowPane fx:id="productFlow" hgap="5.0" prefHeight="416.0" prefWidth="800.0" prefWrapLength="100.0" vgap="10.0">
                                  <children>
                                     <FlowPane fx:id="rowFlow" prefHeight="200.0" prefWidth="800.0" />
                                  </children>
+                                 <opaqueInsets>
+                                    <Insets />
+                                 </opaqueInsets>
+                                 <padding>
+                                    <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                 </padding>
                               </FlowPane>
                            </content>
                         </ScrollPane>
