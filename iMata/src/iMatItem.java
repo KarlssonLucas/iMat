@@ -20,6 +20,7 @@ public class iMatItem extends AnchorPane {
     @FXML private ImageView productPicture;
     @FXML private Button addProduct;
     @FXML private AnchorPane productItem;
+    @FXML private Label productUnit;
 
     @FXML
     public void onClick(Event event) {
@@ -40,6 +41,7 @@ public class iMatItem extends AnchorPane {
         this.product = product;
         this.parentController = iMatController;
 
+        productUnit.setText(product.getUnit());
         productPicture.setImage(dh.getFXImage(product));
         productPrice.setText(String.valueOf(product.getPrice()));
         productName.setText(product.getName());

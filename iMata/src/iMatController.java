@@ -38,6 +38,8 @@ public class iMatController implements Initializable {
     @FXML private FlowPane productFlow;
     @FXML private FlowPane rowFlow;
     @FXML private ScrollPane categoryScroll;
+    @FXML private Label cartTotal;
+
 
 
 
@@ -47,7 +49,6 @@ public class iMatController implements Initializable {
     private final List<Product> productList = dh.getProducts();
 
     private Map<String,iMatItem> recipeListItemMap = new HashMap<String, iMatItem>();
-    private ArrayList<FlowPane> flowView = new ArrayList<>();
     private iMatItem iMatItem;
 
     private final Image reaImage = new Image(getClass().getClassLoader().getResourceAsStream("resources/rea.png"));
@@ -98,14 +99,15 @@ public class iMatController implements Initializable {
     public void onClick(Event event) {
         EventTarget target = event.getTarget();
         if (event.getTarget().equals(grid1)) {
-            System.out.println("a");
+            shoppingCart.addProduct(Promotions.get(page*4));
         } else if (target.equals(grid2)) {
-            System.out.println("b");
+            shoppingCart.addProduct(Promotions.get(page*4+1));
         } else if (target.equals(grid3)) {
-            System.out.println("c");
+            shoppingCart.addProduct(Promotions.get(page*4+2));
         } else if (target.equals(grid4)) {
-            System.out.println("d");
+            shoppingCart.addProduct(Promotions.get(page*4+3));
         }
+        cartTotal.setText(String.valueOf(Math.round(shoppingCart.getTotal())+ " kr"));
     }
 
     public void nextPageGrid() {
@@ -131,6 +133,7 @@ public class iMatController implements Initializable {
 
     private void populateHashMap(){
         for (Product product : productList){
+
             iMatItem = new iMatItem(product, this);
             recipeListItemMap.put(product.getName(), iMatItem);
         }

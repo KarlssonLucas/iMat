@@ -14,7 +14,8 @@
          </image>
       </ImageView>
       <Label fx:id="productName" layoutX="104.0" layoutY="14.0" text="Stekt ägg" />
-      <Label fx:id="productPrice" layoutX="194.0" layoutY="55.0" text="Label" />
+      <Label fx:id="productPrice" layoutX="206.0" layoutY="38.0" text="Label" />
       <Button fx:id="addProduct" layoutX="194.0" layoutY="90.0" mnemonicParsing="false" text="Button" />
+      <Label fx:id="productUnit" layoutX="206.0" layoutY="55.0" text="Label" />
    </children>
 </fx:root>

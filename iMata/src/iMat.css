@@ -11,3 +11,7 @@
 #minaSidorButton:hover, #checkoutButton:hover, #helpButton:hover  {
     -fx-background-color: grey;
 }
+
+#cartTotal {
+    -fx-min-width: 20px;
+}

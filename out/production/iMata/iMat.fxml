@@ -4,6 +4,7 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.SplitPane?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
@@ -90,28 +91,55 @@
                   </GridPane>
                   <Button layoutX="1048.0" layoutY="264.0" mnemonicParsing="false" onAction="#nextPageGrid" prefHeight="25.0" prefWidth="25.0" text="&gt;" />
                   <Button layoutX="30.0" layoutY="264.0" mnemonicParsing="false" onAction="#previousPageGrid" prefHeight="25.0" prefWidth="25.0" text="&lt;" />
-                  <Button fx:id="checkoutButton" cacheShape="false" centerShape="false" focusTraversable="false" layoutX="921.0" layoutY="93.0" mnemonicParsing="false" prefHeight="85.0" prefWidth="140.0" scaleShape="false" text="Button" AnchorPane.rightAnchor="39.0" AnchorPane.topAnchor="93.0" />
-                  <Button fx:id="minaSidorButton" cacheShape="false" centerShape="false" focusTraversable="false" layoutX="780.0" layoutY="93.0" mnemonicParsing="false" prefHeight="85.0" prefWidth="140.0" scaleShape="false" text="Button" AnchorPane.rightAnchor="180.0" AnchorPane.topAnchor="93.0" />
-                  <Button fx:id="helpButton" cacheShape="false" centerShape="false" focusTraversable="false" layoutX="29.0" layoutY="99.0" mnemonicParsing="false" prefHeight="85.0" prefWidth="140.0" scaleShape="false" text="Button" />
-                  <AnchorPane layoutX="285.0" layoutY="384.0" prefHeight="408.0" prefWidth="815.0">
-                     <children>
-                        <ScrollPane prefHeight="408.0" prefWidth="815.0">
-                           <content>
-                              <FlowPane fx:id="productFlow" hgap="5.0" prefHeight="416.0" prefWidth="800.0" prefWrapLength="100.0" vgap="10.0">
-                                 <children>
-                                    <FlowPane fx:id="rowFlow" prefHeight="200.0" prefWidth="800.0" />
-                                 </children>
-                                 <opaqueInsets>
-                                    <Insets />
-                                 </opaqueInsets>
-                                 <padding>
-                                    <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-                                 </padding>
-                              </FlowPane>
-                           </content>
-                        </ScrollPane>
-                     </children>
-                  </AnchorPane>
+                  <Button fx:id="checkoutButton" cacheShape="false" centerShape="false" focusTraversable="false" layoutX="921.0" layoutY="93.0" mnemonicParsing="false" prefHeight="85.0" prefWidth="140.0" scaleShape="false" AnchorPane.rightAnchor="39.0" AnchorPane.topAnchor="93.0">
+                     <graphic>
+                        <Label fx:id="cartTotal" maxWidth="160.0" prefHeight="21.0" prefWidth="150.0" text="0 kr" textAlignment="RIGHT">
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                           <graphic>
+                              <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@resources/shoppingcart.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </Label>
+                     </graphic></Button>
+                  <Button fx:id="minaSidorButton" cacheShape="false" centerShape="false" focusTraversable="false" layoutX="780.0" layoutY="93.0" mnemonicParsing="false" prefHeight="85.0" prefWidth="140.0" scaleShape="false" text="Button" AnchorPane.rightAnchor="180.0" AnchorPane.topAnchor="93.0">
+                     <font>
+                        <Font size="22.0" />
+                     </font></Button>
+                  <Button fx:id="helpButton" cacheShape="false" centerShape="false" focusTraversable="false" layoutX="29.0" layoutY="99.0" mnemonicParsing="false" prefHeight="85.0" prefWidth="140.0" scaleShape="false" text="Hjälp" />
+                  <AnchorPane layoutX="285.0" layoutY="384.0" prefHeight="408.0" prefWidth="815.0" />
+                  <SplitPane dividerPositions="0.29797979797979796" layoutX="-1.0" layoutY="384.0" prefHeight="417.0" prefWidth="1101.0">
+                    <items>
+                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+                           <children>
+                              <ScrollPane fx:id="categoryScroll" layoutY="-2.0" prefHeight="417.0" prefWidth="326.0" />
+                           </children>
+                        </AnchorPane>
+                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+                           <children>
+                              <ScrollPane prefHeight="408.0" prefWidth="815.0">
+                                 <content>
+                                    <FlowPane fx:id="productFlow" hgap="5.0" prefHeight="416.0" prefWidth="800.0" prefWrapLength="100.0" vgap="10.0">
+                                       <children>
+                                          <FlowPane fx:id="rowFlow" prefHeight="200.0" prefWidth="800.0" />
+                                       </children>
+                                       <opaqueInsets>
+                                          <Insets />
+                                       </opaqueInsets>
+                                       <padding>
+                                          <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                       </padding>
+                                    </FlowPane>
+                                 </content>
+                              </ScrollPane>
+                           </children>
+                        </AnchorPane>
+                    </items>
+                  </SplitPane>
                </children>
             </AnchorPane>
          </children>
