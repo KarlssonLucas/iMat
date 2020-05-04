@@ -11,21 +11,20 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.FlowPane;
 import javafx.scene.layout.GridPane;
 
-import se.chalmers.cse.dat216.project.IMatDataHandler;
-import se.chalmers.cse.dat216.project.Product;
-import se.chalmers.cse.dat216.project.ShoppingCart;
+import se.chalmers.cse.dat216.project.*;
 
 import javax.imageio.stream.ImageInputStream;
 import java.net.URL;
 import java.util.*;
 
-public class iMatController implements Initializable {
+public class iMatController implements Initializable, ShoppingCartListener {
 
     @FXML private ImageView logo;
     @FXML private Label logoText;
     @FXML private Button minaSidorButton;
     @FXML private Button checkoutButton;
     @FXML private Button helpButton;
+
     @FXML private GridPane gridPromo;
     @FXML private ImageView grid1;
     @FXML private ImageView grid2;
@@ -35,15 +34,17 @@ public class iMatController implements Initializable {
     @FXML private ImageView rea1;
     @FXML private ImageView rea2;
     @FXML private ImageView rea3;
+
     @FXML private FlowPane productFlow;
-    @FXML private FlowPane rowFlow;
     @FXML private ScrollPane categoryScroll;
     @FXML private Label cartTotal;
+
+    @FXML private Button bbb;
 
 
 
     private final IMatDataHandler dh = IMatDataHandler.getInstance();
-    private ShoppingCart shoppingCart = dh.getShoppingCart();
+    public ShoppingCart shoppingCart = dh.getShoppingCart();
 
     private final List<Product> productList = dh.getProducts();
 
@@ -106,7 +107,7 @@ public class iMatController implements Initializable {
         } else if (target.equals(grid4)) {
             shoppingCart.addProduct(Promotions.get(page*4+3));
         }
-        cartTotal.setText(String.valueOf(Math.round(shoppingCart.getTotal())+ " kr"));
+        updateCart();
     }
 
     public void nextPageGrid() {
@@ -136,5 +137,15 @@ public class iMatController implements Initializable {
             iMatItem = new iMatItem(product, this);
             recipeListItemMap.put(product.getName(), iMatItem);
         }
+    }
+
+    public void updateCart() {
+        double roundOff = Math.round(shoppingCart.getTotal() * 100.0) / 100.0;
+        cartTotal.setText(String.valueOf(roundOff + " kr"));
+    }
+
+    @Override
+    public void shoppingCartChanged(CartEvent cartEvent) {
+        cartEvent.getShoppingItem();
     }
 }
