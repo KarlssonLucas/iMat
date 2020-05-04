@@ -5,6 +5,7 @@ import javafx.fxml.Initializable;
 import javafx.geometry.Orientation;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.ScrollPane;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.FlowPane;
@@ -36,6 +37,7 @@ public class iMatController implements Initializable {
     @FXML private ImageView rea3;
     @FXML private FlowPane productFlow;
     @FXML private FlowPane rowFlow;
+    @FXML private ScrollPane categoryScroll;
 
 
 
