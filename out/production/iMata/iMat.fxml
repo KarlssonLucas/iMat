@@ -23,22 +23,48 @@
             <AnchorPane prefHeight="200.0" prefWidth="200.0" />
             <AnchorPane prefHeight="850.0" prefWidth="1175.0">
                <children>
-                  <ImageView fx:id="logo" fitHeight="90.0" fitWidth="90.0" layoutX="48.0" layoutY="37.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="48.0" AnchorPane.topAnchor="37.0">
-                     <image>
-                        <Image url="@resources/testlogo.png" />
-                     </image>
-                  </ImageView>
-                  <Label fx:id="logoText" layoutX="186.0" layoutY="43.0" prefHeight="17.0" prefWidth="183.0" text="iMat" AnchorPane.leftAnchor="186.0" AnchorPane.topAnchor="43.0">
-                     <font>
-                        <Font size="40.0" />
-                     </font>
-                  </Label>
+                  <Pane fx:id="paneTop" layoutX="25.0" layoutY="10.0" prefHeight="150.0" prefWidth="1125.0">
+                     <children>
+                        <Button fx:id="minaSidorButton" cacheShape="false" centerShape="false" focusTraversable="false" layoutX="831.0" layoutY="85.0" mnemonicParsing="false" prefHeight="64.0" prefWidth="140.0" scaleShape="false" text="Button">
+                           <font>
+                              <Font size="22.0" />
+                           </font>
+                        </Button>
+                        <Button fx:id="checkoutButton" cacheShape="false" centerShape="false" focusTraversable="false" layoutX="971.0" layoutY="85.0" mnemonicParsing="false" prefHeight="64.0" prefWidth="140.0" scaleShape="false">
+                           <graphic>
+                              <Label fx:id="cartTotal" maxWidth="160.0" prefHeight="21.0" prefWidth="150.0" text="0.00 kr" textAlignment="RIGHT">
+                                 <font>
+                                    <Font size="15.0" />
+                                 </font>
+                                 <graphic>
+                                    <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@resources/shoppingcart.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                              </Label>
+                           </graphic>
+                        </Button>
+                        <ImageView fx:id="logo" fitHeight="90.0" fitWidth="90.0" layoutX="33.0" layoutY="8.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@resources/testlogo.png" />
+                           </image>
+                        </ImageView>
+                        <Label fx:id="logoText" layoutX="147.0" layoutY="14.0" prefHeight="17.0" prefWidth="183.0" text="iMat">
+                           <font>
+                              <Font size="40.0" />
+                           </font>
+                        </Label>
+                        <Button fx:id="helpButton" cacheShape="false" centerShape="false" focusTraversable="false" layoutX="33.0" layoutY="85.0" mnemonicParsing="false" prefHeight="64.0" prefWidth="140.0" scaleShape="false" text="Hjälp" />
+                     </children>
+                  </Pane>
                   <TextField layoutX="782.0" layoutY="32.0" prefHeight="40.0" prefWidth="278.0" promptText="Sök i sortimentet" AnchorPane.rightAnchor="40.0" AnchorPane.topAnchor="32.0">
                      <font>
                         <Font size="18.0" />
                      </font>
                   </TextField>
-                  <Pane fx:id="paneGrid" layoutX="25.0" layoutY="184.0" prefHeight="206.0" prefWidth="1125.0" style="-fx-background-color: GREY;" />
+                  <Pane fx:id="paneGrid" layoutX="25.0" layoutY="184.0" prefHeight="206.0" prefWidth="1125.0" style="-fx-background-color: #ffffff;" />
                   <GridPane fx:id="gridPromo" layoutX="118.0" layoutY="206.0" prefHeight="150.0" prefWidth="1000.0">
                     <columnConstraints>
                       <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -94,35 +120,13 @@
                   </GridPane>
                   <Button layoutX="1086.0" layoutY="268.0" mnemonicParsing="false" onAction="#nextPageGrid" prefHeight="25.0" prefWidth="25.0" text="&gt;" />
                   <Button layoutX="68.0" layoutY="268.0" mnemonicParsing="false" onAction="#previousPageGrid" prefHeight="25.0" prefWidth="25.0" text="&lt;" />
-                  <Button fx:id="checkoutButton" cacheShape="false" centerShape="false" focusTraversable="false" layoutX="921.0" layoutY="93.0" mnemonicParsing="false" prefHeight="85.0" prefWidth="140.0" scaleShape="false" AnchorPane.rightAnchor="39.0" AnchorPane.topAnchor="93.0">
-                     <graphic>
-                        <Label fx:id="cartTotal" maxWidth="160.0" prefHeight="21.0" prefWidth="150.0" text="0.00 kr" textAlignment="RIGHT">
-                           <font>
-                              <Font size="15.0" />
-                           </font>
-                           <graphic>
-                              <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
-                                 <image>
-                                    <Image url="@resources/shoppingcart.png" />
-                                 </image>
-                              </ImageView>
-                           </graphic>
-                        </Label>
-                     </graphic>
-                  </Button>
-                  <Button fx:id="minaSidorButton" cacheShape="false" centerShape="false" focusTraversable="false" layoutX="780.0" layoutY="93.0" mnemonicParsing="false" prefHeight="85.0" prefWidth="140.0" scaleShape="false" text="Button" AnchorPane.rightAnchor="180.0" AnchorPane.topAnchor="93.0">
-                     <font>
-                        <Font size="22.0" />
-                     </font>
-                  </Button>
-                  <Button fx:id="helpButton" cacheShape="false" centerShape="false" focusTraversable="false" layoutX="29.0" layoutY="99.0" mnemonicParsing="false" prefHeight="85.0" prefWidth="140.0" scaleShape="false" text="Hjälp" />
-                  <AnchorPane layoutX="25.0" layoutY="415.0" prefHeight="403.0" prefWidth="1125.0" style="-fx-background-color: #07f2ff;">
+                  <AnchorPane layoutX="25.0" layoutY="415.0" prefHeight="403.0" prefWidth="1125.0">
                      <children>
-                        <AnchorPane prefHeight="408.0" prefWidth="297.0" style="-fx-background-color: #07f2ff;">
+                        <AnchorPane prefHeight="408.0" prefWidth="297.0">
                            <children>
-                            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="408.0" prefWidth="297.0" style="-fx-background-color: #07f2ff;">
+                            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="408.0" prefWidth="297.0">
                                  <children>
-                                    <ScrollPane fx:id="categoryScroll" layoutY="1.0" prefHeight="408.0" prefWidth="297.0" style="-fx-background-color: #07f2ff;">
+                                    <ScrollPane fx:id="categoryScroll" layoutY="1.0" prefHeight="408.0" prefWidth="297.0">
                                        <content>
                                           <GridPane fx:id="gridCategory" alignment="CENTER" prefHeight="419.0" prefWidth="282.0">
                                             <columnConstraints>

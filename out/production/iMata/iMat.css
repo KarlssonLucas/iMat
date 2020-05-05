@@ -4,12 +4,11 @@
     -fx-cursor:pointer;
     -fx-color:#ffffff;
     -fx-font-size:10px;
-    -fx-padding:32px 45px;
     -fx-text-decoration:none;
 }
 
 #minaSidorButton:hover, #checkoutButton:hover, #helpButton:hover  {
-    -fx-background-color: grey;
+    -fx-background-color: #3366ff;
 }
 
 #cartTotal {
@@ -17,40 +16,36 @@
 }
 
 #productItem {
-    -fx-border-color: black;
+    -fx-border-color: white;
     -fx-border-width: 1px;
     -fx-border-radius: 5px;
     -fx-background-radius: 5px;
-    -fx-background-color: grey;
+    -fx-background-color: white;
 }
 
 #background {
-    -fx-background-color:#07f2ff;
+    -fx-background-color: #F5F5F5;
 }
 
-#scrollItemView {
-    -fx-background-color:#07f2ff;
+
+
+ #categoryScroll, #scrollItemView {
+    -fx-background-color: white;
+    -fx-border-color: #3399ff;
+    -fx-border-width: 3px;
+    -fx-background-radius: 5px;
 }
 
-#productFlow {
-    -fx-background-color: #07f2ff;
-}
 
-#gridCategory {
-    -fx-background-color: grey;
-    -fx-border-color: grey;
+#paneGrid {
     -fx-border-width: 1px;
     -fx-border-radius: 5px;
     -fx-background-radius: 5px;
 }
 
-#categoryScroll {
-    -fx-background-color: grey;
-}
-
-#paneGrid {
-    -fx-background-color: grey;
-    -fx-border-color: grey;
+#paneTop{
+    -fx-background-color: #3399ff;
+    -fx-border-color: #3399ff;
     -fx-border-width: 1px;
     -fx-border-radius: 5px;
     -fx-background-radius: 5px;
