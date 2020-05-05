@@ -20,6 +20,9 @@ public class iMat extends Application {
         stage.setTitle(bundle.getString("application.name"));
         stage.setScene(scene);
         stage.show();
+
+        stage.setMinHeight(890);
+        stage.setMinWidth(1190);
     }
 
     /**

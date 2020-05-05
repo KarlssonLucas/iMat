@@ -2,7 +2,6 @@ import javafx.event.Event;
 import javafx.event.EventTarget;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.geometry.Orientation;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
@@ -15,7 +14,6 @@ import javafx.scene.layout.Pane;
 import javafx.scene.layout.StackPane;
 import se.chalmers.cse.dat216.project.*;
 
-import javax.imageio.stream.ImageInputStream;
 import java.net.URL;
 import java.util.*;
 
@@ -72,6 +70,12 @@ public class iMatController implements Initializable, ShoppingCartListener {
 
         generatePromotions();
         populateGridPromo();
+        populateHashMap();
+        updateRecipeList();
+    }
+
+    @FXML
+    public void resized() {
         populateHashMap();
         updateRecipeList();
     }

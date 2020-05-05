@@ -38,8 +38,8 @@
 
 
 #paneGrid {
-    -fx-border-width: 1px;
-    -fx-border-radius: 5px;
+    -fx-border-color: #3399ff;
+    -fx-border-width: 3px;
     -fx-background-radius: 5px;
 }
 
@@ -52,15 +52,15 @@
 }
 
 #bbb {
-    -fx-text-fill: black;
-    -fx-background-color: white;
-    -fx-border-color: black;
+    -fx-text-fill: #3399ff;
+    -fx-background-color: inherit;
+    -fx-border-color: #3399ff;
     -fx-border-width: 1px;
     -fx-border-radius: 5px;
     -fx-background-radius: 5px;
 }
 #bbb:hover {
-    -fx-background-color: black;
-    -fx-text-fill: white;
+    -fx-background-color: #3399ff;
+    -fx-text-fill: inherit;
 }
 
