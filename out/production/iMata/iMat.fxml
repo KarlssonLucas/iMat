@@ -16,7 +16,7 @@
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="850.0" minWidth="1175.0" prefHeight="850.0" prefWidth="1175.0" stylesheets="@iMat.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="iMatController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="850.0" minWidth="1175.0" prefHeight="1000.0" prefWidth="1175.0" stylesheets="@iMat.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="iMatController">
    <children>
       <StackPane fx:id="background" minHeight="850.0" minWidth="1175.0" prefHeight="850.0" prefWidth="1175.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
@@ -39,22 +39,24 @@
                   </Pane>
                   <AnchorPane layoutX="24.0" layoutY="85.0" prefHeight="70.0" prefWidth="1125.0" AnchorPane.bottomAnchor="689.0" AnchorPane.leftAnchor="24.0" AnchorPane.rightAnchor="26.0" AnchorPane.topAnchor="85.0">
                      <children>
-                        <Button fx:id="helpButton" cacheShape="false" centerShape="false" focusTraversable="false" layoutX="-11.0" layoutY="-6.0" mnemonicParsing="false" prefHeight="64.0" prefWidth="140.0" scaleShape="false" text="Hjälp" AnchorPane.leftAnchor="-11.0" AnchorPane.topAnchor="0.0" />
-                        <Button fx:id="checkoutButton" cacheShape="false" centerShape="false" focusTraversable="false" layoutX="942.0" layoutY="7.0" mnemonicParsing="false" prefHeight="64.0" prefWidth="140.0" scaleShape="false" AnchorPane.rightAnchor="43.0" AnchorPane.topAnchor="7.0">
+                        <Button fx:id="helpButton" cacheShape="false" centerShape="false" focusTraversable="false" layoutX="9.0" layoutY="10.0" mnemonicParsing="false" prefHeight="64.0" prefWidth="140.0" scaleShape="false" text="Hjälp" AnchorPane.leftAnchor="9.0" AnchorPane.topAnchor="10.0" />
+                        <Button fx:id="checkoutButton" cacheShape="false" centerShape="false" focusTraversable="false" layoutX="960.0" layoutY="10.0" mnemonicParsing="false" prefHeight="64.0" prefWidth="140.0" scaleShape="false" AnchorPane.rightAnchor="25.0" AnchorPane.topAnchor="10.0">
                            <graphic>
-                              <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
-                                 <image>
-                                    <Image url="@resources/shoppingcart.png" />
-                                 </image>
-                              </ImageView>
+                              <Label fx:id="cartTotal" alignment="TOP_LEFT" maxWidth="160.0" prefHeight="21.0" prefWidth="141.0" text="0.00 kr" textAlignment="RIGHT">
+                                 <font>
+                                    <Font size="15.0" />
+                                 </font>
+                                 <graphic>
+                                    <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@resources/shoppingcart.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                              </Label>
                            </graphic>
                         </Button>
-                        <Label fx:id="cartTotal" alignment="TOP_LEFT" layoutX="1035.0" layoutY="29.0" maxWidth="160.0" prefHeight="21.0" prefWidth="90.0" text="0.00 kr" textAlignment="CENTER" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="29.0">
-                           <font>
-                              <Font size="15.0" />
-                           </font>
-                        </Label>
-                        <Button fx:id="minaSidorButton" cacheShape="false" centerShape="false" focusTraversable="false" layoutX="802.0" layoutY="6.0" mnemonicParsing="false" prefHeight="64.0" prefWidth="140.0" scaleShape="false" text="Mina Sidor" AnchorPane.rightAnchor="183.0" AnchorPane.topAnchor="6.0">
+                        <Button fx:id="minaSidorButton" cacheShape="false" centerShape="false" focusTraversable="false" layoutX="802.0" layoutY="10.0" mnemonicParsing="false" prefHeight="64.0" prefWidth="140.0" scaleShape="false" text="Mina Sidor" AnchorPane.rightAnchor="183.0" AnchorPane.topAnchor="10.0">
                            <font>
                               <Font size="22.0" />
                            </font>
@@ -66,67 +68,70 @@
                         <Font size="18.0" />
                      </font>
                   </TextField>
-                  <Pane fx:id="paneGrid" layoutX="25.0" layoutY="184.0" prefHeight="206.0" prefWidth="1125.0" style="-fx-background-color: #ffffff;" AnchorPane.bottomAnchor="460.0" AnchorPane.leftAnchor="25.0" AnchorPane.rightAnchor="25.0" AnchorPane.topAnchor="184.0" />
-                  <GridPane fx:id="gridPromo" layoutX="118.0" layoutY="206.0" prefHeight="150.0" prefWidth="1000.0" AnchorPane.bottomAnchor="494.0" AnchorPane.leftAnchor="118.0" AnchorPane.rightAnchor="57.0" AnchorPane.topAnchor="206.0">
-                    <columnConstraints>
-                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                    </columnConstraints>
-                    <rowConstraints>
-                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                    </rowConstraints>
+                  <Pane fx:id="paneGrid" layoutX="26.0" layoutY="264.0" prefHeight="175.0" prefWidth="1125.0" style="-fx-background-color: #ffffff;">
                      <children>
-                        <ImageView fx:id="grid1" fitHeight="150.0" fitWidth="252.0" onMouseClicked="#onClick" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../../../../.dat215/imat/images/product_1.jpg" />
-                           </image>
-                        </ImageView>
-                        <ImageView fx:id="grid2" fitHeight="150.0" fitWidth="251.0" onMouseClicked="#onClick" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" />
-                        <ImageView fx:id="grid3" fitHeight="150.0" fitWidth="250.0" onMouseClicked="#onClick" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="2" />
-                        <ImageView fx:id="grid4" fitHeight="150.0" fitWidth="250.0" onMouseClicked="#onClick" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="3" />
-                        <ImageView fx:id="rea" fitHeight="40.0" fitWidth="45.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@resources/icon_time.png" />
-                           </image>
-                           <GridPane.margin>
-                              <Insets bottom="130.0" left="170.0" />
-                           </GridPane.margin>
-                        </ImageView>
-                        <ImageView fx:id="rea3" fitHeight="40.0" fitWidth="45.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="3">
-                           <image>
-                              <Image url="@resources/icon_time.png" />
-                           </image>
-                           <GridPane.margin>
-                              <Insets bottom="130.0" left="170.0" />
-                           </GridPane.margin>
-                        </ImageView>
-                        <ImageView fx:id="rea2" fitHeight="40.0" fitWidth="45.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="2">
-                           <image>
-                              <Image url="@resources/icon_time.png" />
-                           </image>
-                           <GridPane.margin>
-                              <Insets bottom="130.0" left="170.0" />
-                           </GridPane.margin>
-                        </ImageView>
-                        <ImageView fx:id="rea1" fitHeight="40.0" fitWidth="45.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1">
-                           <image>
-                              <Image url="@resources/icon_time.png" />
-                           </image>
-                           <GridPane.margin>
-                              <Insets bottom="130.0" left="170.0" />
-                           </GridPane.margin>
-                        </ImageView>
+                        <GridPane fx:id="gridPromo" layoutX="63.0" layoutY="10.0" prefHeight="150.0" prefWidth="1000.0">
+                          <columnConstraints>
+                            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                          </columnConstraints>
+                          <rowConstraints>
+                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                          </rowConstraints>
+                           <children>
+                              <ImageView fx:id="grid1" fitHeight="150.0" fitWidth="252.0" onMouseClicked="#onClick" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../../../.dat215/imat/images/product_1.jpg" />
+                                 </image>
+                              </ImageView>
+                              <ImageView fx:id="grid2" fitHeight="150.0" fitWidth="251.0" onMouseClicked="#onClick" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" />
+                              <ImageView fx:id="grid3" fitHeight="150.0" fitWidth="250.0" onMouseClicked="#onClick" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="2" />
+                              <ImageView fx:id="grid4" fitHeight="150.0" fitWidth="250.0" onMouseClicked="#onClick" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="3" />
+                              <ImageView fx:id="rea" fitHeight="40.0" fitWidth="45.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@resources/icon_time.png" />
+                                 </image>
+                                 <GridPane.margin>
+                                    <Insets bottom="130.0" left="170.0" />
+                                 </GridPane.margin>
+                              </ImageView>
+                              <ImageView fx:id="rea3" fitHeight="40.0" fitWidth="45.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="3">
+                                 <image>
+                                    <Image url="@resources/icon_time.png" />
+                                 </image>
+                                 <GridPane.margin>
+                                    <Insets bottom="130.0" left="170.0" />
+                                 </GridPane.margin>
+                              </ImageView>
+                              <ImageView fx:id="rea2" fitHeight="40.0" fitWidth="45.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="2">
+                                 <image>
+                                    <Image url="@resources/icon_time.png" />
+                                 </image>
+                                 <GridPane.margin>
+                                    <Insets bottom="130.0" left="170.0" />
+                                 </GridPane.margin>
+                              </ImageView>
+                              <ImageView fx:id="rea1" fitHeight="40.0" fitWidth="45.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1">
+                                 <image>
+                                    <Image url="@resources/icon_time.png" />
+                                 </image>
+                                 <GridPane.margin>
+                                    <Insets bottom="130.0" left="170.0" />
+                                 </GridPane.margin>
+                              </ImageView>
+                           </children>
+                        </GridPane>
+                        <Button layoutX="27.0" layoutY="65.0" mnemonicParsing="false" onAction="#previousPageGrid" prefHeight="25.0" prefWidth="25.0" text="&lt;" />
+                        <Button layoutX="1072.0" layoutY="64.0" mnemonicParsing="false" onAction="#nextPageGrid" prefHeight="25.0" prefWidth="25.0" text="&gt;" />
                      </children>
-                  </GridPane>
-                  <Button layoutX="1086.0" layoutY="268.0" mnemonicParsing="false" onAction="#nextPageGrid" prefHeight="25.0" prefWidth="25.0" text="&gt;" AnchorPane.bottomAnchor="557.0" AnchorPane.rightAnchor="64.0" AnchorPane.topAnchor="268.0" />
-                  <Button layoutX="68.0" layoutY="268.0" mnemonicParsing="false" onAction="#previousPageGrid" prefHeight="25.0" prefWidth="25.0" text="&lt;" AnchorPane.bottomAnchor="557.0" AnchorPane.leftAnchor="68.0" AnchorPane.topAnchor="268.0" />
+                  </Pane>
                   <AnchorPane layoutX="25.0" layoutY="415.0" prefHeight="403.0" prefWidth="1125.0" AnchorPane.bottomAnchor="27.0" AnchorPane.leftAnchor="25.0" AnchorPane.rightAnchor="25.0" AnchorPane.topAnchor="415.0">
                      <children>
                         <AnchorPane prefHeight="408.0" prefWidth="297.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="828.0">
                            <children>
-                            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="408.0" prefWidth="297.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+                            <AnchorPane layoutY="-22.0" minHeight="0.0" minWidth="0.0" prefHeight="430.0" prefWidth="297.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="-22.0">
                                  <children>
                                     <ScrollPane fx:id="categoryScroll" layoutY="1.0" prefHeight="408.0" prefWidth="297.0" AnchorPane.bottomAnchor="-1.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="1.0">
                                        <content>
@@ -165,7 +170,7 @@
                         </AnchorPane>
                       <AnchorPane layoutX="322.0" layoutY="1.0" minHeight="0.0" minWidth="0.0" prefHeight="402.0" prefWidth="789.0" style="-fx-background-color: #07f2ff;" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="322.0" AnchorPane.rightAnchor="14.0">
                            <children>
-                              <ScrollPane fx:id="scrollItemView" prefHeight="408.0" prefWidth="805.0" AnchorPane.bottomAnchor="-6.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="-16.0">
+                              <ScrollPane fx:id="scrollItemView" prefHeight="430.0" prefWidth="805.0" AnchorPane.bottomAnchor="-6.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="-16.0">
                                  <content>
                                     <FlowPane fx:id="productFlow" alignment="CENTER" hgap="3.0" prefHeight="416.0" prefWidth="784.0" prefWrapLength="40.0" vgap="3.0">
                                        <opaqueInsets>
@@ -181,6 +186,24 @@
                         </AnchorPane>
                      </children>
                   </AnchorPane>
+                  <Pane fx:id="paneErbjudanden" layoutX="26.0" layoutY="194.0" prefHeight="70.0" prefWidth="1125.0">
+                     <children>
+                        <Label layoutX="367.0" layoutY="6.0" text="Aktuella Erbjudanden" textAlignment="CENTER" textFill="WHITE">
+                           <font>
+                              <Font size="40.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </Pane>
+                  <Pane fx:id="paneMatvaror" layoutX="26.0" layoutY="471.0" prefHeight="70.0" prefWidth="1125.0">
+                     <children>
+                        <Label layoutX="482.0" layoutY="6.0" text="Matvaror" textAlignment="CENTER" textFill="WHITE">
+                           <font>
+                              <Font size="40.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </Pane>
                </children>
             </AnchorPane>
          </children>
