@@ -72,6 +72,9 @@ public class iMatController implements Initializable, ShoppingCartListener {
         populateGridPromo();
         populateHashMap();
         updateRecipeList();
+
+        scrollItemView.setFitToWidth(true);
+        scrollItemView.setFitToHeight(true);
     }
 
     @FXML

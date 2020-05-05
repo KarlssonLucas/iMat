@@ -149,6 +149,7 @@
                                               <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                                             </rowConstraints>
                                              <children>
+                                                <Button fx:id="bbb1" alignment="CENTER" mnemonicParsing="false" prefHeight="50.0" prefWidth="270.0" text="Button" textAlignment="CENTER" />
                                                 <Button fx:id="bbb" alignment="CENTER" mnemonicParsing="false" prefHeight="50.0" prefWidth="270.0" text="Button" textAlignment="CENTER" GridPane.halignment="CENTER">
                                                    <GridPane.margin>
                                                       <Insets top="2.0" />
@@ -172,7 +173,7 @@
                            <children>
                               <ScrollPane fx:id="scrollItemView" prefHeight="430.0" prefWidth="805.0" AnchorPane.bottomAnchor="-6.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="-16.0">
                                  <content>
-                                    <FlowPane fx:id="productFlow" alignment="CENTER" hgap="3.0" prefHeight="416.0" prefWidth="784.0" prefWrapLength="40.0" vgap="3.0">
+                                    <FlowPane fx:id="productFlow" hgap="3.0" prefHeight="416.0" prefWidth="784.0" prefWrapLength="40.0" vgap="3.0">
                                        <opaqueInsets>
                                           <Insets />
                                        </opaqueInsets>
