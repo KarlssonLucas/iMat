@@ -4,6 +4,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import se.chalmers.cse.dat216.project.IMatDataHandler;
@@ -27,10 +28,16 @@ public class iMatItem extends AnchorPane {
     @FXML private Label productUnit;
     @FXML private TextField amountProduct;
     @FXML private Label productCategory;
+    @FXML private ImageView favoriteImage;
 
     @FXML
     public void onClick(Event event) {
-        System.out.println("a");
+        if (dh.isFavorite(product)) {
+            delFavorite();
+        } else {
+            setFavorite();
+        }
+        System.out.println(dh.favorites());
     }
 
     @FXML
@@ -41,6 +48,16 @@ public class iMatItem extends AnchorPane {
             parentController.updateCart();
             amountProduct.clear();
         }
+    }
+
+    public void delFavorite() {
+        favoriteImage.setImage(new Image("/resources/starUnfilled.png"));
+        dh.removeFavorite(product);
+    }
+
+    public void setFavorite() {
+        favoriteImage.setImage(new Image("/resources/starFilled.png"));
+        dh.addFavorite(product);
     }
 
     public iMatItem(Product product, iMatController iMatController) {
@@ -56,6 +73,10 @@ public class iMatItem extends AnchorPane {
 
         this.product = product;
         this.parentController = iMatController;
+
+        if (dh.isFavorite(product)) {
+            setFavorite();
+        }
 
         amountProduct.setPromptText("antal " + product.getUnitSuffix());
         productUnit.setText(product.getUnit());

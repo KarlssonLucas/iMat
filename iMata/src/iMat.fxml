@@ -11,38 +11,38 @@
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.FlowPane?>
 <?import javafx.scene.layout.GridPane?>
-<?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="850.0" minWidth="1175.0" prefHeight="1000.0" prefWidth="1175.0" stylesheets="@iMat.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="iMatController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="837.0" minWidth="1175.0" prefHeight="925.0" prefWidth="1175.0" stylesheets="@iMat.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="iMatController">
    <children>
       <StackPane fx:id="background" minHeight="850.0" minWidth="1175.0" prefHeight="850.0" prefWidth="1175.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
             <AnchorPane prefHeight="200.0" prefWidth="200.0" />
             <AnchorPane prefHeight="850.0" prefWidth="1175.0">
                <children>
-                  <Pane fx:id="paneTop" layoutX="25.0" layoutY="10.0" prefHeight="150.0" prefWidth="1125.0" AnchorPane.leftAnchor="25.0" AnchorPane.rightAnchor="25.0" AnchorPane.topAnchor="10.0">
+                  <AnchorPane fx:id="paneTop" layoutX="25.0" layoutY="37.0" prefHeight="157.0" prefWidth="1125.0" AnchorPane.leftAnchor="25.0" AnchorPane.rightAnchor="25.0" AnchorPane.topAnchor="37.0">
                      <children>
-                        <ImageView fx:id="logo" fitHeight="90.0" fitWidth="90.0" layoutX="33.0" layoutY="8.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@resources/testlogo.png" />
-                           </image>
-                        </ImageView>
-                        <Label fx:id="logoText" layoutX="147.0" layoutY="14.0" prefHeight="17.0" prefWidth="183.0" text="iMat">
+                        <Label fx:id="logoText" layoutX="169.0" layoutY="22.0" prefHeight="17.0" prefWidth="183.0" text="iMat">
                            <font>
                               <Font size="40.0" />
                            </font>
                         </Label>
-                     </children>
-                  </Pane>
-                  <AnchorPane layoutX="24.0" layoutY="85.0" prefHeight="70.0" prefWidth="1125.0" AnchorPane.bottomAnchor="689.0" AnchorPane.leftAnchor="24.0" AnchorPane.rightAnchor="26.0" AnchorPane.topAnchor="85.0">
-                     <children>
-                        <Button fx:id="helpButton" cacheShape="false" centerShape="false" focusTraversable="false" layoutX="9.0" layoutY="10.0" mnemonicParsing="false" prefHeight="64.0" prefWidth="140.0" scaleShape="false" text="Hjälp" AnchorPane.leftAnchor="9.0" AnchorPane.topAnchor="10.0" />
-                        <Button fx:id="checkoutButton" cacheShape="false" centerShape="false" focusTraversable="false" layoutX="960.0" layoutY="10.0" mnemonicParsing="false" prefHeight="64.0" prefWidth="140.0" scaleShape="false" AnchorPane.rightAnchor="25.0" AnchorPane.topAnchor="10.0">
+                        <TextField layoutX="834.0" layoutY="21.0" prefHeight="40.0" prefWidth="278.0" promptText="Sök i sortimentet" AnchorPane.bottomAnchor="96.0" AnchorPane.rightAnchor="13.0" AnchorPane.topAnchor="21.0">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </TextField>
+                        <ImageView fx:id="logo" fitHeight="90.0" fitWidth="90.0" layoutX="40.0" layoutY="16.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@resources/testlogo.png" />
+                           </image>
+                        </ImageView>
+                        <Button fx:id="helpButton" cacheShape="false" centerShape="false" focusTraversable="false" layoutY="85.0" mnemonicParsing="false" prefHeight="70.0" prefWidth="169.0" scaleShape="false" text="Hjälp" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="85.0" />
+                        <Button fx:id="checkoutButton" cacheShape="false" centerShape="false" focusTraversable="false" layoutX="956.0" layoutY="85.0" mnemonicParsing="false" prefHeight="70.0" prefWidth="169.0" scaleShape="false" AnchorPane.bottomAnchor="2.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="85.0">
                            <graphic>
-                              <Label fx:id="cartTotal" alignment="TOP_LEFT" maxWidth="160.0" prefHeight="21.0" prefWidth="141.0" text="0.00 kr" textAlignment="RIGHT">
+                              <Label fx:id="cartTotal" alignment="TOP_LEFT" maxHeight="-Infinity" maxWidth="565.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="565.0" text="0.00 kr" textAlignment="RIGHT">
                                  <font>
                                     <Font size="15.0" />
                                  </font>
@@ -56,79 +56,41 @@
                               </Label>
                            </graphic>
                         </Button>
-                        <Button fx:id="minaSidorButton" cacheShape="false" centerShape="false" focusTraversable="false" layoutX="802.0" layoutY="10.0" mnemonicParsing="false" prefHeight="64.0" prefWidth="140.0" scaleShape="false" text="Mina Sidor" AnchorPane.rightAnchor="183.0" AnchorPane.topAnchor="10.0">
+                        <Button fx:id="minaSidorButton" cacheShape="false" centerShape="false" focusTraversable="false" layoutX="787.0" layoutY="85.0" mnemonicParsing="false" prefHeight="70.0" prefWidth="169.0" scaleShape="false" text="Mina Sidor" AnchorPane.bottomAnchor="2.0" AnchorPane.rightAnchor="169.0" AnchorPane.topAnchor="85.0">
                            <font>
                               <Font size="22.0" />
                            </font>
                         </Button>
                      </children>
                   </AnchorPane>
-                  <TextField layoutX="782.0" layoutY="32.0" prefHeight="40.0" prefWidth="278.0" promptText="Sök i sortimentet" AnchorPane.rightAnchor="40.0" AnchorPane.topAnchor="32.0">
-                     <font>
-                        <Font size="18.0" />
-                     </font>
-                  </TextField>
-                  <Pane fx:id="paneGrid" layoutX="26.0" layoutY="264.0" prefHeight="175.0" prefWidth="1125.0" style="-fx-background-color: #ffffff;">
+                  <StackPane fx:id="gridPane" layoutX="25.0" layoutY="223.0" prefHeight="170.0" prefWidth="1125.0" style="-fx-background-color: #3399ff;" AnchorPane.bottomAnchor="581.0" AnchorPane.leftAnchor="25.0" AnchorPane.rightAnchor="25.0" AnchorPane.topAnchor="223.0">
                      <children>
-                        <GridPane fx:id="gridPromo" layoutX="63.0" layoutY="10.0" prefHeight="150.0" prefWidth="1000.0">
-                          <columnConstraints>
-                            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                          </columnConstraints>
-                          <rowConstraints>
-                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                          </rowConstraints>
-                           <children>
-                              <ImageView fx:id="grid1" fitHeight="150.0" fitWidth="252.0" onMouseClicked="#onClick" pickOnBounds="true" preserveRatio="true">
-                                 <image>
-                                    <Image url="@../../../../.dat215/imat/images/product_1.jpg" />
-                                 </image>
-                              </ImageView>
-                              <ImageView fx:id="grid2" fitHeight="150.0" fitWidth="251.0" onMouseClicked="#onClick" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" />
-                              <ImageView fx:id="grid3" fitHeight="150.0" fitWidth="250.0" onMouseClicked="#onClick" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="2" />
-                              <ImageView fx:id="grid4" fitHeight="150.0" fitWidth="250.0" onMouseClicked="#onClick" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="3" />
-                              <ImageView fx:id="rea" fitHeight="40.0" fitWidth="45.0" pickOnBounds="true" preserveRatio="true">
-                                 <image>
-                                    <Image url="@resources/icon_time.png" />
-                                 </image>
-                                 <GridPane.margin>
-                                    <Insets bottom="130.0" left="170.0" />
-                                 </GridPane.margin>
-                              </ImageView>
-                              <ImageView fx:id="rea3" fitHeight="40.0" fitWidth="45.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="3">
-                                 <image>
-                                    <Image url="@resources/icon_time.png" />
-                                 </image>
-                                 <GridPane.margin>
-                                    <Insets bottom="130.0" left="170.0" />
-                                 </GridPane.margin>
-                              </ImageView>
-                              <ImageView fx:id="rea2" fitHeight="40.0" fitWidth="45.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="2">
-                                 <image>
-                                    <Image url="@resources/icon_time.png" />
-                                 </image>
-                                 <GridPane.margin>
-                                    <Insets bottom="130.0" left="170.0" />
-                                 </GridPane.margin>
-                              </ImageView>
-                              <ImageView fx:id="rea1" fitHeight="40.0" fitWidth="45.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1">
-                                 <image>
-                                    <Image url="@resources/icon_time.png" />
-                                 </image>
-                                 <GridPane.margin>
-                                    <Insets bottom="130.0" left="170.0" />
-                                 </GridPane.margin>
-                              </ImageView>
-                           </children>
-                        </GridPane>
-                        <Button layoutX="27.0" layoutY="65.0" mnemonicParsing="false" onAction="#previousPageGrid" prefHeight="25.0" prefWidth="25.0" text="&lt;" />
-                        <Button layoutX="1072.0" layoutY="64.0" mnemonicParsing="false" onAction="#nextPageGrid" prefHeight="25.0" prefWidth="25.0" text="&gt;" />
+                        <ImageView fx:id="reaBanner" fitHeight="166.0" fitWidth="465.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@resources/reabanner.png" />
+                           </image>
+                           <StackPane.margin>
+                              <Insets />
+                           </StackPane.margin>
+                        </ImageView>
+                        <Button fx:id="reaButton" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#onClick" prefHeight="41.0" prefWidth="123.0" text="Button" textAlignment="CENTER">
+                           <StackPane.margin>
+                              <Insets top="110.0" />
+                           </StackPane.margin>
+                        </Button>
                      </children>
-                  </Pane>
-                  <AnchorPane layoutX="25.0" layoutY="415.0" prefHeight="403.0" prefWidth="1125.0" AnchorPane.bottomAnchor="27.0" AnchorPane.leftAnchor="25.0" AnchorPane.rightAnchor="25.0" AnchorPane.topAnchor="415.0">
+                  </StackPane>
+                  <AnchorPane layoutX="25.0" layoutY="420.0" prefHeight="530.0" prefWidth="1125.0" AnchorPane.bottomAnchor="50.0" AnchorPane.leftAnchor="25.0" AnchorPane.rightAnchor="25.0" AnchorPane.topAnchor="420.0">
                      <children>
+                        <AnchorPane fx:id="paneMatvaror" layoutY="54.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="70.0" prefWidth="1125.0" AnchorPane.bottomAnchor="434.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+                           <children>
+                              <Label alignment="CENTER" contentDisplay="CENTER" layoutX="438.0" layoutY="6.0" prefHeight="58.0" prefWidth="251.0" text="Matvaror" textFill="WHITE" AnchorPane.bottomAnchor="6.0" AnchorPane.leftAnchor="438.0" AnchorPane.rightAnchor="438.0">
+                                 <font>
+                                    <Font size="40.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </AnchorPane>
                         <AnchorPane prefHeight="408.0" prefWidth="297.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="828.0">
                            <children>
                             <AnchorPane layoutY="-22.0" minHeight="0.0" minWidth="0.0" prefHeight="430.0" prefWidth="297.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="-22.0">
@@ -187,24 +149,6 @@
                         </AnchorPane>
                      </children>
                   </AnchorPane>
-                  <Pane fx:id="paneErbjudanden" layoutX="26.0" layoutY="194.0" prefHeight="70.0" prefWidth="1125.0">
-                     <children>
-                        <Label layoutX="367.0" layoutY="6.0" text="Aktuella Erbjudanden" textAlignment="CENTER" textFill="WHITE">
-                           <font>
-                              <Font size="40.0" />
-                           </font>
-                        </Label>
-                     </children>
-                  </Pane>
-                  <Pane fx:id="paneMatvaror" layoutX="26.0" layoutY="471.0" prefHeight="70.0" prefWidth="1125.0">
-                     <children>
-                        <Label layoutX="482.0" layoutY="6.0" text="Matvaror" textAlignment="CENTER" textFill="WHITE">
-                           <font>
-                              <Font size="40.0" />
-                           </font>
-                        </Label>
-                     </children>
-                  </Pane>
                </children>
             </AnchorPane>
          </children>

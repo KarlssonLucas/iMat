@@ -15,13 +15,13 @@ public class iMat extends Application {
 
         Parent root = FXMLLoader.load(getClass().getResource("iMat.fxml"), bundle);
 
-        Scene scene = new Scene(root, 1175, 1000);
+        Scene scene = new Scene(root, 1175, 900);
 
         stage.setTitle(bundle.getString("application.name"));
         stage.setScene(scene);
         stage.show();
 
-        stage.setMinHeight(890);
+        stage.setMinHeight(1000);
         stage.setMinWidth(1190);
     }
 
