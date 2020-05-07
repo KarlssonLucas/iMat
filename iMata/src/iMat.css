@@ -11,9 +11,6 @@
     -fx-background-color: #3366ff;
 }
 
-#cartTotal {
-    -fx-min-width: 20px;
-}
 
 #productItem {
     -fx-border-color: white;
@@ -64,3 +61,22 @@
     -fx-background-radius: 5px;
 }
 
+#helpButton, #minaSidorButton {
+    -fx-font-size: 15px;
+}
+
+#subtractProduct {
+    -fx-graphic: url("resources/removeProduct.png");
+}
+
+#subtractProduct:hover {
+    -fx-graphic: url("resources/removeProductHover.png");
+}
+
+#addProductButton {
+    -fx-graphic: url("resources/addProduct.png");
+}
+
+#addProductButton:hover {
+    -fx-graphic: url("resources/addProductHover.png");
+}

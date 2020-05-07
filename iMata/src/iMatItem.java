@@ -18,12 +18,9 @@ public class iMatItem extends AnchorPane {
     private Product product;
     private IMatDataHandler dh = IMatDataHandler.getInstance();
 
-    private char[] alphabet = {'a', 'b', 'c', 'd'};
-
     @FXML private Label productName;
     @FXML private Label productPrice;
     @FXML private ImageView productPicture;
-    @FXML private Button addProduct;
     @FXML private AnchorPane productItem;
     @FXML private Label productUnit;
     @FXML private TextField amountProduct;
@@ -47,6 +44,26 @@ public class iMatItem extends AnchorPane {
             parentController.shoppingCart.addProduct(product, amount);
             parentController.updateCart();
             amountProduct.clear();
+        }
+    }
+
+    @FXML
+    private void subtract() {
+        if (amountProduct.getCharacters().length() != 0 && Integer.parseInt(String.valueOf(amountProduct.getCharacters() )) >0) {
+            int amount = Integer.parseInt(String.valueOf(amountProduct.getCharacters()));
+            amount--;
+            amountProduct.setText(String.valueOf(amount));
+        }
+    }
+
+    @FXML
+    private void addition() {
+        if (amountProduct.getCharacters().length() != 0) {
+            int amount = Integer.parseInt(String.valueOf(amountProduct.getCharacters()));
+            amount++;
+            amountProduct.setText(String.valueOf(amount));
+        } else {
+            amountProduct.setText("1");
         }
     }
 
