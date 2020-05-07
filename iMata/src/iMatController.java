@@ -42,8 +42,8 @@ public class iMatController implements Initializable, ShoppingCartListener {
     @FXML private GridPane gridCategory;
     @FXML private Label cartTotal;
 
-    @FXML private Button bbb0;
-    @FXML private Button bbb1;
+    @FXML public Button bbb0;
+    @FXML public Button bbb1;
     @FXML private Button bbb2;
     @FXML private Button bbb3;
     @FXML private Button bbb4;
@@ -72,16 +72,12 @@ public class iMatController implements Initializable, ShoppingCartListener {
         helpButton.setText("Hjälp");
         reaButton.setText("Shoppa");
 
-        populateHashMap();
-        updateRecipeList();
+        all_category();
         updateCart();
 
         reaBanner.setPreserveRatio(true);
         scrollItemView.setFitToWidth(true);
         scrollItemView.setFitToHeight(true);
-
-        //TODO dosen't work?
-        bbb0.isFocused();
     }
 
 

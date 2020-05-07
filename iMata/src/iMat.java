@@ -23,6 +23,8 @@ public class iMat extends Application {
 
         stage.setMinHeight(1000);
         stage.setMinWidth(1190);
+
+        root.requestFocus();
     }
 
     /**
