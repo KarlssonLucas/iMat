@@ -15,9 +15,9 @@
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="837.0" minWidth="1175.0" prefHeight="925.0" prefWidth="1175.0" stylesheets="@iMat.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="iMatController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="837.0" minWidth="1175.0" prefHeight="882.0" prefWidth="1175.0" stylesheets="@iMat.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="iMatController">
    <children>
-      <StackPane fx:id="background" minHeight="850.0" minWidth="1175.0" prefHeight="850.0" prefWidth="1175.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <StackPane fx:id="background" layoutY="14.0" minHeight="850.0" minWidth="1175.0" prefHeight="850.0" prefWidth="1175.0" AnchorPane.bottomAnchor="-14.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="14.0">
          <children>
             <AnchorPane prefHeight="200.0" prefWidth="200.0" />
             <AnchorPane prefHeight="850.0" prefWidth="1175.0">
@@ -61,10 +61,10 @@
                               <Font size="22.0" />
                            </font>
                         </Button>
-                        <Button layoutX="1066.0" layoutY="30.0" mnemonicParsing="false" onAction="#searchProduct" text="Sök" />
+                        <Button layoutX="1066.0" layoutY="30.0" mnemonicParsing="false" onAction="#searchProduct" text="Sök" AnchorPane.bottomAnchor="103.0" AnchorPane.rightAnchor="23.0" AnchorPane.topAnchor="30.0" />
                      </children>
                   </AnchorPane>
-                  <StackPane fx:id="gridPane" layoutX="25.0" layoutY="223.0" prefHeight="170.0" prefWidth="1125.0" style="-fx-background-color: #3399ff;" AnchorPane.bottomAnchor="581.0" AnchorPane.leftAnchor="25.0" AnchorPane.rightAnchor="25.0" AnchorPane.topAnchor="223.0">
+                  <StackPane fx:id="gridPane" layoutX="25.0" layoutY="213.0" prefHeight="170.0" prefWidth="1125.0" style="-fx-background-color: #3399ff;" AnchorPane.bottomAnchor="591.0" AnchorPane.leftAnchor="25.0" AnchorPane.rightAnchor="25.0" AnchorPane.topAnchor="213.0">
                      <children>
                         <ImageView fx:id="reaBanner" fitHeight="166.0" fitWidth="465.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -81,7 +81,7 @@
                         </Button>
                      </children>
                   </StackPane>
-                  <AnchorPane layoutX="25.0" layoutY="420.0" prefHeight="530.0" prefWidth="1125.0" AnchorPane.bottomAnchor="50.0" AnchorPane.leftAnchor="25.0" AnchorPane.rightAnchor="25.0" AnchorPane.topAnchor="420.0">
+                  <AnchorPane layoutX="25.0" layoutY="400.0" prefHeight="530.0" prefWidth="1125.0" AnchorPane.bottomAnchor="70.0" AnchorPane.leftAnchor="25.0" AnchorPane.rightAnchor="25.0" AnchorPane.topAnchor="400.0">
                      <children>
                         <AnchorPane fx:id="paneMatvaror" layoutY="54.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="70.0" prefWidth="1125.0" AnchorPane.bottomAnchor="434.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
                            <children>
