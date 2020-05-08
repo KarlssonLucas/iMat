@@ -37,6 +37,9 @@ public class iMatController implements Initializable, ShoppingCartListener {
     @FXML private ImageView reaBanner;
     @FXML private StackPane gridPane;
     @FXML private Button reaButton;
+    @FXML private AnchorPane bannerImage;
+    @FXML private Label categoryBannerLabel;
+    @FXML private ImageView categoryBannerImage;
 
     @FXML private FlowPane productFlow;
     @FXML private ScrollPane categoryScroll;
@@ -116,32 +119,56 @@ public class iMatController implements Initializable, ShoppingCartListener {
 
     //Button method calls
     public void all_category(){
+        bannerImage.setVisible(false);
+        categoryBannerImage.setImage(null);
+        categoryBannerLabel.setText("");
+
         currentProductList = dh.getProducts();
         populateHashMap();
         updateRecipeList();
     }
 
     public void favoriter_category(){
+        bannerImage.setVisible(true);
+        categoryBannerLabel.setText("Favoriter");
+        categoryBannerImage.setImage(new Image("resources/favoriterBanner.png"));
+
         currentProductList = dh.favorites();
         populateHashMap();
         updateRecipeList();
     }
     public void mejeri_category(){
+        bannerImage.setVisible(true);
+        categoryBannerLabel.setText("Mejeri & Ägg");
+        categoryBannerImage.setImage(new Image("resources/dairyBanner.png"));
+
         currentProductList = dh.getProducts(DAIRIES);
         populateHashMap();
         updateRecipeList();
     }
     public void kott_category(){
+        bannerImage.setVisible(true);
+        categoryBannerLabel.setText("Kött");
+        categoryBannerImage.setImage(new Image("resources/meatBanner.png"));
+
         currentProductList = dh.getProducts(MEAT);
         populateHashMap();
         updateRecipeList();
     }
     public void fisk_category(){
+        bannerImage.setVisible(true);
+        categoryBannerLabel.setText("Fisk");
+        categoryBannerImage.setImage(new Image("resources/fishBanner.png"));
+
         currentProductList = dh.getProducts(FISH);
         populateHashMap();
         updateRecipeList();
     }
     public void frukt_category(){
+        bannerImage.setVisible(true);
+        categoryBannerLabel.setText("Frukt & Grönt");
+        categoryBannerImage.setImage(new Image("resources/fruitBanner.png"));
+
         ArrayList<Product> temp = new ArrayList<Product>();
 
         //TODO create more categories. This one is thiccc
@@ -157,6 +184,10 @@ public class iMatController implements Initializable, ShoppingCartListener {
     }
 
     public void skafferi_category(){
+        bannerImage.setVisible(true);
+        categoryBannerLabel.setText("Skafferi");
+        categoryBannerImage.setImage(new Image("resources/pantryBanner.png"));
+
         ArrayList<Product> temp = new ArrayList<Product>();
 
         for(Product p: productList){
@@ -170,12 +201,20 @@ public class iMatController implements Initializable, ShoppingCartListener {
     }
 
     public void bageri_category(){
+        bannerImage.setVisible(true);
+        categoryBannerLabel.setText("Bageri");
+        categoryBannerImage.setImage(new Image("resources/bakeryBanner.png"));
+
         currentProductList  = dh.getProducts(BREAD);
         populateHashMap();
         updateRecipeList();
     }
 
     public void dryck_category(){
+        bannerImage.setVisible(true);
+        categoryBannerLabel.setText("Dryck");
+        categoryBannerImage.setImage(new Image("resources/drinkBanner.png"));
+
         ArrayList<Product> temp = new ArrayList<Product>();
 
         for(Product p: productList){
@@ -191,6 +230,10 @@ public class iMatController implements Initializable, ShoppingCartListener {
     }
 
     public void godsaker_category(){
+        bannerImage.setVisible(true);
+        categoryBannerLabel.setText("Godsaker");
+        categoryBannerImage.setImage(new Image("resources/candyBanner.png"));
+
         ArrayList<Product> temp = new ArrayList<Product>();
 
         for(Product p: productList){
