@@ -61,6 +61,14 @@
     -fx-background-radius: 5px;
 }
 
+#favoriteImage {
+    -fx-graphic: url("resources/starUnfilled.png");
+}
+
+#favoriteImage:hover {
+    -fx-graphic: url("resources/starFilled.png");
+}
+
 #helpButton, #minaSidorButton {
     -fx-font-size: 15px;
 }
