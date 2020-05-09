@@ -49,14 +49,17 @@ public class iMatController implements Initializable, ShoppingCartListener {
 
     @FXML public Button bbb0;
     @FXML public Button bbb1;
-    @FXML private Button bbb2;
-    @FXML private Button bbb3;
-    @FXML private Button bbb4;
-    @FXML private Button bbb5;
-    @FXML private Button bbb6;
-    @FXML private Button bbb7;
-    @FXML private Button bbb8;
-    @FXML private Button bbb9;
+    @FXML public Button bbb2;
+    @FXML public Button bbb3;
+    @FXML public Button bbb4;
+    @FXML public Button bbb5;
+    @FXML public Button bbb6;
+    @FXML public Button bbb7;
+    @FXML public Button bbb8;
+    @FXML public Button bbb9;
+    @FXML public Button bbb10;
+
+
 
 
 
@@ -171,10 +174,26 @@ public class iMatController implements Initializable, ShoppingCartListener {
 
         ArrayList<Product> temp = new ArrayList<Product>();
 
-        //TODO create more categories. This one is thiccc
         for(Product p: productList){
             if (p.getCategory() == FRUIT || p.getCategory() == VEGETABLE_FRUIT || p.getCategory() == CITRUS_FRUIT || p.getCategory() == EXOTIC_FRUIT ||
-                    p.getCategory() == CABBAGE || p.getCategory() == BERRY || p.getCategory() == MELONS || p.getCategory() == ROOT_VEGETABLE || p.getCategory() == POD || p.getCategory() == HERB){
+                    p.getCategory() == CABBAGE || p.getCategory() == MELONS || p.getCategory() == ROOT_VEGETABLE || p.getCategory() == POD){
+                temp.add(p);
+            }
+        }
+        currentProductList = temp;
+        populateHashMap();
+        updateRecipeList();
+    }
+
+    public void kryddor_category(){
+        bannerImage.setVisible(true);
+        categoryBannerLabel.setText("Kryddor & Bär");
+        categoryBannerImage.setImage(new Image("resources/spiceBanner.png"));
+
+        ArrayList<Product> temp = new ArrayList<Product>();
+
+        for(Product p: productList){
+            if (p.getCategory() == HERB || p.getCategory() == BERRY){
                 temp.add(p);
             }
         }
