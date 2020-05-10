@@ -1,13 +1,13 @@
-#minaSidorButton, #checkoutButton, #helpButton, #butikButton {
+#minaSidorButton, #checkoutButton, #helpButton, #hemButton {
     -fx-background-color:transparent;
     -fx-display: inline-block;
     -fx-cursor:pointer;
     -fx-color:#ffffff;
-    -fx-font-size:10px;
+    -fx-font-size:15px;
     -fx-text-decoration:none;
 }
 
-#minaSidorButton:hover, #checkoutButton:hover, #helpButton:hover, #butikButton:hover  {
+#minaSidorButton:hover, #checkoutButton:hover, #helpButton:hover, #hemButton:hover  {
     -fx-background-color: #3366ff;
 }
 
@@ -84,7 +84,7 @@
     -fx-graphic: url("resources/starUnfilledHover.png");
 }
 
-#helpButton, #minaSidorButton, #butikButton {
+#helpButton, #minaSidorButton {
     -fx-font-size: 15px;
 }
 

@@ -5,11 +5,7 @@ import javafx.event.Event;
 import javafx.event.EventHandler;
 import javafx.event.EventTarget;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Node;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
@@ -18,18 +14,16 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.*;
 
-import javafx.stage.Stage;
 import se.chalmers.cse.dat216.project.*;
 
 import java.awt.event.ActionListener;
-import java.io.IOException;
 import java.net.URL;
 import java.util.*;
 
 import static se.chalmers.cse.dat216.project.ProductCategory.*;
 
 
-public class iMatController implements Initializable, ShoppingCartListener {
+public class  iMatController implements Initializable, ShoppingCartListener {
 
     @FXML private AnchorPane paneTop;
     @FXML private ImageView logo;
@@ -37,7 +31,7 @@ public class iMatController implements Initializable, ShoppingCartListener {
     @FXML private Button minaSidorButton;
     @FXML private Button checkoutButton;
     @FXML private Button helpButton;
-    @FXML private Button butikButton;
+    @FXML private Button hemButton;
     @FXML private StackPane background;
     @FXML private TextField searchField;
 
@@ -66,9 +60,8 @@ public class iMatController implements Initializable, ShoppingCartListener {
     @FXML public Button bbb9;
     @FXML public Button bbb10;
 
-
-
-
+    //MINA SIDOR
+    @FXML private AnchorPane minaSidor;
 
     private final IMatDataHandler dh = IMatDataHandler.getInstance();
     public ShoppingCart shoppingCart = dh.getShoppingCart();
@@ -82,7 +75,12 @@ public class iMatController implements Initializable, ShoppingCartListener {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
-        minaSidorButton.setText("Mina Sidor");
+        if (!dh.isCustomerComplete()) {
+            minaSidorButton.setText("Registrera dig");
+        } else {
+            minaSidorButton.setText("Mina Sidor");
+        }
+        hemButton.setText("Hem ");
         checkoutButton.setText("....");
         helpButton.setText("Hjälp");
         reaButton.setText("Shoppa");
@@ -103,10 +101,16 @@ public class iMatController implements Initializable, ShoppingCartListener {
         updateRecipeList();
     }
 
-    //TODO i think??
-    public void onClick(Event event) {
+    //Mina sidor metoder
+    @FXML
+    public void minaSidorShow() {
+        minaSidor.toFront();
     }
 
+    @FXML
+    public void minaSidorHide() {
+        minaSidor.toBack();
+    }
 
     private void updateRecipeList(){
         productFlow.getChildren().clear();
@@ -127,19 +131,7 @@ public class iMatController implements Initializable, ShoppingCartListener {
         cartTotal.setText(String.valueOf(roundOff + " kr"));
     }
 
-    //Navigation
-    public void minaSidor(ActionEvent event) throws IOException {
-
-        Parent minaSidorParent = FXMLLoader.load(getClass().getResource("minaSidor.fxml"));
-        Scene minaSidorScene = new Scene(minaSidorParent);
-
-        Stage minaSidorStage = (Stage)((Node)event.getSource()).getScene().getWindow();
-        minaSidorStage.setScene(minaSidorScene);
-        minaSidorStage.show();
-
-    }
-
-    //CategoryButton method calls
+    //Button method calls
     public void all_category(){
         bannerImage.setVisible(false);
         categoryBannerImage.setImage(null);
