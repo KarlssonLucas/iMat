@@ -19,7 +19,6 @@
    <children>
       <StackPane fx:id="background" layoutY="10.0" minHeight="834.0" minWidth="1175.0" prefHeight="843.0" prefWidth="1175.0" AnchorPane.bottomAnchor="43.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="10.0">
          <children>
-            <AnchorPane prefHeight="200.0" prefWidth="200.0" />
             <AnchorPane prefHeight="924.0" prefWidth="1175.0">
                <children>
                   <AnchorPane fx:id="paneTop" layoutX="25.0" layoutY="52.0" prefHeight="157.0" prefWidth="1125.0" AnchorPane.leftAnchor="25.0" AnchorPane.rightAnchor="25.0" AnchorPane.topAnchor="52.0">
@@ -39,7 +38,7 @@
                               <Image url="@resources/testlogo.png" />
                            </image>
                         </ImageView>
-                        <Button fx:id="helpButton" cacheShape="false" centerShape="false" focusTraversable="false" layoutY="85.0" mnemonicParsing="false" prefHeight="70.0" prefWidth="169.0" scaleShape="false" text="Hjälp" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="85.0" />
+                        <Button fx:id="helpButton" cacheShape="false" centerShape="false" focusTraversable="false" layoutX="183.0" layoutY="88.0" mnemonicParsing="false" prefHeight="70.0" prefWidth="169.0" scaleShape="false" text="Hjälp" AnchorPane.leftAnchor="183.0" AnchorPane.topAnchor="88.0" />
                         <Button fx:id="checkoutButton" cacheShape="false" centerShape="false" focusTraversable="false" layoutX="956.0" layoutY="85.0" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="70.0" prefWidth="169.0" scaleShape="false" AnchorPane.bottomAnchor="2.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="85.0">
                            <graphic>
                               <Label fx:id="cartTotal" alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="565.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="170.0" text="0.00 kr" textAlignment="RIGHT">
@@ -56,12 +55,13 @@
                               </Label>
                            </graphic>
                         </Button>
-                        <Button fx:id="minaSidorButton" cacheShape="false" centerShape="false" focusTraversable="false" layoutX="787.0" layoutY="85.0" mnemonicParsing="false" prefHeight="70.0" prefWidth="169.0" scaleShape="false" text="Mina Sidor" AnchorPane.bottomAnchor="2.0" AnchorPane.rightAnchor="169.0" AnchorPane.topAnchor="85.0">
+                        <Button fx:id="minaSidorButton" cacheShape="false" centerShape="false" focusTraversable="false" layoutX="787.0" layoutY="85.0" mnemonicParsing="false" onAction="#minaSidor" prefHeight="70.0" prefWidth="169.0" scaleShape="false" text="Mina Sidor" AnchorPane.bottomAnchor="2.0" AnchorPane.rightAnchor="169.0" AnchorPane.topAnchor="85.0">
                            <font>
                               <Font size="22.0" />
                            </font>
                         </Button>
                         <Button layoutX="1066.0" layoutY="30.0" mnemonicParsing="false" onAction="#searchProduct" text="Sök" AnchorPane.bottomAnchor="103.0" AnchorPane.rightAnchor="23.0" AnchorPane.topAnchor="30.0" />
+                        <Button fx:id="butikButton" cacheShape="false" centerShape="false" focusTraversable="false" layoutX="14.0" layoutY="88.0" mnemonicParsing="false" prefHeight="70.0" prefWidth="169.0" scaleShape="false" text="Butiken" />
                      </children>
                   </AnchorPane>
                   <StackPane fx:id="gridPane" layoutX="345.0" layoutY="230.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="150.0" prefWidth="805.0" style="-fx-background-color: #3399ff;" AnchorPane.bottomAnchor="561.0" AnchorPane.leftAnchor="345.0" AnchorPane.rightAnchor="25.0" AnchorPane.topAnchor="230.0">

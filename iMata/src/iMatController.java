@@ -5,7 +5,11 @@ import javafx.event.Event;
 import javafx.event.EventHandler;
 import javafx.event.EventTarget;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
@@ -14,9 +18,11 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.*;
 
+import javafx.stage.Stage;
 import se.chalmers.cse.dat216.project.*;
 
 import java.awt.event.ActionListener;
+import java.io.IOException;
 import java.net.URL;
 import java.util.*;
 
@@ -31,6 +37,7 @@ public class iMatController implements Initializable, ShoppingCartListener {
     @FXML private Button minaSidorButton;
     @FXML private Button checkoutButton;
     @FXML private Button helpButton;
+    @FXML private Button butikButton;
     @FXML private StackPane background;
     @FXML private TextField searchField;
 
@@ -120,7 +127,19 @@ public class iMatController implements Initializable, ShoppingCartListener {
         cartTotal.setText(String.valueOf(roundOff + " kr"));
     }
 
-    //Button method calls
+    //Navigation
+    public void minaSidor(ActionEvent event) throws IOException {
+
+        Parent minaSidorParent = FXMLLoader.load(getClass().getResource("minaSidor.fxml"));
+        Scene minaSidorScene = new Scene(minaSidorParent);
+
+        Stage minaSidorStage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        minaSidorStage.setScene(minaSidorScene);
+        minaSidorStage.show();
+
+    }
+
+    //CategoryButton method calls
     public void all_category(){
         bannerImage.setVisible(false);
         categoryBannerImage.setImage(null);
