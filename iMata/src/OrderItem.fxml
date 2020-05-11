@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+
+
+<fx:root prefHeight="200.0" prefWidth="1080.0" stylesheets="@iMat.css" type="AnchorPane" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <AnchorPane prefHeight="150.0" prefWidth="1060.0" style="-fx-border-color: #3399ff;" AnchorPane.bottomAnchor="25.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="25.0">
+         <children>
+            <Label layoutX="61.0" layoutY="17.0" text="Datum">
+               <font>
+                  <Font size="28.0" />
+               </font>
+            </Label>
+            <Label layoutX="276.0" layoutY="17.0" text="Pris">
+               <font>
+                  <Font size="28.0" />
+               </font>
+            </Label>
+            <Label layoutX="485.0" layoutY="17.0" text="Varor">
+               <font>
+                  <Font size="28.0" />
+               </font>
+            </Label>
+            <Label layoutX="665.0" layoutY="17.0" text="Ordernummer">
+               <font>
+                  <Font size="28.0" />
+               </font>
+            </Label>
+            <Line endX="951.0" layoutX="103.0" layoutY="49.0" startX="-100.0" />
+            <Line endX="797.0" endY="136.0" layoutX="-590.0" layoutY="10.0" startX="797.0" startY="-10.0" />
+            <Line endX="797.0" endY="136.0" layoutX="-414.0" layoutY="10.0" startX="797.0" startY="-10.0" />
+            <Line endX="797.0" endY="136.0" layoutX="-186.0" layoutY="10.0" startX="797.0" startY="-10.0" />
+            <Label fx:id="datumLbl" layoutX="11.0" layoutY="86.0" prefHeight="17.0" prefWidth="184.0" text="Label">
+               <font>
+                  <Font size="23.0" />
+               </font>
+            </Label>
+            <Label fx:id="prisLbl" layoutX="207.0" layoutY="86.0" prefHeight="34.0" prefWidth="159.0" text="Label">
+               <font>
+                  <Font size="23.0" />
+               </font>
+            </Label>
+            <Label fx:id="varorLbl" layoutX="393.0" layoutY="86.0" prefHeight="17.0" prefWidth="184.0" text="Label">
+               <font>
+                  <Font size="23.0" />
+               </font>
+            </Label>
+            <Label fx:id="orderLbl" layoutX="662.0" layoutY="86.0" prefHeight="17.0" prefWidth="184.0" text="Label">
+               <font>
+                  <Font size="23.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
+   </children>
+</fx:root>

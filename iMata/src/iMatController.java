@@ -48,6 +48,8 @@ public class  iMatController implements Initializable, ShoppingCartListener {
     @FXML private GridPane gridCategory;
     @FXML private Label cartTotal;
 
+    @FXML private FlowPane ordersFlowPane;
+
     @FXML public Button bbb0;
     @FXML public Button bbb1;
     @FXML public Button bbb2;
@@ -60,11 +62,15 @@ public class  iMatController implements Initializable, ShoppingCartListener {
     @FXML public Button bbb9;
     @FXML public Button bbb10;
 
+    private final IMatDataHandler dh = IMatDataHandler.getInstance();
+
     //MINA SIDOR
     @FXML private AnchorPane minaSidor;
     @FXML private AnchorPane minaSidorInfoPane;
+    private List<Order> orderlista = dh.getOrders();
+    private Map<Integer,OrderItem> orderListItemMap = new HashMap<Integer, OrderItem>();
+    private OrderItem orderItem;
 
-    private final IMatDataHandler dh = IMatDataHandler.getInstance();
     public ShoppingCart shoppingCart = dh.getShoppingCart();
 
     private final List<Product> productList = dh.getProducts();
@@ -112,6 +118,37 @@ public class  iMatController implements Initializable, ShoppingCartListener {
     public void minaSidorHide() {
         minaSidor.toBack();
     }
+
+    private void populateOrderHashMap(){
+        for (Order o: orderlista){
+            orderItem = new OrderItem(o,this);
+            orderListItemMap.put(o.getOrderNumber(),orderItem);
+        }
+    }
+
+    private void updateOrders(){
+        ordersFlowPane.getChildren().clear();
+        for (Order o: orderlista) {
+            ordersFlowPane.getChildren().add(orderListItemMap.get(o.getOrderNumber()));
+        }
+    }
+
+    public void testHistory(){
+        Order testo = new Order();
+        testo.setDate(new Date(2020,5,11));
+
+        ArrayList<ShoppingItem> si2 = new ArrayList<>();
+        si2.add(new ShoppingItem(currentProductList.get(0)));
+        testo.setItems(si2);
+        
+        testo.setOrderNumber(1337);
+        orderlista.add(testo);
+
+        populateOrderHashMap();
+        updateOrders();
+    }
+
+    //End
 
     private void updateRecipeList(){
         productFlow.getChildren().clear();
