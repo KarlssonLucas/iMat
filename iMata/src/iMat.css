@@ -7,7 +7,16 @@
     -fx-text-decoration:none;
 }
 
-#minaSidorButton:hover, #checkoutButton:hover, #helpButton:hover, #hemButton:hover  {
+#skapaKontoBtn {
+    -fx-background-color:#3399ff;
+    -fx-display: inline-block;
+    -fx-cursor:pointer;
+    -fx-color:#ffffff;
+    -fx-font-size:15px;
+    -fx-text-decoration:none;
+}
+
+#minaSidorButton:hover, #checkoutButton:hover, #helpButton:hover, #hemButton:hover, #skapaKontoBtn:hover  {
     -fx-background-color: #3366ff;
 }
 
@@ -31,7 +40,7 @@
     -fx-background-radius: 5px;
 }
 
-#paneTop, #paneMatvaror {
+#paneTop, #paneMatvaror, #minaSidorInfoPane, #minaSidorHistorikPane {
     -fx-background-color: #3399ff;
     -fx-border-color: #3399ff;
     -fx-border-width: 1px;
@@ -44,6 +53,11 @@
     -fx-text-fill: white;
     -fx-background-color: #3399ff;
     -fx-font-size: 18px;
+}
+
+#minaSidortxt, #historiktxt {
+    -fx-text-fill: white;
+    -fx-font-size: 28px;
 }
 
 #reaButton:hover {

@@ -13,16 +13,13 @@
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="837.0" minWidth="1175.0" prefHeight="883.0" prefWidth="1175.0" stylesheets="@iMat.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="iMatController">
    <children>
       <StackPane fx:id="background" layoutY="10.0" minHeight="834.0" minWidth="1175.0" prefHeight="843.0" prefWidth="1175.0" AnchorPane.bottomAnchor="43.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="10.0">
          <children>
-            <AnchorPane fx:id="minaSidor" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="691.0" prefWidth="1146.0" style="-fx-background-color: black;">
-               <StackPane.margin>
-                  <Insets top="200.0" />
-               </StackPane.margin></AnchorPane>
             <AnchorPane prefHeight="924.0" prefWidth="1175.0" style="-fx-background-color: white;">
                <children>
                   <AnchorPane fx:id="paneTop" layoutX="25.0" layoutY="52.0" prefHeight="157.0" prefWidth="1125.0" AnchorPane.leftAnchor="25.0" AnchorPane.rightAnchor="25.0" AnchorPane.topAnchor="52.0">
@@ -148,7 +145,7 @@
                         </AnchorPane>
                       <AnchorPane layoutX="322.0" layoutY="15.0" minHeight="0.0" minWidth="0.0" prefHeight="495.0" prefWidth="789.0" style="-fx-background-color: #07f2ff;" AnchorPane.bottomAnchor="-24.0" AnchorPane.leftAnchor="322.0" AnchorPane.rightAnchor="14.0">
                            <children>
-                              <ScrollPane fx:id="scrollItemView" prefHeight="504.0" prefWidth="805.0" AnchorPane.bottomAnchor="-6.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="-16.0">
+                              <ScrollPane fx:id="scrollItemView" prefHeight="504.0" prefWidth="800.0" AnchorPane.bottomAnchor="-6.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="-16.0">
                                  <content>
                                     <FlowPane fx:id="productFlow" hgap="5.0" prefHeight="497.0" prefWidth="784.0" prefWrapLength="40.0" vgap="5.0">
                                        <opaqueInsets>
@@ -164,6 +161,120 @@
                         </AnchorPane>
                      </children>
                   </AnchorPane>
+               </children>
+            </AnchorPane>
+            <AnchorPane fx:id="minaSidor" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="691.0" prefWidth="1130.0" style="-fx-background-color: white;">
+               <StackPane.margin>
+                  <Insets top="200.0" />
+               </StackPane.margin>
+               <children>
+                  <ScrollPane prefHeight="691.0" prefWidth="1130.0" AnchorPane.topAnchor="5.0">
+                     <content>
+                        <AnchorPane prefHeight="691.0" prefWidth="1130.0">
+                           <children>
+                            <AnchorPane fx:id="minaSidorInfoPane" minHeight="0.0" minWidth="0.0" prefHeight="125.0" prefWidth="1130.0" AnchorPane.topAnchor="0.0">
+                                 <children>
+                                    <Label fx:id="minaSidortxt" layoutX="199.0" layoutY="6.0" prefHeight="113.0" prefWidth="814.0" text="Fyll i och spara samtliga uppgifter för att skapa ett konto">
+                                       <font>
+                                          <Font size="40.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                              </AnchorPane>
+                              <AnchorPane layoutX="5.0" layoutY="148.0" minHeight="0.0" minWidth="0.0" prefHeight="400.0" prefWidth="1130.0" style="-fx-background-color: white; -fx-border-color: #3399ff;" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="150.0">
+                                 <children>
+                                    <Label fx:id="logoText1" layoutX="22.0" layoutY="14.0" prefHeight="58.0" prefWidth="352.0" text="Personuppgifter">
+                                       <font>
+                                          <Font size="40.0" />
+                                       </font>
+                                    </Label>
+                                    <Label fx:id="logoText11" layoutX="611.0" layoutY="14.0" prefHeight="58.0" prefWidth="352.0" text="Betaluppgifter">
+                                       <font>
+                                          <Font size="40.0" />
+                                       </font>
+                                    </Label>
+                                    <TextField layoutX="176.0" layoutY="91.0" />
+                                    <Label fx:id="logoText12" layoutX="30.0" layoutY="74.0" prefHeight="58.0" prefWidth="146.0" text="Förnamn">
+                                       <font>
+                                          <Font size="21.0" />
+                                       </font>
+                                    </Label>
+                                    <TextField layoutX="175.0" layoutY="133.0" />
+                                    <Label fx:id="logoText121" layoutX="29.0" layoutY="116.0" prefHeight="58.0" prefWidth="146.0" text="Efternamn">
+                                       <font>
+                                          <Font size="21.0" />
+                                       </font>
+                                    </Label>
+                                    <TextField layoutX="174.0" layoutY="175.0" />
+                                    <Label fx:id="logoText1211" layoutX="28.0" layoutY="158.0" prefHeight="58.0" prefWidth="146.0" text="E-post">
+                                       <font>
+                                          <Font size="21.0" />
+                                       </font>
+                                    </Label>
+                                    <TextField layoutX="173.0" layoutY="217.0" />
+                                    <Label fx:id="logoText1212" layoutX="27.0" layoutY="200.0" prefHeight="58.0" prefWidth="146.0" text="Telefon">
+                                       <font>
+                                          <Font size="21.0" />
+                                       </font>
+                                    </Label>
+                                    <TextField layoutX="172.0" layoutY="259.0" />
+                                    <Label fx:id="logoText1213" layoutX="26.0" layoutY="242.0" prefHeight="58.0" prefWidth="146.0" text="Adress">
+                                       <font>
+                                          <Font size="21.0" />
+                                       </font>
+                                    </Label>
+                                    <TextField layoutX="172.0" layoutY="301.0" />
+                                    <Label fx:id="logoText1214" layoutX="22.0" layoutY="284.0" prefHeight="58.0" prefWidth="146.0" text="Postnummer">
+                                       <font>
+                                          <Font size="21.0" />
+                                       </font>
+                                    </Label>
+                                    <TextField layoutX="778.0" layoutY="104.0" prefHeight="25.0" prefWidth="237.0" />
+                                    <Label fx:id="logoText122" layoutX="611.0" layoutY="87.0" prefHeight="58.0" prefWidth="146.0" text="Kortnummer">
+                                       <font>
+                                          <Font size="21.0" />
+                                       </font>
+                                    </Label>
+                                    <TextField layoutX="778.0" layoutY="150.0" />
+                                    <Label fx:id="logoText123" layoutX="611.0" layoutY="134.0" prefHeight="58.0" prefWidth="146.0" text="Utgångsdatum">
+                                       <font>
+                                          <Font size="21.0" />
+                                       </font>
+                                    </Label>
+                                    <TextField layoutX="778.0" layoutY="192.0" prefHeight="25.0" prefWidth="90.0" />
+                                    <Label fx:id="logoText124" layoutX="610.0" layoutY="175.0" prefHeight="58.0" prefWidth="146.0" text="CVC">
+                                       <font>
+                                          <Font size="21.0" />
+                                       </font>
+                                    </Label>
+                                    <Button fx:id="skapaKontoBtn" cacheShape="false" centerShape="false" focusTraversable="false" layoutX="734.0" layoutY="303.0" mnemonicParsing="false" onMouseClicked="#minaSidorShow" prefHeight="78.0" prefWidth="197.0" scaleShape="false" text="Skapa konto">
+                                       <font>
+                                          <Font size="22.0" />
+                                       </font>
+                                    </Button>
+                                    <Line endX="-99.5" endY="392.0" layoutX="651.0" layoutY="7.0" startX="-99.5" startY="67.5" />
+                                    <Line endX="560.0" endY="49.0" layoutX="548.0" layoutY="25.0" startX="-553.0" startY="49.0" />
+                                    <Line endX="10.0" endY="260.0" layoutX="542.0" layoutY="11.0" startX="571.0" startY="260.0" />
+                                    <ImageView fitHeight="58.0" fitWidth="68.0" layoutX="881.0" layoutY="16.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@resources/mastercard.png" />
+                                       </image>
+                                    </ImageView>
+                                 </children>
+                              </AnchorPane>
+                              <AnchorPane fx:id="minaSidorHistorikPane" layoutX="10.0" layoutY="10.0" minHeight="0.0" minWidth="0.0" prefHeight="125.0" prefWidth="1130.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="580.0">
+                                 <children>
+                                    <Label fx:id="historiktxt" layoutX="474.0" layoutY="6.0" prefHeight="113.0" prefWidth="183.0" text="Köphistorik">
+                                       <font>
+                                          <Font size="40.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                              </AnchorPane>
+                           </children>
+                        </AnchorPane>
+                     </content>
+                  </ScrollPane>
                </children>
             </AnchorPane>
          </children>

@@ -62,6 +62,7 @@ public class  iMatController implements Initializable, ShoppingCartListener {
 
     //MINA SIDOR
     @FXML private AnchorPane minaSidor;
+    @FXML private AnchorPane minaSidorInfoPane;
 
     private final IMatDataHandler dh = IMatDataHandler.getInstance();
     public ShoppingCart shoppingCart = dh.getShoppingCart();
