@@ -20,6 +20,8 @@ import java.awt.event.ActionListener;
 import java.net.URL;
 import java.util.*;
 
+import static javafx.scene.paint.Color.GREEN;
+import static javafx.scene.paint.Color.RED;
 import static se.chalmers.cse.dat216.project.ProductCategory.*;
 
 
@@ -67,10 +69,25 @@ public class  iMatController implements Initializable, ShoppingCartListener {
     //MINA SIDOR
     @FXML private AnchorPane minaSidor;
     @FXML private AnchorPane minaSidorInfoPane;
+    @FXML private Button skapaKontoBtn;
+    @FXML private Label rodText;
+
+    @FXML private TextField forNamnField;
+    @FXML private TextField efterNamnField;
+    @FXML private TextField epostField;
+    @FXML private TextField telefonField;
+    @FXML private TextField adressField;
+    @FXML private TextField postnummerField;
+    @FXML private TextField kortnummerField;
+    @FXML private TextField kortNamnField;
+    @FXML private TextField kortDatumField;
+    @FXML private TextField cvcField;
+
     private List<Order> orderlista = dh.getOrders();
     private Map<Integer,OrderItem> orderListItemMap = new HashMap<Integer, OrderItem>();
     private OrderItem orderItem;
 
+    //Startsida
     public ShoppingCart shoppingCart = dh.getShoppingCart();
 
     private final List<Product> productList = dh.getProducts();
@@ -169,7 +186,8 @@ public class  iMatController implements Initializable, ShoppingCartListener {
         cartTotal.setText(String.valueOf(roundOff + " kr"));
     }
 
-    //Button method calls
+    //Category method calls
+
     public void all_category(){
         bannerImage.setVisible(false);
         categoryBannerImage.setImage(null);
@@ -316,7 +334,19 @@ public class  iMatController implements Initializable, ShoppingCartListener {
         updateRecipeList();
     }
 
-    //End of button method calls
+    //End of category method calls
+
+    public void create_user(){
+        if(forNamnField.getText().isEmpty() || efterNamnField.getText().isEmpty() || epostField.getText().isEmpty() || telefonField.getText().isEmpty() || postnummerField.getText().isEmpty() ||
+                adressField.getText().isEmpty() || kortnummerField.getText().isEmpty() || kortNamnField.getText().isEmpty() || kortDatumField.getText().isEmpty() || cvcField.getText().isEmpty() ){
+            rodText.setTextFill(RED);
+            rodText.setText("Fyll i samtliga uppgifter för att skapa ett konto!");
+        } else{
+            System.out.println("Fälten har text");
+            rodText.setTextFill(GREEN);
+            rodText.setText("Ditt konto är skapat!");
+        }
+    }
 
     @Override
     public void shoppingCartChanged(CartEvent cartEvent) {

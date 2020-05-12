@@ -1,5 +1,6 @@
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
 import se.chalmers.cse.dat216.project.IMatDataHandler;
@@ -21,6 +22,7 @@ public class OrderItem extends AnchorPane {
     @FXML private Label prisLbl;
     @FXML private Label varorLbl;
     @FXML private Label orderLbl;
+    @FXML private Button orderBtn;
 
     public OrderItem(Order order, iMatController iMatController) {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("OrderItem.fxml"));
@@ -37,7 +39,7 @@ public class OrderItem extends AnchorPane {
         this.parentController = iMatController;
 
         for(ShoppingItem i: order.getItems()){
-            kostnad += i.getAmount();
+            kostnad += i.getTotal();
             varor ++;
         }
 
@@ -48,5 +50,12 @@ public class OrderItem extends AnchorPane {
 
 
 
+    }
+
+    public void order_to_varukorg(){
+        for(ShoppingItem s: order.getItems()){
+            parentController.shoppingCart.addItem(s);
+        }
+        parentController.updateCart();
     }
 }
