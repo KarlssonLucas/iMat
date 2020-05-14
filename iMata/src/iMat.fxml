@@ -20,7 +20,7 @@
    <children>
       <StackPane fx:id="background" layoutY="10.0" minHeight="834.0" minWidth="1175.0" prefHeight="843.0" prefWidth="1175.0" AnchorPane.bottomAnchor="43.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="10.0">
          <children>
-            <AnchorPane prefHeight="924.0" prefWidth="1175.0" style="-fx-background-color: white;">
+            <AnchorPane fx:id="hem" prefHeight="924.0" prefWidth="1175.0" style="-fx-background-color: white;">
                <children>
                   <AnchorPane fx:id="paneTop" layoutX="25.0" layoutY="52.0" prefHeight="157.0" prefWidth="1125.0" AnchorPane.leftAnchor="25.0" AnchorPane.rightAnchor="25.0" AnchorPane.topAnchor="52.0">
                      <children>
@@ -286,7 +286,14 @@
                               </AnchorPane>
                               <ScrollPane layoutX="105.0" layoutY="566.0" prefHeight="400.0" prefWidth="1100.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="30.0" AnchorPane.topAnchor="680.0">
                                  <content>
-                                    <FlowPane fx:id="ordersFlowPane" prefHeight="400.0" prefWidth="1080.0" />
+                                    <FlowPane fx:id="ordersFlowPane" prefHeight="400.0" prefWidth="1080.0">
+                                       <children>
+                                          <Label fx:id="tidigareKopTxt" alignment="CENTER" prefHeight="75.0" prefWidth="1080.0" textAlignment="CENTER">
+                                             <font>
+                                                <Font size="40.0" />
+                                             </font>
+                                          </Label>
+                                       </children></FlowPane>
                                  </content>
                               </ScrollPane>
                            </children>

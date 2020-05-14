@@ -20,6 +20,11 @@
     -fx-background-color: #3366ff;
 }
 
+/* Add some cooler effect  */
+
+#minaSidorButton:pressed, #checkoutButton:pressed, #helpButton:pressed, #hemButton:pressed, #skapaKontoBtn:pressed, #orderBtn:pressed{
+    -fx-background-color: #0000ff;
+}
 
 #productItem {
     -fx-border-color: white;

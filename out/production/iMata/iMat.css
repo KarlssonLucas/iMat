@@ -7,7 +7,7 @@
     -fx-text-decoration:none;
 }
 
-#skapaKontoBtn {
+#skapaKontoBtn, #orderBtn {
     -fx-background-color:#3399ff;
     -fx-display: inline-block;
     -fx-cursor:pointer;
@@ -16,10 +16,15 @@
     -fx-text-decoration:none;
 }
 
-#minaSidorButton:hover, #checkoutButton:hover, #helpButton:hover, #hemButton:hover, #skapaKontoBtn:hover  {
+#minaSidorButton:hover, #checkoutButton:hover, #helpButton:hover, #hemButton:hover, #skapaKontoBtn:hover, #orderBtn:hover  {
     -fx-background-color: #3366ff;
 }
 
+/* Add some cooler effect  */
+
+#minaSidorButton:pressed, #checkoutButton:pressed, #helpButton:pressed, #hemButton:pressed, #skapaKontoBtn:pressed, #orderBtn:pressed{
+    -fx-background-color: #0000ff;
+}
 
 #productItem {
     -fx-border-color: white;

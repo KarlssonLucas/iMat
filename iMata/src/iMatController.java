@@ -71,6 +71,7 @@ public class  iMatController implements Initializable, ShoppingCartListener {
     @FXML private AnchorPane minaSidorInfoPane;
     @FXML private Button skapaKontoBtn;
     @FXML private Label rodText;
+    @FXML private Label tidigareKopTxt;
 
     @FXML private TextField forNamnField;
     @FXML private TextField efterNamnField;
@@ -88,6 +89,7 @@ public class  iMatController implements Initializable, ShoppingCartListener {
     private OrderItem orderItem;
 
     //Startsida
+    @FXML private AnchorPane hem;
     public ShoppingCart shoppingCart = dh.getShoppingCart();
 
     private final List<Product> productList = dh.getProducts();
@@ -115,6 +117,13 @@ public class  iMatController implements Initializable, ShoppingCartListener {
         reaBanner.setPreserveRatio(true);
         scrollItemView.setFitToWidth(true);
         scrollItemView.setFitToHeight(true);
+
+        if(orderlista.isEmpty()){
+            tidigareKopTxt.setText("Du har inga tidigare köp");
+        } else{
+            populateOrderHashMap();
+            updateOrders();
+        }
     }
 
     @FXML
@@ -123,6 +132,11 @@ public class  iMatController implements Initializable, ShoppingCartListener {
         currentProductList = dh.findProducts(s);
         populateHashMap();
         updateRecipeList();
+        searched();
+    }
+    @FXML
+    public void searched() {
+        hem.toFront();
     }
 
     //Mina sidor metoder
