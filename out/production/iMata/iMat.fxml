@@ -39,9 +39,9 @@
                               <Image url="@resources/testlogo.png" />
                            </image>
                         </ImageView>
-                        <Button fx:id="hemButton" cacheShape="false" centerShape="false" focusTraversable="false" layoutX="2.0" layoutY="89.0" mnemonicParsing="false" onMouseClicked="#minaSidorHide" prefHeight="70.0" prefWidth="169.0" scaleShape="false" text="Hem" AnchorPane.leftAnchor="2.0" AnchorPane.topAnchor="89.0" />
+                        <Button fx:id="hemButton" cacheShape="false" centerShape="false" focusTraversable="false" layoutX="2.0" layoutY="89.0" mnemonicParsing="false" onAction="#hemShow" prefHeight="70.0" prefWidth="169.0" scaleShape="false" text="Hem" AnchorPane.leftAnchor="2.0" AnchorPane.topAnchor="89.0" />
                         <Button fx:id="helpButton" cacheShape="false" centerShape="false" focusTraversable="false" layoutX="169.0" layoutY="89.0" mnemonicParsing="false" prefHeight="70.0" prefWidth="169.0" scaleShape="false" text="Hjälp" />
-                        <Button fx:id="checkoutButton" cacheShape="false" centerShape="false" focusTraversable="false" layoutX="955.0" layoutY="87.0" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="70.0" prefWidth="169.0" scaleShape="false" AnchorPane.bottomAnchor="2.0" AnchorPane.rightAnchor="1.0" AnchorPane.topAnchor="87.0">
+                        <Button fx:id="checkoutButton" cacheShape="false" centerShape="false" focusTraversable="false" layoutX="955.0" layoutY="87.0" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#varukorgShow" prefHeight="70.0" prefWidth="169.0" scaleShape="false" AnchorPane.bottomAnchor="2.0" AnchorPane.rightAnchor="1.0" AnchorPane.topAnchor="87.0">
                            <graphic>
                               <Label fx:id="cartTotal" alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="565.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="170.0" text="0.00 kr" textAlignment="RIGHT">
                                  <font>
@@ -57,7 +57,7 @@
                               </Label>
                            </graphic>
                         </Button>
-                        <Button fx:id="minaSidorButton" cacheShape="false" centerShape="false" focusTraversable="false" layoutX="786.0" layoutY="87.0" mnemonicParsing="false" onMouseClicked="#minaSidorShow" prefHeight="70.0" prefWidth="169.0" scaleShape="false" text="Mina Sidor" AnchorPane.bottomAnchor="2.0" AnchorPane.rightAnchor="170.0" AnchorPane.topAnchor="87.0">
+                        <Button fx:id="minaSidorButton" cacheShape="false" centerShape="false" focusTraversable="false" layoutX="786.0" layoutY="87.0" mnemonicParsing="false" onAction="#minaSidorShow" prefHeight="70.0" prefWidth="169.0" scaleShape="false" text="Mina Sidor" AnchorPane.bottomAnchor="2.0" AnchorPane.rightAnchor="170.0" AnchorPane.topAnchor="87.0">
                            <font>
                               <Font size="22.0" />
                            </font>
@@ -168,7 +168,7 @@
                   <Insets top="200.0" />
                </StackPane.margin>
                <children>
-                  <ScrollPane prefHeight="691.0" prefWidth="1130.0" AnchorPane.topAnchor="5.0">
+                  <ScrollPane hbarPolicy="NEVER" prefHeight="691.0" prefWidth="1130.0" AnchorPane.topAnchor="5.0">
                      <content>
                         <AnchorPane prefHeight="691.0" prefWidth="1130.0">
                            <children>
@@ -284,7 +284,7 @@
                                     </Label>
                                  </children>
                               </AnchorPane>
-                              <ScrollPane layoutX="105.0" layoutY="566.0" prefHeight="400.0" prefWidth="1100.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="30.0" AnchorPane.topAnchor="680.0">
+                              <ScrollPane hbarPolicy="NEVER" layoutX="105.0" layoutY="566.0" prefHeight="400.0" prefWidth="1100.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="30.0" AnchorPane.topAnchor="680.0">
                                  <content>
                                     <FlowPane fx:id="ordersFlowPane" prefHeight="400.0" prefWidth="1080.0">
                                        <children>
@@ -300,6 +300,61 @@
                         </AnchorPane>
                      </content>
                   </ScrollPane>
+               </children>
+            </AnchorPane>
+            <AnchorPane fx:id="varukorg" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="691.0" prefWidth="1130.0" style="-fx-background-color: white;">
+               <StackPane.margin>
+                  <Insets top="200.0" />
+               </StackPane.margin>
+               <children>
+                  <AnchorPane fx:id="kassanTopPane" minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="1100.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="5.0">
+                     <children>
+                        <Label fx:id="kassanTxt" layoutX="448.0" layoutY="-6.0" prefHeight="113.0" prefWidth="211.0" text="Din varukorg">
+                           <font>
+                              <Font size="40.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </AnchorPane>
+                  <ScrollPane prefHeight="400.0" prefWidth="1100.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="120.0">
+                    <content>
+                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="200.0" prefWidth="200.0" />
+                    </content>
+                  </ScrollPane>
+                  <AnchorPane fx:id="kassanBotPane" layoutX="10.0" layoutY="10.0" minHeight="0.0" minWidth="0.0" prefHeight="75.0" prefWidth="600.0" AnchorPane.leftAnchor="265.0" AnchorPane.topAnchor="530.0">
+                     <children>
+                        <AnchorPane fx:id="kassanVarorPane" layoutX="52.0" layoutY="12.0">
+                           <children>
+                              <Label fx:id="kassanTxt2" alignment="CENTER" prefHeight="52.0" prefWidth="211.0" text="Totalt 30 varor" textAlignment="CENTER">
+                                 <font>
+                                    <Font size="40.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </AnchorPane>
+                        <AnchorPane fx:id="kassanPrisPane" layoutX="342.0" layoutY="11.0">
+                           <children>
+                              <Label fx:id="kassanTxt21" alignment="CENTER" prefHeight="52.0" prefWidth="170.0" text="Pris 725.5kr">
+                                 <font>
+                                    <Font size="40.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </AnchorPane>
+                     </children>
+                  </AnchorPane>
+                  <Button layoutX="923.0" layoutY="605.0" mnemonicParsing="false" prefHeight="70.0" prefWidth="158.0" text="Gå vidare med min order" />
+                  <Button layoutX="54.0" layoutY="605.0" mnemonicParsing="false" prefHeight="70.0" prefWidth="158.0" text="Gå tillbaka till butiken" />
+                  <ImageView fitHeight="58.0" fitWidth="67.0" layoutX="973.0" layoutY="539.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@resources/arrow_right.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fitHeight="58.0" fitWidth="67.0" layoutX="104.0" layoutY="539.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@resources/arrow_left.png" />
+                     </image>
+                  </ImageView>
                </children>
             </AnchorPane>
          </children>

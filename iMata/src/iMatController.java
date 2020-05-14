@@ -98,6 +98,10 @@ public class  iMatController implements Initializable, ShoppingCartListener {
     private Map<String,iMatItem> recipeListItemMap = new HashMap<String, iMatItem>();
     private iMatItem iMatItem;
 
+    //KASSAN
+    @FXML private AnchorPane kassanTopPane;
+    @FXML private AnchorPane varukorg;
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
@@ -132,11 +136,16 @@ public class  iMatController implements Initializable, ShoppingCartListener {
         currentProductList = dh.findProducts(s);
         populateHashMap();
         updateRecipeList();
-        searched();
+        hemShow();
     }
     @FXML
-    public void searched() {
+    public void hemShow() {
         hem.toFront();
+    }
+
+    @FXML
+    public void varukorgShow() {
+        varukorg.toFront();
     }
 
     //Mina sidor metoder
