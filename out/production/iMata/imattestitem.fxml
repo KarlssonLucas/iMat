@@ -41,6 +41,6 @@
             </ImageView>
          </graphic>
       </Button>
-      <Button layoutX="59.0" layoutY="237.0" mnemonicParsing="false" onAction="#addCart" text="Lägg till i kundvagnen" />
+      <Button fx:id="addtoCart" layoutX="59.0" layoutY="237.0" mnemonicParsing="false" onAction="#addCart" text="Lägg till i kundvagnen" />
    </children>
 </fx:root>

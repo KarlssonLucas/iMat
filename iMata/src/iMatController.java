@@ -64,7 +64,12 @@ public class  iMatController implements Initializable, ShoppingCartListener {
     @FXML public Button bbb9;
     @FXML public Button bbb10;
 
-    private final IMatDataHandler dh = IMatDataHandler.getInstance();
+    //KUNDVAGN
+    @FXML private Label kassanTxt2;
+    @FXML private Label kassanTxt21;
+    @FXML private FlowPane checkoutFlow;
+    @FXML private AnchorPane kassanTopPane;
+    @FXML private AnchorPane varukorg;
 
     //MINA SIDOR
     @FXML private AnchorPane minaSidor;
@@ -84,6 +89,9 @@ public class  iMatController implements Initializable, ShoppingCartListener {
     @FXML private TextField kortDatumField;
     @FXML private TextField cvcField;
 
+    private final IMatDataHandler dh = IMatDataHandler.getInstance();
+
+    //MINA SIDOR
     private List<Order> orderlista = dh.getOrders();
     private Map<Integer,OrderItem> orderListItemMap = new HashMap<Integer, OrderItem>();
     private OrderItem orderItem;
@@ -99,8 +107,9 @@ public class  iMatController implements Initializable, ShoppingCartListener {
     private iMatItem iMatItem;
 
     //KASSAN
-    @FXML private AnchorPane kassanTopPane;
-    @FXML private AnchorPane varukorg;
+    private Map<String, iMatCheckoutItem> checkoutListItemMap = new HashMap<String, iMatCheckoutItem>();
+    private iMatCheckoutItem checkoutItem;
+    private ArrayList<ShoppingItem> si = new ArrayList<>();
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -145,6 +154,12 @@ public class  iMatController implements Initializable, ShoppingCartListener {
 
     @FXML
     public void varukorgShow() {
+        kassanTxt2.setText(getAmountProducts() + " varor");
+        kassanTxt21.setText(shoppingCart.getTotal() + " kr");
+
+        populateCheckout();
+        updateCheckout();
+
         varukorg.toFront();
     }
 
@@ -157,6 +172,14 @@ public class  iMatController implements Initializable, ShoppingCartListener {
     @FXML
     public void minaSidorHide() {
         minaSidor.toBack();
+    }
+
+    public int getAmountProducts() {
+        int total = 0;
+        for (ShoppingItem s : shoppingCart.getItems()) {
+            total = total + (int) s.getAmount();
+        }
+        return total;
     }
 
     private void populateOrderHashMap(){
@@ -207,6 +230,33 @@ public class  iMatController implements Initializable, ShoppingCartListener {
     public void updateCart() {
         double roundOff = Math.round(shoppingCart.getTotal() * 100.0) / 100.0;
         cartTotal.setText(String.valueOf(roundOff + " kr"));
+    }
+
+    public void updateCheckout(){
+        checkoutFlow.getChildren().clear();
+        for (ShoppingItem r : shoppingCart.getItems()) {
+            checkoutFlow.getChildren().add(checkoutListItemMap.get(r.getProduct().getName()));
+        }
+    }
+
+    public void populateCheckout(){
+        //TODO
+        /*
+        for (ShoppingItem r: shoppingCart.getItems()) {
+            double n = r.getAmount();
+            for (int i = shoppingCart.getItems().indexOf(r)+1; i<shoppingCart.getItems().size(); i++) {
+                if (r.equals(shoppingCart.getItems().get(i))) {
+                    n = n + shoppingCart.getItems().get(i).getAmount();
+                    shoppingCart.removeItem(i);
+                }
+            }
+            shoppingCart.addProduct(r.getProduct(), n);
+        }
+        */
+        for (ShoppingItem r : shoppingCart.getItems()){
+            checkoutItem = new iMatCheckoutItem(r.getProduct(), this);
+            checkoutListItemMap.put(r.getProduct().getName(), checkoutItem);
+        }
     }
 
     //Category method calls

@@ -20,59 +20,73 @@
    <children>
       <StackPane fx:id="background" layoutY="10.0" minHeight="834.0" minWidth="1175.0" prefHeight="843.0" prefWidth="1175.0" AnchorPane.bottomAnchor="43.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="10.0">
          <children>
-            <AnchorPane fx:id="varukorg" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="691.0" prefWidth="1130.0" style="-fx-background-color: white;">
+            <AnchorPane fx:id="varukorg" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1130.0" StackPane.alignment="CENTER">
                <StackPane.margin>
                   <Insets top="200.0" />
                </StackPane.margin>
                <children>
-                  <AnchorPane fx:id="kassanTopPane" minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="1100.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="5.0">
+                  <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="691.0" prefWidth="1130.0" style="-fx-background-color: white;" AnchorPane.bottomAnchor="9.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                      <children>
-                        <Label fx:id="kassanTxt" layoutX="448.0" layoutY="-6.0" prefHeight="113.0" prefWidth="211.0" text="Din varukorg">
-                           <font>
-                              <Font size="40.0" />
-                           </font>
-                        </Label>
-                     </children>
-                  </AnchorPane>
-                  <ScrollPane prefHeight="400.0" prefWidth="1100.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="120.0">
-                    <content>
-                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="200.0" prefWidth="200.0" />
-                    </content>
-                  </ScrollPane>
-                  <AnchorPane fx:id="kassanBotPane" layoutX="10.0" layoutY="10.0" minHeight="0.0" minWidth="0.0" prefHeight="75.0" prefWidth="600.0" AnchorPane.leftAnchor="265.0" AnchorPane.topAnchor="530.0">
-                     <children>
-                        <AnchorPane fx:id="kassanVarorPane" layoutX="52.0" layoutY="12.0">
+                        <AnchorPane fx:id="kassanTopPane" layoutX="15.0" layoutY="20.0" minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="1100.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="20.0">
                            <children>
-                              <Label fx:id="kassanTxt2" alignment="CENTER" prefHeight="52.0" prefWidth="211.0" text="Totalt 30 varor" textAlignment="CENTER">
+                              <Label fx:id="kassanTxt" layoutX="448.0" layoutY="-6.0" prefHeight="113.0" prefWidth="211.0" text="Din varukorg">
                                  <font>
                                     <Font size="40.0" />
                                  </font>
                               </Label>
                            </children>
                         </AnchorPane>
-                        <AnchorPane fx:id="kassanPrisPane" layoutX="342.0" layoutY="11.0">
+                        <ScrollPane prefHeight="471.0" prefWidth="1100.0" AnchorPane.bottomAnchor="100.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="120.0">
+                           <content>
+                              <FlowPane fx:id="checkoutFlow" prefHeight="470.0" prefWidth="1082.0">
+                                 <padding>
+                                    <Insets bottom="25.0" left="25.0" right="25.0" top="25.0" />
+                                 </padding>
+                              </FlowPane>
+                           </content>
+                        </ScrollPane>
+                        <AnchorPane fx:id="kassanBotPane" layoutX="265.0" layoutY="603.0" minHeight="0.0" minWidth="0.0" prefHeight="75.0" prefWidth="600.0" AnchorPane.leftAnchor="265.0" AnchorPane.rightAnchor="265.0" AnchorPane.topAnchor="603.0">
                            <children>
-                              <Label fx:id="kassanTxt21" alignment="CENTER" prefHeight="52.0" prefWidth="170.0" text="Pris 725.5kr">
-                                 <font>
-                                    <Font size="40.0" />
-                                 </font>
-                              </Label>
+                              <AnchorPane fx:id="kassanVarorPane" layoutX="52.0" layoutY="12.0">
+                                 <children>
+                                    <Label fx:id="kassanTxt2" alignment="CENTER" prefHeight="52.0" prefWidth="211.0" text="Totalt 30 varor" textAlignment="CENTER">
+                                       <font>
+                                          <Font size="40.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                              </AnchorPane>
+                              <AnchorPane fx:id="kassanPrisPane" layoutX="342.0" layoutY="11.0">
+                                 <children>
+                                    <Label fx:id="kassanTxt21" alignment="CENTER" prefHeight="52.0" prefWidth="170.0" text="Pris 725.5kr">
+                                       <font>
+                                          <Font size="40.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                              </AnchorPane>
                            </children>
                         </AnchorPane>
+                        <Button layoutX="923.0" layoutY="605.0" mnemonicParsing="false" prefHeight="70.0" prefWidth="158.0" text="Gå vidare med min order">
+                           <graphic>
+                              <ImageView fitHeight="26.0" fitWidth="21.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@resources/arrow_right.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </Button>
+                        <Button layoutX="54.0" layoutY="605.0" mnemonicParsing="false" onAction="#hemShow" prefHeight="70.0" prefWidth="158.0" text="Gå tillbaka till butiken">
+                           <graphic>
+                              <ImageView fitHeight="31.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@resources/arrow_left.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </Button>
                      </children>
                   </AnchorPane>
-                  <Button layoutX="923.0" layoutY="605.0" mnemonicParsing="false" prefHeight="70.0" prefWidth="158.0" text="Gå vidare med min order" />
-                  <Button layoutX="54.0" layoutY="605.0" mnemonicParsing="false" onAction="#hemShow" prefHeight="70.0" prefWidth="158.0" text="Gå tillbaka till butiken" />
-                  <ImageView fitHeight="58.0" fitWidth="67.0" layoutX="973.0" layoutY="539.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@resources/arrow_right.png" />
-                     </image>
-                  </ImageView>
-                  <ImageView fitHeight="58.0" fitWidth="67.0" layoutX="104.0" layoutY="539.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@resources/arrow_left.png" />
-                     </image>
-                  </ImageView>
                </children>
             </AnchorPane>
             <AnchorPane fx:id="minaSidor" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="691.0" prefWidth="1130.0" style="-fx-background-color: white;">

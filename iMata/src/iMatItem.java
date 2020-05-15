@@ -25,7 +25,8 @@ public class iMatItem extends AnchorPane {
     @FXML private Label productUnit;
     @FXML private TextField amountProduct;
     @FXML private Label productCategory;
-    @FXML private ImageView favoriteImage;
+    @FXML public ImageView favoriteImage;
+    @FXML public Button addtoCart;
 
     @FXML
     public void onClick(Event event) {
