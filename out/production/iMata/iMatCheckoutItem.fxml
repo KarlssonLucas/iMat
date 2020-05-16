@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<fx:root fx:id="checkoutItem" minHeight="-Infinity" minWidth="-Infinity" prefHeight="105.0" prefWidth="504.0" type="javafx.scene.layout.AnchorPane" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <ImageView fx:id="checkoutPicture" fitHeight="89.0" fitWidth="145.0" layoutX="8.0" layoutY="8.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="8.0" AnchorPane.rightAnchor="953.3333358764648">
+         <image>
+            <Image url="@resources/chicken-tikka-masala.jpg" />
+         </image>
+      </ImageView>
+      <Label fx:id="checkoutName" alignment="CENTER" layoutX="163.0" layoutY="34.0" prefHeight="17.0" prefWidth="110.0" text="Stekt ägg" AnchorPane.leftAnchor="163.0" AnchorPane.rightAnchor="249.0" />
+      <Label fx:id="checkoutPrice" layoutX="183.0" layoutY="54.0" text="Label" />
+      <Label fx:id="checkoutUnit" layoutX="211.0" layoutY="54.0" text="Label" />
+      <TextField fx:id="checkoutAmount" layoutX="318.0" layoutY="42.0" prefHeight="25.0" prefWidth="73.0" AnchorPane.leftAnchor="318.0" AnchorPane.rightAnchor="131.0" />
+      <Button fx:id="subtractCheckout" alignment="CENTER" contentDisplay="CENTER" layoutX="277.0" layoutY="38.0" mnemonicParsing="false" onAction="#subtract" prefHeight="25.0" prefWidth="28.0" style="-fx-background-color: inherit;" textAlignment="CENTER">
+         <graphic>
+            <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@resources/removeProduct.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
+      <Button fx:id="addCheckout" layoutX="373.0" layoutY="38.0" mnemonicParsing="false" onAction="#addition" prefHeight="33.0" prefWidth="35.0" style="-fx-background-color: inherit;">
+         <graphic>
+            <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@resources/addProduct.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
+      <Button layoutX="470.0" layoutY="6.0" mnemonicParsing="false" onAction="#removeCheckoutItem" prefHeight="11.0" prefWidth="22.0" text="Button" />
+   </children>
+</fx:root>

@@ -109,7 +109,7 @@ public class  iMatController implements Initializable, ShoppingCartListener {
     //KASSAN
     private Map<String, iMatCheckoutItem> checkoutListItemMap = new HashMap<String, iMatCheckoutItem>();
     private iMatCheckoutItem checkoutItem;
-    private ArrayList<ShoppingItem> si = new ArrayList<>();
+    public ArrayList<ShoppingItem> si = new ArrayList<>();
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -157,6 +157,11 @@ public class  iMatController implements Initializable, ShoppingCartListener {
         kassanTxt2.setText(getAmountProducts() + " varor");
         kassanTxt21.setText(shoppingCart.getTotal() + " kr");
 
+        for (int i = 0; i<shoppingCart.getItems().size(); i++) {
+            System.out.println(shoppingCart.getItems().get(i).getAmount());
+        }
+
+        removeDup();
         populateCheckout();
         updateCheckout();
 
@@ -239,23 +244,27 @@ public class  iMatController implements Initializable, ShoppingCartListener {
         }
     }
 
-    public void populateCheckout(){
-        //TODO
-        /*
-        for (ShoppingItem r: shoppingCart.getItems()) {
-            double n = r.getAmount();
-            for (int i = shoppingCart.getItems().indexOf(r)+1; i<shoppingCart.getItems().size(); i++) {
-                if (r.equals(shoppingCart.getItems().get(i))) {
-                    n = n + shoppingCart.getItems().get(i).getAmount();
-                    shoppingCart.removeItem(i);
-                }
-            }
-            shoppingCart.addProduct(r.getProduct(), n);
-        }
-        */
+    public void populateCheckout() {
         for (ShoppingItem r : shoppingCart.getItems()){
             checkoutItem = new iMatCheckoutItem(r.getProduct(), this);
             checkoutListItemMap.put(r.getProduct().getName(), checkoutItem);
+        }
+    }
+
+    public void removeDup() {
+        List<ShoppingItem> sc = shoppingCart.getItems();
+
+        double n = 0;
+        for (ShoppingItem r : sc) {
+            for (int i = sc.indexOf(r) + 1; i < sc.size(); i++) {
+                ShoppingItem t = sc.get(i);
+                if (r.getProduct().equals(t.getProduct())) {
+                    n = r.getAmount() + t.getAmount();
+                    shoppingCart.addProduct(r.getProduct(), n);
+                    shoppingCart.removeItem(r);
+                    shoppingCart.removeItem(t);
+                }
+            }
         }
     }
 
