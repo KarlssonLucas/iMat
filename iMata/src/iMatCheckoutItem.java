@@ -10,6 +10,7 @@ import javafx.scene.layout.AnchorPane;
 import se.chalmers.cse.dat216.project.*;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.regex.Pattern;
 
@@ -87,6 +88,15 @@ public class iMatCheckoutItem extends AnchorPane {
             parentController.updateCart();
         }
 
+        private void setCheckoutAmount() {
+            List<ShoppingItem> sc = parentController.shoppingCart.getItems();
+            for (ShoppingItem r : sc) {
+                if (product.equals(r.getProduct())) {
+                    checkoutAmount.setText(r.getAmount() + " " + product.getUnitSuffix());
+                }
+            }
+        }
+
         public iMatCheckoutItem(Product product, iMatController iMatController) {
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("iMatCheckoutItem.fxml"));
             fxmlLoader.setRoot(this);
@@ -99,6 +109,8 @@ public class iMatCheckoutItem extends AnchorPane {
             }
             this.product = product;
             this.parentController = iMatController;
+
+            setCheckoutAmount();
 
             checkoutAmount.setPromptText("antal " + product.getUnitSuffix());
             checkoutUnit.setText(product.getUnit());

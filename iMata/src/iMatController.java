@@ -154,11 +154,8 @@ public class  iMatController implements Initializable, ShoppingCartListener {
 
     @FXML
     public void varukorgShow() {
-
-        for (int i = 0; i<shoppingCart.getItems().size(); i++) {
-            System.out.println(shoppingCart.getItems().get(i).getAmount());
-        }
-
+        removeDup();
+        removeDup();
         removeDup();
         populateCheckout();
         updateCheckout();
@@ -238,7 +235,7 @@ public class  iMatController implements Initializable, ShoppingCartListener {
         double roundOff = Math.round(shoppingCart.getTotal() * 100.0) / 100.0;
         cartTotal.setText(String.valueOf(roundOff + " kr"));
         kassanTxt2.setText(getAmountProducts() + " varor");
-        kassanTxt21.setText(shoppingCart.getTotal() + " kr");
+        kassanTxt21.setText(String.valueOf(roundOff + " kr"));
     }
 
     public void updateCheckout(){
@@ -257,10 +254,11 @@ public class  iMatController implements Initializable, ShoppingCartListener {
 
     public void removeDup() {
         List<ShoppingItem> sc = shoppingCart.getItems();
-
         double n = 0;
-        for (ShoppingItem r : sc) {
-            for (int i = sc.indexOf(r) + 1; i < sc.size(); i++) {
+
+        for (int k = 0; k < sc.size()-1; k++) {
+            ShoppingItem r = sc.get(k);
+            for (int i = k + 1; i < sc.size(); i++) {
                 ShoppingItem t = sc.get(i);
                 if (r.getProduct().equals(t.getProduct())) {
                     n = r.getAmount() + t.getAmount();

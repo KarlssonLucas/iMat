@@ -126,7 +126,7 @@
     -fx-graphic: url("resources/removeProduct.png");
 }
 
-#subtractProduct:hover {
+#subtractProduct:hover, #subtractCheckout:hover {
     -fx-graphic: url("resources/removeProductHover.png");
 }
 
@@ -134,6 +134,6 @@
     -fx-graphic: url("resources/addProduct.png");
 }
 
-#addProductButton:hover {
+#addProductButton:hover, #addCheckout:hover {
     -fx-graphic: url("resources/addProductHover.png");
 }
