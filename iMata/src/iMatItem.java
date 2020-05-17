@@ -45,6 +45,10 @@ public class iMatItem extends AnchorPane {
             parentController.shoppingCart.addProduct(product, amount);
             parentController.updateCart();
             amountProduct.clear();
+
+            parentController.removeDup();
+            parentController.populateCheckout();
+            parentController.updateCart();
         }
     }
 

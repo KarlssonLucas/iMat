@@ -88,6 +88,7 @@ public class  iMatController implements Initializable, ShoppingCartListener {
     @FXML private TextField kortNamnField;
     @FXML private TextField kortDatumField;
     @FXML private TextField cvcField;
+    @FXML private AnchorPane registerDemand;
 
     private final IMatDataHandler dh = IMatDataHandler.getInstance();
 
@@ -140,6 +141,20 @@ public class  iMatController implements Initializable, ShoppingCartListener {
     }
 
     @FXML
+    private void closeRegisterDemand() {
+        registerDemand.toBack();
+    }
+
+    @FXML
+    private void startOrdering() {
+        if (dh.isCustomerComplete()) {
+            //TODO start making ordering process
+        } else {
+            registerDemand.toFront();
+        }
+    }
+
+    @FXML
     public void searchProduct() {
         String s = String.valueOf(searchField.getCharacters());
         currentProductList = dh.findProducts(s);
@@ -154,9 +169,6 @@ public class  iMatController implements Initializable, ShoppingCartListener {
 
     @FXML
     public void varukorgShow() {
-        removeDup();
-        removeDup();
-        removeDup();
         populateCheckout();
         updateCheckout();
 

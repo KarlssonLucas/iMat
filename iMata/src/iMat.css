@@ -26,7 +26,7 @@
     -fx-background-color: #0000ff;
 }
 
-#productItem {
+#productItem, #orderItem {
     -fx-border-color: white;
     -fx-border-width: 1px;
     -fx-border-radius: 5px;
@@ -50,7 +50,7 @@
 }
 
 /* Pane styling */
-#paneTop, #paneMatvaror, #minaSidorInfoPane, #minaSidorHistorikPane, #kassanTopPane, #kassanBotPane {
+#paneTop, #paneMatvaror, #minaSidorInfoPane, #minaSidorHistorikPane, #kassanTopPane, #kassanBotPane, #minaSidorHistorikPane2 {
     -fx-background-color: #3399ff;
     -fx-border-color: #3399ff;
     -fx-border-width: 1px;
