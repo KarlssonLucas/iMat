@@ -44,12 +44,37 @@ public class iMatCheckoutItem extends AnchorPane {
 
         @FXML
         private void subtract() {
+            List<ShoppingItem> sc = parentController.shoppingCart.getItems();
 
+            for(ShoppingItem s: sc){
+                if(s.getProduct() == product){
+                    if(s.getAmount() > 0){
+                        s.setAmount(s.getAmount() - 1);
+                    }
+                    break;
+                }
+            }
+            parentController.removeDup();
+            parentController.populateCheckout();
+            parentController.updateCheckout();
+            parentController.updateCart();
         }
 
         @FXML
         private void addition() {
+            List<ShoppingItem> sc = parentController.shoppingCart.getItems();
 
+            for(ShoppingItem s: sc){
+                if(s.getProduct() == product){
+                    s.setAmount(s.getAmount() + 1);
+                    break;
+                }
+            }
+
+            parentController.removeDup();
+            parentController.populateCheckout();
+            parentController.updateCheckout();
+            parentController.updateCart();
         }
 
         @FXML

@@ -154,8 +154,6 @@ public class  iMatController implements Initializable, ShoppingCartListener {
 
     @FXML
     public void varukorgShow() {
-        kassanTxt2.setText(getAmountProducts() + " varor");
-        kassanTxt21.setText(shoppingCart.getTotal() + " kr");
 
         for (int i = 0; i<shoppingCart.getItems().size(); i++) {
             System.out.println(shoppingCart.getItems().get(i).getAmount());
@@ -218,6 +216,10 @@ public class  iMatController implements Initializable, ShoppingCartListener {
 
     //End
 
+    //Kassan metoder
+
+    //END
+
     private void updateRecipeList(){
         productFlow.getChildren().clear();
         for (Product r: currentProductList) {
@@ -235,6 +237,8 @@ public class  iMatController implements Initializable, ShoppingCartListener {
     public void updateCart() {
         double roundOff = Math.round(shoppingCart.getTotal() * 100.0) / 100.0;
         cartTotal.setText(String.valueOf(roundOff + " kr"));
+        kassanTxt2.setText(getAmountProducts() + " varor");
+        kassanTxt21.setText(shoppingCart.getTotal() + " kr");
     }
 
     public void updateCheckout(){
