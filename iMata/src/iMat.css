@@ -75,7 +75,7 @@
 }
 
 /* White text */
-#minaSidortxt, #historiktxt, #kassanTxt, #kassanTxt2, #kassanTxt21, #kassanTxt22 {
+#minaSidortxt, #historiktxt, #kassanTxt, #kassanTxt2, #kassanTxt21, #kassanTxt22, #welcomeLbl {
     -fx-text-fill: white;
     -fx-font-size: 28px;
 }

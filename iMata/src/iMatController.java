@@ -37,7 +37,6 @@ public class  iMatController implements Initializable, ShoppingCartListener {
     @FXML private StackPane background;
     @FXML private TextField searchField;
 
-    @FXML private ImageView reaBanner;
     @FXML private StackPane gridPane;
     @FXML private Button reaButton;
     @FXML private AnchorPane bannerImage;
@@ -128,7 +127,6 @@ public class  iMatController implements Initializable, ShoppingCartListener {
         all_category();
         updateCart();
 
-        reaBanner.setPreserveRatio(true);
         scrollItemView.setFitToWidth(true);
         scrollItemView.setFitToHeight(true);
 
@@ -158,8 +156,7 @@ public class  iMatController implements Initializable, ShoppingCartListener {
     public void searchProduct() {
         String s = String.valueOf(searchField.getCharacters());
         currentProductList = dh.findProducts(s);
-        populateHashMap();
-        updateRecipeList();
+        search_category(s);
         hemShow();
     }
     @FXML
@@ -290,6 +287,15 @@ public class  iMatController implements Initializable, ShoppingCartListener {
         categoryBannerLabel.setText("");
 
         currentProductList = dh.getProducts();
+        populateHashMap();
+        updateRecipeList();
+    }
+
+    public void search_category(String text){
+        bannerImage.setVisible(true);
+        categoryBannerImage.setImage(new Image("resources/search.png"));
+        categoryBannerLabel.setText(text);
+
         populateHashMap();
         updateRecipeList();
     }
