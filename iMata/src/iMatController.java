@@ -76,16 +76,19 @@ public class  iMatController implements Initializable, ShoppingCartListener {
     @FXML private Button skapaKontoBtn;
     @FXML private Label rodText;
     @FXML private Label tidigareKopTxt;
+    @FXML private ImageView cardImage;
 
     @FXML private TextField forNamnField;
     @FXML private TextField efterNamnField;
     @FXML private TextField epostField;
     @FXML private TextField telefonField;
     @FXML private TextField adressField;
+    @FXML private TextField adressNumberField;
     @FXML private TextField postnummerField;
     @FXML private TextField kortnummerField;
     @FXML private TextField kortNamnField;
-    @FXML private TextField kortDatumField;
+    @FXML private TextField kortDatumMonthField;
+    @FXML private TextField kortDatumYearField;
     @FXML private TextField cvcField;
     @FXML private AnchorPane registerDemand;
 
@@ -95,6 +98,8 @@ public class  iMatController implements Initializable, ShoppingCartListener {
     private List<Order> orderlista = dh.getOrders();
     private Map<Integer,OrderItem> orderListItemMap = new HashMap<Integer, OrderItem>();
     private OrderItem orderItem;
+    public Customer customer = dh.getCustomer();
+    public CreditCard creditCard = dh.getCreditCard();
 
     //Startsida
     @FXML private AnchorPane hem;
@@ -116,8 +121,10 @@ public class  iMatController implements Initializable, ShoppingCartListener {
 
         if (!dh.isCustomerComplete()) {
             minaSidorButton.setText("Registrera dig");
+            skapaKontoBtn.setText("Skapa konto");
         } else {
             minaSidorButton.setText("Mina Sidor");
+            skapaKontoBtn.setText("Uppdatera kontouppgifter");
         }
         hemButton.setText("Hem ");
         checkoutButton.setText("....");
@@ -438,15 +445,64 @@ public class  iMatController implements Initializable, ShoppingCartListener {
 
     //End of category method calls
 
+    public void startUser() {
+
+    }
+
     public void create_user(){
         if(forNamnField.getText().isEmpty() || efterNamnField.getText().isEmpty() || epostField.getText().isEmpty() || telefonField.getText().isEmpty() || postnummerField.getText().isEmpty() ||
-                adressField.getText().isEmpty() || kortnummerField.getText().isEmpty() || kortNamnField.getText().isEmpty() || kortDatumField.getText().isEmpty() || cvcField.getText().isEmpty() ){
+                adressField.getText().isEmpty() || kortnummerField.getText().isEmpty() || kortNamnField.getText().isEmpty() || kortDatumMonthField.getText().isEmpty() || kortDatumYearField.getText().isEmpty() || cvcField.getText().isEmpty() ){
             rodText.setTextFill(RED);
             rodText.setText("Fyll i samtliga uppgifter för att skapa ett konto!");
         } else{
-            System.out.println("Fälten har text");
             rodText.setTextFill(GREEN);
             rodText.setText("Ditt konto är skapat!");
+
+            customer.setAddress(adressField.getText());
+            customer.setPostAddress(adressNumberField.getText());
+            customer.setEmail(epostField.getText());
+            customer.setFirstName(forNamnField.getText());
+            customer.setLastName(efterNamnField.getText());
+            customer.setMobilePhoneNumber(telefonField.getText());
+            customer.setPhoneNumber(telefonField.getText());
+            customer.setPostCode(postnummerField.getText());
+
+            Image icon = null;
+            String iconPath;
+            String item = kortnummerField.getText();
+            switch (String.valueOf(item.charAt(0))) {
+                case "4":
+                    iconPath = "./resources/visa.png";
+                    icon = new Image(getClass().getClassLoader().getResourceAsStream(iconPath));
+                    creditCard.setCardType("Visa");
+                    break;
+                case "5":
+                    iconPath = "./resources/mastercard.png";
+                    icon = new Image(getClass().getClassLoader().getResourceAsStream(iconPath));
+                    creditCard.setCardType("Mastercard");
+                    break;
+                case "3":
+                    iconPath = "./resources/amex.png";
+                    icon = new Image(getClass().getClassLoader().getResourceAsStream(iconPath));
+                    creditCard.setCardType("Amex");
+                    break;
+                case "9":
+                case "8":
+                case "7":
+                case "6":
+                case "2":
+                case "1":
+                    iconPath = "./resources/card.png";
+                    icon = new Image(getClass().getClassLoader().getResourceAsStream(iconPath));
+                    creditCard.setCardType("Unknown");
+                    break;
+            }
+            cardImage.setImage(icon);
+            creditCard.setCardNumber(kortnummerField.getText());
+            creditCard.setHoldersName(kortNamnField.getText());
+            creditCard.setValidMonth(Integer.parseInt(kortDatumMonthField.getText()));
+            creditCard.setValidYear(Integer.parseInt(kortDatumYearField.getText()));
+            creditCard.setVerificationCode(Integer.parseInt(cvcField.getText()));
         }
     }
 
