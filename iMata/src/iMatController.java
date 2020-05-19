@@ -1,3 +1,5 @@
+import javafx.application.Application;
+import javafx.application.Platform;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
@@ -27,12 +29,11 @@ public class  iMatController implements Initializable, ShoppingCartListener {
     //TODO
  /* NEED FOR PROG
     - välja font
-    - kunna dölja produkter
     - gå vidare med order
     - logotyp
     - rabatterade produkter logo svart istället
     - hjälp fönstret
-    - spara upon exit
+    - spara upon exit (dubbelkolla funktionalitet)
  */
 
     @FXML private AnchorPane paneTop;
@@ -86,6 +87,7 @@ public class  iMatController implements Initializable, ShoppingCartListener {
     @FXML private Label rodText;
     @FXML private Label tidigareKopTxt;
     @FXML private ImageView cardImage;
+    @FXML private Button resetButton;
 
     @FXML private TextField forNamnField;
     @FXML private TextField efterNamnField;
@@ -101,6 +103,24 @@ public class  iMatController implements Initializable, ShoppingCartListener {
     @FXML private TextField cvcField;
     @FXML private AnchorPane registerDemand;
     @FXML private Label textRegisterPlease;
+
+    //ORDERING
+    @FXML private AnchorPane orderConfirmation;
+    @FXML private TextField confirmationName;
+    @FXML private TextField confirmationAdress;
+    @FXML private TextField confirmationAdressNumber;
+    @FXML private TextField confirmationCardNumber;
+    @FXML private TextField confirmationExpire;
+    @FXML private TextField confirmationCvc;
+    @FXML private TextField confirmationArrival;
+    @FXML private Button setArrival1251730;
+    @FXML private Button setArrival1251800;
+    @FXML private Button setArrival1351730;
+    @FXML private Button setArrival1351800;
+    @FXML private Button setArrival1451730;
+    @FXML private Button setArrival1451800;
+    @FXML private AnchorPane orderSucess;
+    @FXML private Label textSucessOrder;
 
     private final IMatDataHandler dh = IMatDataHandler.getInstance();
 
@@ -149,12 +169,10 @@ public class  iMatController implements Initializable, ShoppingCartListener {
         scrollItemView.setFitToWidth(true);
         scrollItemView.setFitToHeight(true);
 
-        if(orderlista.isEmpty()){
-            tidigareKopTxt.setText("Du har inga tidigare köp");
-        } else{
-            populateOrderHashMap();
-            updateOrders();
-        }
+
+        populateOrderHashMap();
+        updateOrders();
+
     }
 
     public void setReaProducts() {
@@ -174,6 +192,11 @@ public class  iMatController implements Initializable, ShoppingCartListener {
         }
     }
 
+    @FXML private void resetProgram() {
+        dh.reset();
+        Platform.exit();
+    }
+
     @FXML
     private void closeRegisterDemand() {
         registerDemand.toBack();
@@ -182,9 +205,67 @@ public class  iMatController implements Initializable, ShoppingCartListener {
     @FXML
     private void startOrdering() {
         if (dh.isCustomerComplete()) {
-            //TODO start making ordering process
+            orderConfirmation.toFront();
+
+            confirmationAdress.setText(customer.getAddress());
+            confirmationAdressNumber.setText(customer.getPostAddress());
+            confirmationCardNumber.setText(creditCard.getCardNumber());
+            confirmationCvc.setText(String.valueOf(creditCard.getVerificationCode()));
+            confirmationExpire.setText(String.valueOf(creditCard.getValidMonth()) + "/" + String.valueOf(creditCard.getValidYear()));
+            confirmationName.setText(creditCard.getHoldersName());
         } else {
             registerDemand.toFront();
+        }
+    }
+
+    @FXML
+    private void finishOrder() {
+        if (!confirmationArrival.getText().isEmpty()) {
+            Order orderObject = new Order();
+            Date date = new Date();
+            int i = (int) (Math.random() * 10000);
+            ArrayList<ShoppingItem> si = new ArrayList<ShoppingItem>();
+
+            for (ShoppingItem shoppingItem : shoppingCart.getItems()) {
+                si.add(shoppingItem);
+            }
+
+            orderObject.setDate(date);
+            orderObject.setItems(si);
+            orderObject.setOrderNumber(i);
+
+            orderlista.add(orderObject);
+
+            populateOrderHashMap();
+            updateOrders();
+            textSucessOrder.setText("Ditt köp har gått igenom och dina varor kommer anlända på din adress den " + confirmationArrival.getText());
+            orderSucess.toFront();
+        }
+    }
+
+    @FXML
+    private void onClickGridOrder(Event event) {
+        EventTarget target = event.getTarget();
+
+        Date date = new Date();
+
+        if (target.equals(setArrival1251730)) {
+            confirmationArrival.setText("12 maj 17:30");
+        }
+        if (target.equals(setArrival1251800)) {
+            confirmationArrival.setText("12 maj 18:00");
+        }
+        if (target.equals(setArrival1351730)) {
+            confirmationArrival.setText("13 maj 17:30");
+        }
+        if (target.equals(setArrival1351800)) {
+            confirmationArrival.setText("13 maj 18:00");
+        }
+        if (target.equals(setArrival1451730)) {
+            confirmationArrival.setText("14 maj 17:30");
+        }
+        if (target.equals(setArrival1451800)) {
+            confirmationArrival.setText("14 maj 18:00");
         }
     }
 
@@ -251,6 +332,23 @@ public class  iMatController implements Initializable, ShoppingCartListener {
         return total;
     }
 
+    public int getAmountGivenList(List<ShoppingItem> list) {
+        int total = 0;
+        for (ShoppingItem r : list) {
+            total = total + (int) r.getAmount();
+        }
+        return total;
+    }
+
+    public double  getTotalGivenList(List<ShoppingItem> list) {
+        double total = 0;
+        for (ShoppingItem r : list) {
+            total = total + r.getAmount() * r.getProduct().getPrice();
+        }
+        double roundOff = Math.round(total * 100.0) / 100.0;
+        return roundOff;
+    }
+
     private void populateOrderHashMap(){
         for (Order o: orderlista){
             orderItem = new OrderItem(o,this);
@@ -272,19 +370,13 @@ public class  iMatController implements Initializable, ShoppingCartListener {
         ArrayList<ShoppingItem> si2 = new ArrayList<>();
         si2.add(new ShoppingItem(currentProductList.get(0)));
         testo.setItems(si2);
-        
+
         testo.setOrderNumber(1337);
         orderlista.add(testo);
 
         populateOrderHashMap();
         updateOrders();
     }
-
-    //End
-
-    //Kassan metoder
-
-    //END
 
     private void updateRecipeList(){
         productFlow.getChildren().clear();

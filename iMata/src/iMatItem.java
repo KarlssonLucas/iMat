@@ -9,6 +9,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import se.chalmers.cse.dat216.project.IMatDataHandler;
 import se.chalmers.cse.dat216.project.Product;
+import se.chalmers.cse.dat216.project.ShoppingItem;
 
 import java.io.IOException;
 import java.util.regex.Pattern;
@@ -37,7 +38,6 @@ public class iMatItem extends AnchorPane {
         } else {
             setFavorite();
         }
-        System.out.println(dh.favorites());
     }
 
     @FXML

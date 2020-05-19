@@ -12,11 +12,9 @@ import java.io.IOException;
 
 
 public class OrderItem extends AnchorPane {
-    private iMatController parentController;
-    private Order order;
-    private IMatDataHandler dh = IMatDataHandler.getInstance();
-    private double kostnad = 0;
-    private int varor = 0;
+    private final iMatController parentController;
+    private final Order order;
+    private final IMatDataHandler dh = IMatDataHandler.getInstance();
 
     @FXML private Label datumLbl;
     @FXML private Label prisLbl;
@@ -38,24 +36,19 @@ public class OrderItem extends AnchorPane {
         this.order = order;
         this.parentController = iMatController;
 
-        for(ShoppingItem i: order.getItems()){
-            kostnad += i.getTotal();
-            varor ++;
-        }
-
         datumLbl.setText(order.getDate().toString());
-        prisLbl.setText(Double.toString(kostnad));
-        varorLbl.setText(Integer.toString(varor));
+        prisLbl.setText(String.valueOf(parentController.getTotalGivenList(order.getItems())) + " kr");
+        varorLbl.setText(String.valueOf(parentController.getAmountGivenList(order.getItems())) + " st");
         orderLbl.setText(Integer.toString(order.getOrderNumber()));
-
-
 
     }
 
     public void order_to_varukorg(){
         for(ShoppingItem s: order.getItems()){
             parentController.shoppingCart.addItem(s);
+            parentController.removeDup();
         }
+        parentController.populateCheckout();
         parentController.updateCart();
     }
 }
