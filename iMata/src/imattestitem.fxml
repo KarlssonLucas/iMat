@@ -14,9 +14,9 @@
             <Image url="@resources/chicken-tikka-masala.jpg" />
          </image>
       </ImageView>
-      <Label fx:id="productName" alignment="CENTER" layoutX="73.0" layoutY="146.0" prefHeight="17.0" prefWidth="111.0" text="Stekt ägg" AnchorPane.leftAnchor="73.0" AnchorPane.rightAnchor="72.0" />
-      <Label fx:id="productPrice" layoutX="90.0" layoutY="176.0" text="Label" />
-      <Label fx:id="productUnit" layoutX="133.0" layoutY="176.0" text="Label" />
+      <Label fx:id="productName" alignment="CENTER" layoutX="67.0" layoutY="140.0" prefHeight="17.0" prefWidth="133.0" text="Stekt ägg" AnchorPane.leftAnchor="67.0" AnchorPane.rightAnchor="50.0" />
+      <Label fx:id="productPrice" layoutX="90.0" layoutY="180.0" text="Label" />
+      <Label fx:id="productUnit" layoutX="133.0" layoutY="180.0" text="Label" />
       <TextField fx:id="amountProduct" layoutX="90.0" layoutY="202.0" prefHeight="25.0" prefWidth="71.0" AnchorPane.leftAnchor="90.0" AnchorPane.rightAnchor="89.0" />
       <ImageView fx:id="favoriteImage" fitHeight="25.0" fitWidth="25.0" layoutX="215.0" layoutY="9.0" onMouseClicked="#onClick" pickOnBounds="true" preserveRatio="true">
          <image>
@@ -42,5 +42,11 @@
          </graphic>
       </Button>
       <Button fx:id="addtoCart" layoutX="59.0" layoutY="237.0" mnemonicParsing="false" onAction="#addCart" text="Lägg till i kundvagnen" />
+      <ImageView fx:id="reaImageItem" fitHeight="42.0" fitWidth="56.0" layoutX="31.0" layoutY="1.0" pickOnBounds="true" preserveRatio="true" visible="false">
+         <image>
+            <Image url="@resources/rea.png" />
+         </image>
+      </ImageView>
+      <Label fx:id="ordinaryPrice" alignment="CENTER" layoutX="52.0" layoutY="161.0" prefHeight="17.0" prefWidth="147.0" text="Stekt ägg" visible="false" />
    </children>
 </fx:root>

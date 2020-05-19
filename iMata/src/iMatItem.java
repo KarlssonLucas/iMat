@@ -27,6 +27,8 @@ public class iMatItem extends AnchorPane {
     @FXML private Label productCategory;
     @FXML public ImageView favoriteImage;
     @FXML public Button addtoCart;
+    @FXML private ImageView reaImageItem;
+    @FXML private Label ordinaryPrice;
 
     @FXML
     public void onClick(Event event) {
@@ -98,6 +100,16 @@ public class iMatItem extends AnchorPane {
 
         if (dh.isFavorite(product)) {
             setFavorite();
+        }
+
+        if (parentController.reaProducts.contains(product)) {
+            productPrice.setStyle("-fx-text-fill: red");
+            productUnit.setStyle("-fx-text-fill: red");
+            ordinaryPrice.setVisible(true);
+            ordinaryPrice.setText("Ordinarie pris " + product.getPrice()*2 + " " + product.getUnit());
+
+            reaImageItem.setVisible(true);
+
         }
 
         amountProduct.setPromptText("antal " + product.getUnitSuffix());

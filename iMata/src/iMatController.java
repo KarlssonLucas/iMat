@@ -6,10 +6,7 @@ import javafx.event.EventHandler;
 import javafx.event.EventTarget;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.ScrollPane;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.*;
@@ -26,6 +23,17 @@ import static se.chalmers.cse.dat216.project.ProductCategory.*;
 
 
 public class  iMatController implements Initializable, ShoppingCartListener {
+
+    //TODO
+ /* NEED FOR PROG
+    - välja font
+    - kunna dölja produkter
+    - gå vidare med order
+    - logotyp
+    - rabatterade produkter logo svart istället
+    - hjälp fönstret
+    - spara upon exit
+ */
 
     @FXML private AnchorPane paneTop;
     @FXML private ImageView logo;
@@ -52,6 +60,7 @@ public class  iMatController implements Initializable, ShoppingCartListener {
     @FXML private FlowPane ordersFlowPane;
 
     @FXML public Button bbb0;
+    @FXML public Button bbb01;
     @FXML public Button bbb1;
     @FXML public Button bbb2;
     @FXML public Button bbb3;
@@ -91,8 +100,11 @@ public class  iMatController implements Initializable, ShoppingCartListener {
     @FXML private TextField kortDatumYearField;
     @FXML private TextField cvcField;
     @FXML private AnchorPane registerDemand;
+    @FXML private Label textRegisterPlease;
 
     private final IMatDataHandler dh = IMatDataHandler.getInstance();
+
+    public ArrayList<Product> reaProducts = new ArrayList<>();
 
     //MINA SIDOR
     private List<Order> orderlista = dh.getOrders();
@@ -123,14 +135,14 @@ public class  iMatController implements Initializable, ShoppingCartListener {
             minaSidorButton.setText("Registrera dig");
             skapaKontoBtn.setText("Skapa konto");
         } else {
-            minaSidorButton.setText("Mina Sidor");
-            skapaKontoBtn.setText("Uppdatera kontouppgifter");
+            savedRestore();
         }
         hemButton.setText("Hem ");
         checkoutButton.setText("....");
         helpButton.setText("Hjälp");
         reaButton.setText("Shoppa");
 
+        setReaProducts();
         all_category();
         updateCart();
 
@@ -142,6 +154,23 @@ public class  iMatController implements Initializable, ShoppingCartListener {
         } else{
             populateOrderHashMap();
             updateOrders();
+        }
+    }
+
+    public void setReaProducts() {
+
+        reaProducts.add(productList.get(15));
+        reaProducts.add(productList.get(17));
+        reaProducts.add(productList.get(25));
+        reaProducts.add(productList.get(2));
+        reaProducts.add(productList.get(100));
+        reaProducts.add(productList.get(55));
+
+        if (dh.isFirstRun()) {
+            for (Product p : reaProducts) {
+                double a = p.getPrice() * 0.5;
+                p.setPrice(a);
+            }
         }
     }
 
@@ -182,12 +211,36 @@ public class  iMatController implements Initializable, ShoppingCartListener {
     //Mina sidor metoder
     @FXML
     public void minaSidorShow() {
+        if (dh.isCustomerComplete()) {
+            skapaKontoBtn.setText("Uppdatera kontouppgifter");
+        }
         minaSidor.toFront();
     }
 
     @FXML
     public void minaSidorHide() {
         minaSidor.toBack();
+    }
+
+    public void savedRestore() {
+        minaSidorButton.setText("Mina Sidor");
+        skapaKontoBtn.setText("Uppdatera kontouppgifter");
+
+        adressField.setText(customer.getAddress());
+        adressNumberField.setText(customer.getPostAddress());
+        epostField.setText(customer.getEmail());
+        forNamnField.setText(customer.getFirstName());
+        efterNamnField.setText(customer.getLastName());
+        telefonField.setText(customer.getMobilePhoneNumber());
+        postnummerField.setText(customer.getPostCode());
+
+        setCardImage(creditCard.getCardNumber());
+        kortnummerField.setText(creditCard.getCardNumber());
+        kortNamnField.setText(creditCard.getHoldersName());
+        kortDatumMonthField.setText(String.valueOf(creditCard.getValidMonth()));
+        kortDatumYearField.setText(String.valueOf(creditCard.getValidYear()));
+        cvcField.setText(String.valueOf(creditCard.getVerificationCode()));
+
     }
 
     public int getAmountProducts() {
@@ -289,6 +342,7 @@ public class  iMatController implements Initializable, ShoppingCartListener {
     //Category method calls
 
     public void all_category(){
+        reaButton.setVisible(true);
         bannerImage.setVisible(false);
         categoryBannerImage.setImage(null);
         categoryBannerLabel.setText("");
@@ -298,7 +352,20 @@ public class  iMatController implements Initializable, ShoppingCartListener {
         updateRecipeList();
     }
 
+    public void rea_category() {
+        reaButton.setVisible(false);
+        bannerImage.setVisible(true);
+        categoryBannerImage.setImage(new Image("resources/rea.png"));
+        categoryBannerLabel.setText("Rea");
+
+        currentProductList = reaProducts;
+        populateHashMap();
+        updateRecipeList();
+
+    }
+
     public void search_category(String text){
+        reaButton.setVisible(false);
         bannerImage.setVisible(true);
         categoryBannerImage.setImage(new Image("resources/search.png"));
         categoryBannerLabel.setText(text);
@@ -308,6 +375,7 @@ public class  iMatController implements Initializable, ShoppingCartListener {
     }
 
     public void favoriter_category(){
+        reaButton.setVisible(false);
         bannerImage.setVisible(true);
         categoryBannerLabel.setText("Favoriter");
         categoryBannerImage.setImage(new Image("resources/favoriterBanner.png"));
@@ -317,6 +385,7 @@ public class  iMatController implements Initializable, ShoppingCartListener {
         updateRecipeList();
     }
     public void mejeri_category(){
+        reaButton.setVisible(false);
         bannerImage.setVisible(true);
         categoryBannerLabel.setText("Mejeri & Ägg");
         categoryBannerImage.setImage(new Image("resources/dairyBanner.png"));
@@ -326,6 +395,7 @@ public class  iMatController implements Initializable, ShoppingCartListener {
         updateRecipeList();
     }
     public void kott_category(){
+        reaButton.setVisible(false);
         bannerImage.setVisible(true);
         categoryBannerLabel.setText("Kött");
         categoryBannerImage.setImage(new Image("resources/meatBanner.png"));
@@ -335,6 +405,7 @@ public class  iMatController implements Initializable, ShoppingCartListener {
         updateRecipeList();
     }
     public void fisk_category(){
+        reaButton.setVisible(false);
         bannerImage.setVisible(true);
         categoryBannerLabel.setText("Fisk");
         categoryBannerImage.setImage(new Image("resources/fishBanner.png"));
@@ -344,6 +415,7 @@ public class  iMatController implements Initializable, ShoppingCartListener {
         updateRecipeList();
     }
     public void frukt_category(){
+        reaButton.setVisible(false);
         bannerImage.setVisible(true);
         categoryBannerLabel.setText("Frukt & Grönt");
         categoryBannerImage.setImage(new Image("resources/fruitBanner.png"));
@@ -362,6 +434,7 @@ public class  iMatController implements Initializable, ShoppingCartListener {
     }
 
     public void kryddor_category(){
+        reaButton.setVisible(false);
         bannerImage.setVisible(true);
         categoryBannerLabel.setText("Kryddor & Bär");
         categoryBannerImage.setImage(new Image("resources/spiceBanner.png"));
@@ -379,6 +452,7 @@ public class  iMatController implements Initializable, ShoppingCartListener {
     }
 
     public void skafferi_category(){
+        reaButton.setVisible(false);
         bannerImage.setVisible(true);
         categoryBannerLabel.setText("Skafferi");
         categoryBannerImage.setImage(new Image("resources/pantryBanner.png"));
@@ -396,6 +470,7 @@ public class  iMatController implements Initializable, ShoppingCartListener {
     }
 
     public void bageri_category(){
+        reaButton.setVisible(false);
         bannerImage.setVisible(true);
         categoryBannerLabel.setText("Bageri");
         categoryBannerImage.setImage(new Image("resources/bakeryBanner.png"));
@@ -406,6 +481,7 @@ public class  iMatController implements Initializable, ShoppingCartListener {
     }
 
     public void dryck_category(){
+        reaButton.setVisible(false);
         bannerImage.setVisible(true);
         categoryBannerLabel.setText("Dryck");
         categoryBannerImage.setImage(new Image("resources/drinkBanner.png"));
@@ -425,6 +501,7 @@ public class  iMatController implements Initializable, ShoppingCartListener {
     }
 
     public void godsaker_category(){
+        reaButton.setVisible(false);
         bannerImage.setVisible(true);
         categoryBannerLabel.setText("Godsaker");
         categoryBannerImage.setImage(new Image("resources/candyBanner.png"));
@@ -453,11 +530,18 @@ public class  iMatController implements Initializable, ShoppingCartListener {
         if(forNamnField.getText().isEmpty() || efterNamnField.getText().isEmpty() || epostField.getText().isEmpty() || telefonField.getText().isEmpty() || postnummerField.getText().isEmpty() ||
                 adressField.getText().isEmpty() || kortnummerField.getText().isEmpty() || kortNamnField.getText().isEmpty() || kortDatumMonthField.getText().isEmpty() || kortDatumYearField.getText().isEmpty() || cvcField.getText().isEmpty() ){
             rodText.setTextFill(RED);
-            rodText.setText("Fyll i samtliga uppgifter för att skapa ett konto!");
+            if (dh.isCustomerComplete()) {
+                rodText.setText("Fyll i samtliga uppgifter för att uppdatera ditt konto");
+            } else {
+                rodText.setText("Fyll i samtliga uppgifter för att skapa ett konto!");
+            }
         } else{
             rodText.setTextFill(GREEN);
-            rodText.setText("Ditt konto är skapat!");
-
+            if (dh.isCustomerComplete())  {
+                rodText.setText("Du har uppdaterat dina uppgifter");
+            } else {
+                rodText.setText("Ditt konto är skapat!");
+            }
             customer.setAddress(adressField.getText());
             customer.setPostAddress(adressNumberField.getText());
             customer.setEmail(epostField.getText());
@@ -467,43 +551,51 @@ public class  iMatController implements Initializable, ShoppingCartListener {
             customer.setPhoneNumber(telefonField.getText());
             customer.setPostCode(postnummerField.getText());
 
-            Image icon = null;
-            String iconPath;
-            String item = kortnummerField.getText();
-            switch (String.valueOf(item.charAt(0))) {
-                case "4":
-                    iconPath = "./resources/visa.png";
-                    icon = new Image(getClass().getClassLoader().getResourceAsStream(iconPath));
-                    creditCard.setCardType("Visa");
-                    break;
-                case "5":
-                    iconPath = "./resources/mastercard.png";
-                    icon = new Image(getClass().getClassLoader().getResourceAsStream(iconPath));
-                    creditCard.setCardType("Mastercard");
-                    break;
-                case "3":
-                    iconPath = "./resources/amex.png";
-                    icon = new Image(getClass().getClassLoader().getResourceAsStream(iconPath));
-                    creditCard.setCardType("Amex");
-                    break;
-                case "9":
-                case "8":
-                case "7":
-                case "6":
-                case "2":
-                case "1":
-                    iconPath = "./resources/card.png";
-                    icon = new Image(getClass().getClassLoader().getResourceAsStream(iconPath));
-                    creditCard.setCardType("Unknown");
-                    break;
-            }
-            cardImage.setImage(icon);
+            setCardImage(kortnummerField.getText());
             creditCard.setCardNumber(kortnummerField.getText());
             creditCard.setHoldersName(kortNamnField.getText());
             creditCard.setValidMonth(Integer.parseInt(kortDatumMonthField.getText()));
             creditCard.setValidYear(Integer.parseInt(kortDatumYearField.getText()));
             creditCard.setVerificationCode(Integer.parseInt(cvcField.getText()));
+            skapaKontoBtn.setText("Uppdatera kontouppgifter");
+            minaSidorButton.setText("Mina sidor");
         }
+    }
+
+    private void setCardImage(String i) {
+
+        Image icon = null;
+        String iconPath;
+
+        switch (String.valueOf(i.charAt(0))) {
+            case "4":
+                iconPath = "./resources/visa.png";
+                icon = new Image(getClass().getClassLoader().getResourceAsStream(iconPath));
+                creditCard.setCardType("Visa");
+                break;
+            case "5":
+                iconPath = "./resources/mastercard.png";
+                icon = new Image(getClass().getClassLoader().getResourceAsStream(iconPath));
+                creditCard.setCardType("Mastercard");
+                break;
+            case "3":
+                iconPath = "./resources/amex.png";
+                icon = new Image(getClass().getClassLoader().getResourceAsStream(iconPath));
+                creditCard.setCardType("Amex");
+                break;
+            case "9":
+            case "8":
+            case "7":
+            case "6":
+            case "2":
+            case "1":
+                iconPath = "./resources/card.png";
+                icon = new Image(getClass().getClassLoader().getResourceAsStream(iconPath));
+                creditCard.setCardType("Unknown");
+                break;
+        }
+
+        cardImage.setImage(icon);
     }
 
     @Override

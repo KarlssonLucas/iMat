@@ -66,7 +66,7 @@
     -fx-background-radius: 25px;
     -fx-background-color: #3399ff;
 }
-
+/*
 #reaButton {
     -fx-border-color: white;
     -fx-text-fill: white;
@@ -74,20 +74,18 @@
     -fx-font-size: 18px;
 }
 
+ */
+
+
+
 /* White text */
-#minaSidortxt, #historiktxt, #kassanTxt, #kassanTxt2, #kassanTxt21, #kassanTxt22, #welcomeLbl {
+#minaSidortxt, #historiktxt, #kassanTxt, #kassanTxt2, #kassanTxt21, #kassanTxt22 {
     -fx-text-fill: white;
     -fx-font-size: 28px;
 }
 
-#reaButton:hover {
-    -fx-border-color: #3399ff;
-    -fx-text-fill: #3399ff;
-    -fx-background-color: white;
-}
-
-#bbb0:focused, #bbb1:focused, #bbb2:focused, #bbb3:focused, #bbb4:focused, #bbb5:focused, #bbb6:focused, #bbb7:focused, #bbb8:focused, #bbb9:focused,#bbb10:focused,
-#bbb0:hover, #bbb1:hover, #bbb2:hover, #bbb3:hover, #bbb4:hover, #bbb5:hover, #bbb6:hover, #bbb7:hover, #bbb8:hover, #bbb9:hover, #bbb10:hover{
+#bbb0:focused, #reaButton, #bbb01:focused, #bbb01:hover, #bbb1:focused, #bbb2:focused, #bbb3:focused, #bbb4:focused, #bbb5:focused, #bbb6:focused, #bbb7:focused, #bbb8:focused, #bbb9:focused,#bbb10:focused,
+#bbb0:hover, #bbb1:hover, #bbb2:hover, #bbb3:hover, #bbb4:hover, #bbb5:hover, #bbb6:hover, #bbb7:hover, #bbb8:hover, #bbb9:hover, #bbb10:hover, #registerPlease, #goBackButton:hover, #goToOrderButton:hover{
     -fx-text-fill: white;
     -fx-background-color: #3399ff;
     -fx-border-color: white;
@@ -96,9 +94,24 @@
     -fx-background-radius: 5px;
 }
 
-#bbb0, #bbb1, #bbb2, #bbb3, #bbb4, #bbb5, #bbb6, #bbb7, #bbb8, #bbb9, #bbb10{
+#reaButton:hover {
+    -fx-border-color: #3399ff;
+    -fx-text-fill: #3399ff;
+    -fx-background-color: white;
+}
+
+#bbb0, #bbb01, #bbb1, #bbb2, #bbb3, #bbb4, #bbb5, #bbb6, #bbb7, #bbb8, #bbb9, #bbb10, #goBackButton, #goToOrderButton{
     -fx-text-fill: #3399ff;
     -fx-background-color: inherit;
+    -fx-border-color: #3399ff;
+    -fx-border-width: 1px;
+    -fx-border-radius: 5px;
+    -fx-background-radius: 5px;
+}
+
+#registerPlease:hover {
+    -fx-text-fill: inherit;
+    -fx-background-color: white;
     -fx-border-color: #3399ff;
     -fx-border-width: 1px;
     -fx-border-radius: 5px;
@@ -136,4 +149,10 @@
 
 #addProductButton:hover, #addCheckout:hover {
     -fx-graphic: url("resources/addProductHover.png");
+}
+
+#textRegisterPlease {
+    -fx-text-fill: white;
+    text-area-background: #3399ff;
+    -fx-background-color: text-area-background;
 }
