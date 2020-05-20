@@ -359,19 +359,14 @@
                <children>
                   <AnchorPane fx:id="paneTop" layoutX="25.0" layoutY="52.0" prefHeight="157.0" prefWidth="1125.0" AnchorPane.leftAnchor="25.0" AnchorPane.rightAnchor="25.0" AnchorPane.topAnchor="52.0">
                      <children>
-                        <Label fx:id="logoText" layoutX="169.0" layoutY="22.0" prefHeight="17.0" prefWidth="183.0" text="iMat">
-                           <font>
-                              <Font size="40.0" />
-                           </font>
-                        </Label>
                         <TextField fx:id="searchField" layoutX="834.0" layoutY="21.0" prefHeight="40.0" prefWidth="278.0" promptText="Sök i sortimentet" AnchorPane.bottomAnchor="96.0" AnchorPane.rightAnchor="13.0" AnchorPane.topAnchor="21.0">
                            <font>
                               <Font size="18.0" />
                            </font>
                         </TextField>
-                        <ImageView fx:id="logo" fitHeight="90.0" fitWidth="90.0" layoutX="40.0" layoutY="16.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fx:id="logo" fitHeight="113.0" fitWidth="46.0" layoutX="65.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@resources/testlogo.png" />
+                              <Image url="@resources/imat_logo1.png" />
                            </image>
                         </ImageView>
                         <Button fx:id="hemButton" cacheShape="false" centerShape="false" focusTraversable="false" layoutX="2.0" layoutY="89.0" mnemonicParsing="false" onAction="#hemShow" prefHeight="70.0" prefWidth="169.0" scaleShape="false" text="Hem" AnchorPane.leftAnchor="2.0" AnchorPane.topAnchor="89.0" />
@@ -401,6 +396,11 @@
                            </font>
                         </Button>
                         <Button layoutX="1066.0" layoutY="30.0" mnemonicParsing="false" onAction="#searchProduct" text="Sök" AnchorPane.bottomAnchor="103.0" AnchorPane.rightAnchor="23.0" AnchorPane.topAnchor="30.0" />
+                        <ImageView fx:id="logo1" fitHeight="54.0" fitWidth="123.0" layoutX="123.0" layoutY="43.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@resources/imat_logo2.png" />
+                           </image>
+                        </ImageView>
                      </children>
                   </AnchorPane>
                   <StackPane fx:id="gridPane" layoutX="345.0" layoutY="230.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="150.0" prefWidth="805.0" style="-fx-background-color: #3399ff;" AnchorPane.bottomAnchor="561.0" AnchorPane.leftAnchor="345.0" AnchorPane.rightAnchor="25.0" AnchorPane.topAnchor="230.0">
