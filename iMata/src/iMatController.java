@@ -363,21 +363,6 @@ public class  iMatController implements Initializable, ShoppingCartListener {
         }
     }
 
-    public void testHistory(){
-        Order testo = new Order();
-        testo.setDate(new Date(2020,5,11));
-
-        ArrayList<ShoppingItem> si2 = new ArrayList<>();
-        si2.add(new ShoppingItem(currentProductList.get(0)));
-        testo.setItems(si2);
-
-        testo.setOrderNumber(1337);
-        orderlista.add(testo);
-
-        populateOrderHashMap();
-        updateOrders();
-    }
-
     private void updateRecipeList(){
         productFlow.getChildren().clear();
         for (Product r: currentProductList) {

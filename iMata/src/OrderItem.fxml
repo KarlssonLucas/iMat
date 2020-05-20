@@ -7,7 +7,7 @@
 
 <fx:root fx:id="orderItem" prefHeight="97.0" prefWidth="1056.0" stylesheets="@iMat.css" type="AnchorPane" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <Label fx:id="datumLbl" layoutX="14.0" layoutY="32.0" prefHeight="34.0" prefWidth="548.0" text="Label">
+      <Label fx:id="datumLbl" layoutX="38.0" layoutY="31.0" prefHeight="34.0" prefWidth="221.0" text="Label">
          <font>
             <Font size="23.0" />
          </font>
