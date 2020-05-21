@@ -1,10 +1,5 @@
-import javafx.application.Application;
 import javafx.application.Platform;
-import javafx.beans.value.ChangeListener;
-import javafx.beans.value.ObservableValue;
-import javafx.event.ActionEvent;
 import javafx.event.Event;
-import javafx.event.EventHandler;
 import javafx.event.EventTarget;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -15,7 +10,6 @@ import javafx.scene.layout.*;
 
 import se.chalmers.cse.dat216.project.*;
 
-import java.awt.event.ActionListener;
 import java.net.URL;
 import java.util.*;
 
@@ -122,6 +116,9 @@ public class  iMatController implements Initializable, ShoppingCartListener {
     @FXML private AnchorPane orderSucess;
     @FXML private Label textSucessOrder;
 
+    //HELP
+    @FXML private AnchorPane helpWindow;
+
     private final IMatDataHandler dh = IMatDataHandler.getInstance();
 
     public ArrayList<Product> reaProducts = new ArrayList<>();
@@ -200,6 +197,11 @@ public class  iMatController implements Initializable, ShoppingCartListener {
     @FXML
     private void closeRegisterDemand() {
         registerDemand.toBack();
+    }
+
+    @FXML private void showHelp() {
+        helpWindow.toFront();
+        minaSidor.toBack();
     }
 
     @FXML
@@ -361,21 +363,6 @@ public class  iMatController implements Initializable, ShoppingCartListener {
         for (Order o: orderlista) {
             ordersFlowPane.getChildren().add(orderListItemMap.get(o.getOrderNumber()));
         }
-    }
-
-    public void testHistory(){
-        Order testo = new Order();
-        testo.setDate(new Date(2020,5,11));
-
-        ArrayList<ShoppingItem> si2 = new ArrayList<>();
-        si2.add(new ShoppingItem(currentProductList.get(0)));
-        testo.setItems(si2);
-
-        testo.setOrderNumber(1337);
-        orderlista.add(testo);
-
-        populateOrderHashMap();
-        updateOrders();
     }
 
     private void updateRecipeList(){

@@ -5,10 +5,11 @@ import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
 import se.chalmers.cse.dat216.project.IMatDataHandler;
 import se.chalmers.cse.dat216.project.Order;
-import se.chalmers.cse.dat216.project.Product;
 import se.chalmers.cse.dat216.project.ShoppingItem;
 
 import java.io.IOException;
+import java.text.DateFormat;
+import java.util.Locale;
 
 
 public class OrderItem extends AnchorPane {
@@ -36,7 +37,12 @@ public class OrderItem extends AnchorPane {
         this.order = order;
         this.parentController = iMatController;
 
-        datumLbl.setText(order.getDate().toString());
+        Locale locale = new Locale("sv", "SE");
+        DateFormat dateFormat = DateFormat.getDateInstance(DateFormat.DEFAULT, locale);
+        String date = dateFormat.format(order.getDate());
+
+        datumLbl.setText(date);
+
         prisLbl.setText(String.valueOf(parentController.getTotalGivenList(order.getItems())) + " kr");
         varorLbl.setText(String.valueOf(parentController.getAmountGivenList(order.getItems())) + " st");
         orderLbl.setText(Integer.toString(order.getOrderNumber()));

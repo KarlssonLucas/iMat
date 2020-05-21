@@ -20,6 +20,114 @@
    <children>
       <StackPane fx:id="background" layoutY="10.0" minHeight="834.0" minWidth="1175.0" prefHeight="843.0" prefWidth="1175.0" AnchorPane.bottomAnchor="43.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="10.0">
          <children>
+            <AnchorPane fx:id="registerDemand" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="585.0" prefWidth="1105.0" style="-fx-background-color: #3399ff;">
+               <children>
+                  <Button fx:id="registerPlease" layoutX="445.0" layoutY="352.0" mnemonicParsing="false" onAction="#minaSidorShow" prefHeight="52.0" prefWidth="220.0" text="Registrera dig!" />
+                  <Button layoutX="1057.0" layoutY="16.0" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#closeRegisterDemand" prefHeight="30.0" prefWidth="30.0" style="-fx-background-color: inherit;">
+                     <graphic>
+                        <ImageView fitHeight="45.0" fitWidth="44.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@resources/cross.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+                  <Label alignment="CENTER" layoutX="429.0" layoutY="140.0" prefHeight="52.0" prefWidth="251.0" text="Hej!" textFill="WHITE">
+                     <font>
+                        <Font name="Times New Roman" size="62.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="textRegisterPlease" alignment="CENTER" layoutX="306.0" layoutY="217.0" prefHeight="125.0" prefWidth="498.0" text="Käre kund, för att kunna slutföra ett köp behöver du registrera ett konto, detta gör du lätt genom att klicka knappen precis under detta meddelande!" textAlignment="CENTER" wrapText="true">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+               </children>
+               <StackPane.margin>
+                  <Insets top="115.0" />
+               </StackPane.margin>
+            </AnchorPane>
+            <AnchorPane fx:id="orderConfirmation" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="703.0" prefWidth="1130.0" style="-fx-background-color: white;">
+               <StackPane.margin>
+                  <Insets top="200.0" />
+               </StackPane.margin>
+               <children>
+                  <AnchorPane fx:id="kassanTopPane1" layoutX="2.0" layoutY="21.0" minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="1125.0" style="-fx-background-color: #3399ff;">
+                     <children>
+                        <Label fx:id="kassanTxt1" alignment="CENTER" layoutX="376.0" layoutY="7.0" prefHeight="86.0" prefWidth="354.0" text="Bekräftelse">
+                           <font>
+                              <Font size="40.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </AnchorPane>
+                  <Label alignment="CENTER" layoutX="184.0" layoutY="141.0" prefHeight="52.0" prefWidth="200.0" text="Välj leveranstid">
+                     <font>
+                        <Font size="24.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="CENTER" layoutX="742.0" layoutY="141.0" prefHeight="52.0" prefWidth="200.0" text="Bekräfta uppgifter">
+                     <font>
+                        <Font size="24.0" />
+                     </font>
+                  </Label>
+                  <GridPane alignment="CENTER" layoutX="65.0" layoutY="245.0" prefHeight="213.0" prefWidth="448.0">
+                    <columnConstraints>
+                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                    </columnConstraints>
+                    <rowConstraints>
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                    </rowConstraints>
+                     <children>
+                        <Button fx:id="setArrival1251730" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#onClickGridOrder" prefHeight="65.0" prefWidth="215.0" text="12 maj 17:30" />
+                        <Button fx:id="setArrival1251800" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#onClickGridOrder" prefHeight="65.0" prefWidth="215.0" text="12 maj 18:00" GridPane.columnIndex="1" />
+                        <Button fx:id="setArrival1351730" alignment="CENTER" mnemonicParsing="false" prefHeight="65.0" prefWidth="215.0" text="13 maj 17:30" GridPane.rowIndex="1" />
+                        <Button fx:id="setArrival1351800" alignment="CENTER" mnemonicParsing="false" prefHeight="65.0" prefWidth="215.0" text="13 maj 18:00" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                        <Button fx:id="setArrival1451730" alignment="CENTER" mnemonicParsing="false" prefHeight="65.0" prefWidth="215.0" text="14 maj 17:30" GridPane.rowIndex="2" />
+                        <Button fx:id="setArrival1451800" alignment="CENTER" mnemonicParsing="false" prefHeight="65.0" prefWidth="215.0" text="14 maj 18:00" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                     </children>
+                  </GridPane>
+                  <TextField fx:id="confirmationName" editable="false" layoutX="824.0" layoutY="253.0" prefHeight="25.0" prefWidth="149.0" />
+                  <TextField fx:id="confirmationAdress" editable="false" layoutX="824.0" layoutY="288.0" prefHeight="25.0" prefWidth="111.0" />
+                  <TextField fx:id="confirmationAdressNumber" layoutX="943.0" layoutY="288.0" prefHeight="25.0" prefWidth="30.0" />
+                  <TextField fx:id="confirmationCardNumber" editable="false" layoutX="824.0" layoutY="324.0" />
+                  <TextField fx:id="confirmationExpire" editable="false" layoutX="824.0" layoutY="360.0" />
+                  <TextField fx:id="confirmationCvc" editable="false" layoutX="824.0" layoutY="397.0" />
+                  <TextField fx:id="confirmationArrival" editable="false" layoutX="824.0" layoutY="430.0" />
+                  <Button layoutX="388.0" layoutY="602.0" mnemonicParsing="false" onAction="#finishOrder" prefHeight="58.0" prefWidth="332.0" text="Lägg beställning">
+                     <font>
+                        <Font size="24.0" />
+                     </font>
+                  </Button>
+                  <Line endX="-3.0" endY="411.0" layoutX="556.0" layoutY="162.0" startX="-3.0" startY="5.0" />
+                  <Label alignment="CENTER_RIGHT" layoutX="711.0" layoutY="257.0" prefHeight="17.0" prefWidth="100.0" text="Namn" />
+                  <Label alignment="CENTER_RIGHT" layoutX="711.0" layoutY="292.0" prefHeight="17.0" prefWidth="100.0" text="Adress" />
+                  <Label alignment="CENTER_RIGHT" layoutX="711.0" layoutY="328.0" prefHeight="17.0" prefWidth="100.0" text="Kortnummer" />
+                  <Label alignment="CENTER_RIGHT" layoutX="711.0" layoutY="364.0" prefHeight="17.0" prefWidth="100.0" text="Utgångsdatum" />
+                  <Label alignment="CENTER_RIGHT" layoutX="711.0" layoutY="401.0" prefHeight="17.0" prefWidth="100.0" text="CVC" />
+                  <Label alignment="CENTER_RIGHT" layoutX="711.0" layoutY="434.0" prefHeight="17.0" prefWidth="100.0" text="Leveranstid" />
+                  <Label alignment="CENTER" contentDisplay="CENTER" layoutX="768.0" layoutY="186.0" prefHeight="52.0" prefWidth="149.0" text="Om uppgifterna nedan inte stämmer kan du ändra dessa på mina sidor" textAlignment="CENTER" wrapText="true" />
+               </children>
+            </AnchorPane>
+            <AnchorPane fx:id="orderSucess" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="679.0" prefWidth="1130.0" style="-fx-background-color: #3399ff;">
+               <children>
+                  <Button fx:id="registerPlease1" layoutX="445.0" layoutY="355.0" mnemonicParsing="false" onAction="#hemShow" prefHeight="52.0" prefWidth="220.0" text="Tillbaka till startsidan" />
+                  <Button layoutX="1057.0" layoutY="16.0" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#hemShow" prefHeight="30.0" prefWidth="30.0" style="-fx-background-color: inherit;" />
+                  <Label alignment="CENTER" layoutX="429.0" layoutY="140.0" prefHeight="52.0" prefWidth="251.0" text="Grattis!" textFill="WHITE">
+                     <font>
+                        <Font name="Times New Roman" size="62.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="textSucessOrder" alignment="CENTER" layoutX="306.0" layoutY="217.0" prefHeight="125.0" prefWidth="498.0" textAlignment="CENTER" wrapText="true">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+               </children>
+            </AnchorPane>
             <AnchorPane fx:id="minaSidor" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1130.0" style="-fx-background-color: white;">
                <StackPane.margin>
                   <Insets top="200.0" />
@@ -122,8 +230,7 @@
                                           <Font size="21.0" />
                                        </font>
                                     </Label>
-                                    <Button layoutX="752.0" layoutY="358.0" mnemonicParsing="false" onAction="#testHistory" text="Test" />
-                                    <Label fx:id="rodText" alignment="CENTER" layoutX="304.0" layoutY="355.0" prefHeight="31.0" prefWidth="456.0" textAlignment="CENTER" textFill="#d70404">
+                                    <Label fx:id="rodText" alignment="CENTER" layoutX="304.0" layoutY="355.0" prefHeight="31.0" prefWidth="577.0" textAlignment="CENTER" textFill="#d70404">
                                        <font>
                                           <Font size="21.0" />
                                        </font>
@@ -195,191 +302,25 @@
                   </ScrollPane>
                </children>
             </AnchorPane>
-            <AnchorPane fx:id="registerDemand" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="585.0" prefWidth="1105.0" style="-fx-background-color: #3399ff;">
-               <children>
-                  <Button fx:id="registerPlease" layoutX="445.0" layoutY="352.0" mnemonicParsing="false" onAction="#minaSidorShow" prefHeight="52.0" prefWidth="220.0" text="Registrera dig!" />
-                  <Button layoutX="1057.0" layoutY="16.0" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#closeRegisterDemand" prefHeight="30.0" prefWidth="30.0" style="-fx-background-color: inherit;">
-                     <graphic>
-                        <ImageView fitHeight="45.0" fitWidth="44.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@resources/cross.png" />
-                           </image>
-                        </ImageView>
-                     </graphic>
-                  </Button>
-                  <Label alignment="CENTER" layoutX="429.0" layoutY="140.0" prefHeight="52.0" prefWidth="251.0" text="Hej!" textFill="WHITE">
-                     <font>
-                        <Font name="Times New Roman" size="62.0" />
-                     </font>
-                  </Label>
-                  <Label fx:id="textRegisterPlease" alignment="CENTER" layoutX="306.0" layoutY="217.0" prefHeight="125.0" prefWidth="498.0" text="Käre kund, för att kunna slutföra ett köp behöver du registrera ett konto, detta gör du lätt genom att klicka knappen precis under detta meddelande!" textAlignment="CENTER" wrapText="true">
-                     <font>
-                        <Font size="18.0" />
-                     </font>
-                  </Label>
-               </children>
-               <StackPane.margin>
-                  <Insets top="115.0" />
-               </StackPane.margin>
-            </AnchorPane>
-            <AnchorPane fx:id="varukorg" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1130.0" StackPane.alignment="CENTER">
-               <StackPane.margin>
-                  <Insets top="200.0" />
-               </StackPane.margin>
-               <children>
-                  <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="707.0" prefWidth="1130.0" style="-fx-background-color: white;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-                     <children>
-                        <AnchorPane fx:id="kassanTopPane" layoutX="15.0" layoutY="20.0" minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="800.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="20.0">
-                           <children>
-                              <Label fx:id="kassanTxt" layoutX="448.0" layoutY="-6.0" prefHeight="113.0" prefWidth="211.0" text="Din varukorg">
-                                 <font>
-                                    <Font size="40.0" />
-                                 </font>
-                              </Label>
-                           </children>
-                        </AnchorPane>
-                        <ScrollPane hbarPolicy="NEVER" prefHeight="471.0" prefWidth="1100.0" AnchorPane.bottomAnchor="100.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="120.0">
-                           <content>
-                              <FlowPane fx:id="checkoutFlow" prefHeight="470.0" prefWidth="1100.0">
-                                 <padding>
-                                    <Insets bottom="25.0" left="25.0" right="25.0" top="25.0" />
-                                 </padding>
-                              </FlowPane>
-                           </content>
-                        </ScrollPane>
-                        <AnchorPane fx:id="kassanBotPane" layoutX="265.0" layoutY="610.0" minHeight="0.0" minWidth="0.0" prefHeight="75.0" prefWidth="600.0" AnchorPane.leftAnchor="265.0" AnchorPane.rightAnchor="265.0" AnchorPane.topAnchor="610.0">
-                           <children>
-                              <AnchorPane fx:id="kassanVarorPane" layoutX="52.0" layoutY="12.0">
-                                 <children>
-                                    <Label fx:id="kassanTxt2" alignment="CENTER" prefHeight="52.0" prefWidth="211.0" text="Totalt 30 varor" textAlignment="CENTER">
-                                       <font>
-                                          <Font size="40.0" />
-                                       </font>
-                                    </Label>
-                                 </children>
-                              </AnchorPane>
-                              <AnchorPane fx:id="kassanPrisPane" layoutX="342.0" layoutY="11.0">
-                                 <children>
-                                    <Label fx:id="kassanTxt21" alignment="CENTER" prefHeight="52.0" prefWidth="170.0" text="Pris 725.5kr">
-                                       <font>
-                                          <Font size="40.0" />
-                                       </font>
-                                    </Label>
-                                 </children>
-                              </AnchorPane>
-                           </children>
-                        </AnchorPane>
-                        <Button fx:id="goToOrderButton" layoutX="886.0" layoutY="610.0" mnemonicParsing="false" onAction="#startOrdering" prefHeight="75.0" prefWidth="158.0" text="Gå vidare med order" />
-                        <Button fx:id="goBackButton" layoutX="86.0" layoutY="610.0" mnemonicParsing="false" onAction="#hemShow" prefHeight="75.0" prefWidth="158.0" text="Gå tillbaka till butiken" />
-                     </children>
-                  </AnchorPane>
-               </children>
-            </AnchorPane>
-            <AnchorPane fx:id="orderConfirmation" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="703.0" prefWidth="1130.0" style="-fx-background-color: white;">
-               <StackPane.margin>
-                  <Insets top="200.0" />
-               </StackPane.margin>
-               <children>
-                  <AnchorPane fx:id="kassanTopPane1" layoutX="2.0" layoutY="21.0" minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="1125.0" style="-fx-background-color: #3399ff;">
-                     <children>
-                        <Label fx:id="kassanTxt1" alignment="CENTER" layoutX="376.0" layoutY="7.0" prefHeight="86.0" prefWidth="354.0" text="Bekräftelse">
-                           <font>
-                              <Font size="40.0" />
-                           </font>
-                        </Label>
-                     </children>
-                  </AnchorPane>
-                  <Label alignment="CENTER" layoutX="184.0" layoutY="141.0" prefHeight="52.0" prefWidth="200.0" text="Välj leveranstid">
-                     <font>
-                        <Font size="24.0" />
-                     </font>
-                  </Label>
-                  <Label alignment="CENTER" layoutX="742.0" layoutY="141.0" prefHeight="52.0" prefWidth="200.0" text="Bekräfta uppgifter">
-                     <font>
-                        <Font size="24.0" />
-                     </font>
-                  </Label>
-                  <GridPane alignment="CENTER" layoutX="65.0" layoutY="245.0" prefHeight="213.0" prefWidth="448.0">
-                    <columnConstraints>
-                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                    </columnConstraints>
-                    <rowConstraints>
-                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                    </rowConstraints>
-                     <children>
-                        <Button fx:id="setArrival1251730" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#onClickGridOrder" prefHeight="65.0" prefWidth="215.0" text="12 maj 17:30" />
-                        <Button fx:id="setArrival1251800" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#onClickGridOrder" prefHeight="65.0" prefWidth="215.0" text="12 maj 18:00" GridPane.columnIndex="1" />
-                        <Button fx:id="setArrival1351730" alignment="CENTER" mnemonicParsing="false" prefHeight="65.0" prefWidth="215.0" text="13 maj 17:30" GridPane.rowIndex="1" />
-                        <Button fx:id="setArrival1351800" alignment="CENTER" mnemonicParsing="false" prefHeight="65.0" prefWidth="215.0" text="13 maj 18:00" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                        <Button fx:id="setArrival1451730" alignment="CENTER" mnemonicParsing="false" prefHeight="65.0" prefWidth="215.0" text="14 maj 17:30" GridPane.rowIndex="2" />
-                        <Button fx:id="setArrival1451800" alignment="CENTER" mnemonicParsing="false" prefHeight="65.0" prefWidth="215.0" text="14 maj 18:00" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-                     </children>
-                  </GridPane>
-                  <TextField fx:id="confirmationName" editable="false" layoutX="824.0" layoutY="253.0" prefHeight="25.0" prefWidth="149.0" />
-                  <TextField fx:id="confirmationAdress" editable="false" layoutX="824.0" layoutY="288.0" prefHeight="25.0" prefWidth="111.0" />
-                  <TextField fx:id="confirmationAdressNumber" layoutX="943.0" layoutY="288.0" prefHeight="25.0" prefWidth="30.0" />
-                  <TextField fx:id="confirmationCardNumber" editable="false" layoutX="824.0" layoutY="324.0" />
-                  <TextField fx:id="confirmationExpire" editable="false" layoutX="824.0" layoutY="360.0" />
-                  <TextField fx:id="confirmationCvc" editable="false" layoutX="824.0" layoutY="397.0" />
-                  <TextField fx:id="confirmationArrival" editable="false" layoutX="824.0" layoutY="430.0" />
-                  <Button layoutX="388.0" layoutY="602.0" mnemonicParsing="false" onAction="#finishOrder" prefHeight="58.0" prefWidth="332.0" text="Lägg beställning">
-                     <font>
-                        <Font size="24.0" />
-                     </font>
-                  </Button>
-                  <Line endX="-3.0" endY="411.0" layoutX="556.0" layoutY="162.0" startX="-3.0" startY="5.0" />
-                  <Label alignment="CENTER_RIGHT" layoutX="711.0" layoutY="257.0" prefHeight="17.0" prefWidth="100.0" text="Namn" />
-                  <Label alignment="CENTER_RIGHT" layoutX="711.0" layoutY="292.0" prefHeight="17.0" prefWidth="100.0" text="Adress" />
-                  <Label alignment="CENTER_RIGHT" layoutX="711.0" layoutY="328.0" prefHeight="17.0" prefWidth="100.0" text="Kortnummer" />
-                  <Label alignment="CENTER_RIGHT" layoutX="711.0" layoutY="364.0" prefHeight="17.0" prefWidth="100.0" text="Utgångsdatum" />
-                  <Label alignment="CENTER_RIGHT" layoutX="711.0" layoutY="401.0" prefHeight="17.0" prefWidth="100.0" text="CVC" />
-                  <Label alignment="CENTER_RIGHT" layoutX="711.0" layoutY="434.0" prefHeight="17.0" prefWidth="100.0" text="Leveranstid" />
-                  <Label alignment="CENTER" contentDisplay="CENTER" layoutX="768.0" layoutY="186.0" prefHeight="52.0" prefWidth="149.0" text="Om uppgifterna nedan inte stämmer kan du ändra dessa på mina sidor" textAlignment="CENTER" wrapText="true" />
-               </children>
-            </AnchorPane>
-            <AnchorPane fx:id="orderSucess" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="679.0" prefWidth="1130.0" style="-fx-background-color: #3399ff;">
-               <children>
-                  <Button fx:id="registerPlease1" layoutX="445.0" layoutY="355.0" mnemonicParsing="false" onAction="#hemShow" prefHeight="52.0" prefWidth="220.0" text="Tillbaka till startsidan" />
-                  <Button layoutX="1057.0" layoutY="16.0" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#hemShow" prefHeight="30.0" prefWidth="30.0" style="-fx-background-color: inherit;" />
-                  <Label alignment="CENTER" layoutX="429.0" layoutY="140.0" prefHeight="52.0" prefWidth="251.0" text="Grattis!" textFill="WHITE">
-                     <font>
-                        <Font name="Times New Roman" size="62.0" />
-                     </font>
-                  </Label>
-                  <Label fx:id="textSucessOrder" alignment="CENTER" layoutX="306.0" layoutY="217.0" prefHeight="125.0" prefWidth="498.0" textAlignment="CENTER" wrapText="true">
-                     <font>
-                        <Font size="18.0" />
-                     </font>
-                  </Label>
-               </children>
-               <StackPane.margin>
-                  <Insets top="220.0" />
-               </StackPane.margin>
-            </AnchorPane>
             <AnchorPane fx:id="hem" prefHeight="924.0" prefWidth="1175.0" style="-fx-background-color: white;">
                <children>
                   <AnchorPane fx:id="paneTop" layoutX="25.0" layoutY="52.0" prefHeight="157.0" prefWidth="1125.0" AnchorPane.leftAnchor="25.0" AnchorPane.rightAnchor="25.0" AnchorPane.topAnchor="52.0">
                      <children>
-                        <Label fx:id="logoText" layoutX="169.0" layoutY="22.0" prefHeight="17.0" prefWidth="183.0" text="iMat">
-                           <font>
-                              <Font size="40.0" />
-                           </font>
-                        </Label>
                         <TextField fx:id="searchField" layoutX="834.0" layoutY="21.0" prefHeight="40.0" prefWidth="278.0" promptText="Sök i sortimentet" AnchorPane.bottomAnchor="96.0" AnchorPane.rightAnchor="13.0" AnchorPane.topAnchor="21.0">
                            <font>
                               <Font size="18.0" />
                            </font>
                         </TextField>
-                        <ImageView fx:id="logo" fitHeight="90.0" fitWidth="90.0" layoutX="40.0" layoutY="16.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fx:id="logo" fitHeight="92.0" fitWidth="36.0" layoutX="70.0" layoutY="11.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@resources/testlogo.png" />
+                              <Image url="@resources/imat_logo1.png" />
                            </image>
                         </ImageView>
                         <Button fx:id="hemButton" cacheShape="false" centerShape="false" focusTraversable="false" layoutX="2.0" layoutY="89.0" mnemonicParsing="false" onAction="#hemShow" prefHeight="70.0" prefWidth="169.0" scaleShape="false" text="Hem" AnchorPane.leftAnchor="2.0" AnchorPane.topAnchor="89.0" />
-                        <Button fx:id="helpButton" cacheShape="false" centerShape="false" focusTraversable="false" layoutX="169.0" layoutY="89.0" mnemonicParsing="false" prefHeight="70.0" prefWidth="169.0" scaleShape="false" text="Hjälp" />
+                        <Button fx:id="helpButton" cacheShape="false" centerShape="false" focusTraversable="false" layoutX="169.0" layoutY="89.0" mnemonicParsing="false" onAction="#showHelp" prefHeight="70.0" prefWidth="169.0" scaleShape="false" text="Hjälp">
+                           <font>
+                              <Font size="15.0" />
+                           </font></Button>
                         <Button fx:id="checkoutButton" cacheShape="false" centerShape="false" focusTraversable="false" layoutX="955.0" layoutY="87.0" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#varukorgShow" prefHeight="70.0" prefWidth="169.0" scaleShape="false" AnchorPane.bottomAnchor="2.0" AnchorPane.rightAnchor="1.0" AnchorPane.topAnchor="87.0">
                            <graphic>
                               <Label fx:id="cartTotal" alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="565.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="170.0" text="0.00 kr" textAlignment="RIGHT">
@@ -402,6 +343,11 @@
                            </font>
                         </Button>
                         <Button layoutX="1066.0" layoutY="30.0" mnemonicParsing="false" onAction="#searchProduct" text="Sök" AnchorPane.bottomAnchor="103.0" AnchorPane.rightAnchor="23.0" AnchorPane.topAnchor="30.0" />
+                        <ImageView fx:id="logo1" fitHeight="54.0" fitWidth="123.0" layoutX="123.0" layoutY="33.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@resources/imat_logo2.png" />
+                           </image>
+                        </ImageView>
                      </children>
                   </AnchorPane>
                   <StackPane fx:id="gridPane" layoutX="345.0" layoutY="230.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="150.0" prefWidth="805.0" style="-fx-background-color: #3399ff;" AnchorPane.bottomAnchor="561.0" AnchorPane.leftAnchor="345.0" AnchorPane.rightAnchor="25.0" AnchorPane.topAnchor="230.0">
@@ -504,6 +450,83 @@
                   </AnchorPane>
                   <Button fx:id="reaButton" alignment="CENTER" contentDisplay="CENTER" layoutX="665.0" layoutY="331.0" minHeight="-Infinity" mnemonicParsing="false" onAction="#rea_category" prefHeight="42.0" prefWidth="165.0" text="Shoppa" textAlignment="CENTER" />
                </children>
+            </AnchorPane>
+            <AnchorPane fx:id="varukorg" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="727.0" prefWidth="1130.0" StackPane.alignment="CENTER">
+               <StackPane.margin>
+                  <Insets top="180.0" />
+               </StackPane.margin>
+               <children>
+                  <AnchorPane layoutY="17.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="703.0" prefWidth="1130.0" style="-fx-background-color: white;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="17.0">
+                     <children>
+                        <AnchorPane fx:id="kassanTopPane" layoutX="15.0" layoutY="20.0" minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="800.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="20.0">
+                           <children>
+                              <Label fx:id="kassanTxt" layoutX="448.0" layoutY="-6.0" prefHeight="113.0" prefWidth="211.0" text="Din varukorg">
+                                 <font>
+                                    <Font size="40.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </AnchorPane>
+                        <ScrollPane hbarPolicy="NEVER" prefHeight="471.0" prefWidth="1100.0" AnchorPane.bottomAnchor="100.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="120.0">
+                           <content>
+                              <FlowPane fx:id="checkoutFlow" prefHeight="470.0" prefWidth="1100.0">
+                                 <padding>
+                                    <Insets bottom="25.0" left="25.0" right="25.0" top="25.0" />
+                                 </padding>
+                              </FlowPane>
+                           </content>
+                        </ScrollPane>
+                        <AnchorPane fx:id="kassanBotPane" layoutX="265.0" layoutY="610.0" minHeight="0.0" minWidth="0.0" prefHeight="75.0" prefWidth="600.0" AnchorPane.leftAnchor="265.0" AnchorPane.rightAnchor="265.0" AnchorPane.topAnchor="610.0">
+                           <children>
+                              <AnchorPane fx:id="kassanVarorPane" layoutX="52.0" layoutY="12.0">
+                                 <children>
+                                    <Label fx:id="kassanTxt2" alignment="CENTER" prefHeight="52.0" prefWidth="211.0" text="Totalt 30 varor" textAlignment="CENTER">
+                                       <font>
+                                          <Font size="40.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                              </AnchorPane>
+                              <AnchorPane fx:id="kassanPrisPane" layoutX="342.0" layoutY="11.0">
+                                 <children>
+                                    <Label fx:id="kassanTxt21" alignment="CENTER" prefHeight="52.0" prefWidth="170.0" text="Pris 725.5kr">
+                                       <font>
+                                          <Font size="40.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                              </AnchorPane>
+                           </children>
+                        </AnchorPane>
+                        <Button fx:id="goToOrderButton" layoutX="886.0" layoutY="610.0" mnemonicParsing="false" onAction="#startOrdering" prefHeight="75.0" prefWidth="158.0" text="Gå vidare med order" />
+                        <Button fx:id="goBackButton" layoutX="86.0" layoutY="610.0" mnemonicParsing="false" onAction="#hemShow" prefHeight="75.0" prefWidth="158.0" text="Gå tillbaka till butiken" />
+                     </children>
+                  </AnchorPane>
+               </children>
+            </AnchorPane>
+            <AnchorPane fx:id="helpWindow" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="693.0" prefWidth="1125.0" style="-fx-background-color: white;">
+               <children>
+                  <AnchorPane fx:id="helpTopPane" layoutY="-3.0" minHeight="0.0" minWidth="0.0" prefHeight="144.0" prefWidth="1130.0" style="-fx-background-color: #3399ff;">
+                     <children>
+                        <Label fx:id="kassanTxt3" alignment="CENTER" layoutX="448.0" layoutY="-6.0" prefHeight="65.0" prefWidth="211.0" text="Hjälp">
+                           <font>
+                              <Font size="40.0" />
+                           </font>
+                        </Label>
+                        <Label alignment="CENTER" layoutX="433.0" layoutY="51.0" prefHeight="86.0" prefWidth="241.0" text="Här har du en guide till hur vårat program funkar, du stegar dig igenom bilderna till du känner dig nöjd. Du kan närsomhelst avsluta guiden genom knappen längst ner på denna sidan." textAlignment="CENTER" wrapText="true" />
+                     </children>
+                  </AnchorPane>
+                  <ImageView fitHeight="543.0" fitWidth="699.0" layoutX="210.0" layoutY="142.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../../Downloads/iMat.PNG" />
+                     </image>
+                  </ImageView>
+                  <Button layoutX="932.0" layoutY="400.0" mnemonicParsing="false" text="Button" />
+                  <Button layoutX="139.0" layoutY="400.0" mnemonicParsing="false" text="Button" />
+               </children>
+               <StackPane.margin>
+                  <Insets top="215.0" />
+               </StackPane.margin>
             </AnchorPane>
          </children>
       </StackPane>
