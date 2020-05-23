@@ -118,10 +118,12 @@ public class  iMatController implements Initializable, ShoppingCartListener {
 
     //HELP
     @FXML private AnchorPane helpWindow;
+    @FXML private ImageView imageHelp;
 
     private final IMatDataHandler dh = IMatDataHandler.getInstance();
-
     public ArrayList<Product> reaProducts = new ArrayList<>();
+    public ArrayList<String> helpImages = new ArrayList<>();
+    private int nHelpImage = 0;
 
     //MINA SIDOR
     private List<Order> orderlista = dh.getOrders();
@@ -160,6 +162,7 @@ public class  iMatController implements Initializable, ShoppingCartListener {
         reaButton.setText("Shoppa");
 
         setReaProducts();
+        setHelpImages();
         all_category();
         updateCart();
 
@@ -170,6 +173,56 @@ public class  iMatController implements Initializable, ShoppingCartListener {
         populateOrderHashMap();
         updateOrders();
 
+    }
+
+    public void setHelpImages() {
+        String s;
+        s = "/resources/iMatHem.png";
+        helpImages.add(s);
+        s = "/resources/iMatKategorier.png";
+        helpImages.add(s);
+        s = "/resources/iMatLäggTill.png";
+        helpImages.add(s);
+        s = "/resources/iMatSök.png";
+        helpImages.add(s);
+        s = "/resources/iMatMinaSidor.png";
+        helpImages.add(s);
+        s = "/resources/iMatMinaSidorUppgifter.png";
+        helpImages.add(s);
+        s = "/resources/iMatMinaSidorTidigareKöp.png";
+        helpImages.add(s);
+        s = "/resources/iMatMinaSidorReset.png";
+        helpImages.add(s);
+        s = "/resources/iMatKundvagn.png";
+        helpImages.add(s);
+        s = "/resources/iMatKundvagnItem.png";
+        helpImages.add(s);
+        s = "/resources/iMatKundvagnGåvidare.png";
+        helpImages.add(s);
+        s = "/resources/iMatOrderLeverans.png";
+        helpImages.add(s);
+        s = "/resources/iMatOrderCofirm.png";
+        helpImages.add(s);
+        s = "/resources/iMatOrderOrder.png";
+        helpImages.add(s);
+    }
+
+    public void nextImage() {
+        if (nHelpImage < helpImages.size() - 1) {
+            nHelpImage++;
+            updateImageHelp();
+        }
+    }
+
+    public void previousImage() {
+        if (nHelpImage > 0) {
+            nHelpImage--;
+            updateImageHelp();
+        }
+    }
+
+    public void updateImageHelp() {
+        imageHelp.setImage(new Image(helpImages.get(nHelpImage)));
     }
 
     public void setReaProducts() {
@@ -202,21 +255,24 @@ public class  iMatController implements Initializable, ShoppingCartListener {
     @FXML private void showHelp() {
         helpWindow.toFront();
         minaSidor.toBack();
+        updateImageHelp();
     }
 
     @FXML
     private void startOrdering() {
-        if (dh.isCustomerComplete()) {
-            orderConfirmation.toFront();
+        if (shoppingCart.getTotal() != 0.0) {
+            if (dh.isCustomerComplete()) {
+                orderConfirmation.toFront();
 
-            confirmationAdress.setText(customer.getAddress());
-            confirmationAdressNumber.setText(customer.getPostAddress());
-            confirmationCardNumber.setText(creditCard.getCardNumber());
-            confirmationCvc.setText(String.valueOf(creditCard.getVerificationCode()));
-            confirmationExpire.setText(String.valueOf(creditCard.getValidMonth()) + "/" + String.valueOf(creditCard.getValidYear()));
-            confirmationName.setText(creditCard.getHoldersName());
-        } else {
-            registerDemand.toFront();
+                confirmationAdress.setText(customer.getAddress());
+                confirmationAdressNumber.setText(customer.getPostAddress());
+                confirmationCardNumber.setText(creditCard.getCardNumber());
+                confirmationCvc.setText(String.valueOf(creditCard.getVerificationCode()));
+                confirmationExpire.setText(String.valueOf(creditCard.getValidMonth()) + "/" + String.valueOf(creditCard.getValidYear()));
+                confirmationName.setText(creditCard.getHoldersName());
+            } else {
+                registerDemand.toFront();
+            }
         }
     }
 
@@ -240,6 +296,12 @@ public class  iMatController implements Initializable, ShoppingCartListener {
 
             populateOrderHashMap();
             updateOrders();
+
+            shoppingCart.clear();
+            updateCart();
+            updateCheckout();
+            populateCheckout();
+
             textSucessOrder.setText("Ditt köp har gått igenom och dina varor kommer anlända på din adress den " + confirmationArrival.getText());
             orderSucess.toFront();
         }
