@@ -509,23 +509,24 @@
             </AnchorPane>
             <AnchorPane fx:id="helpWindow" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="693.0" prefWidth="1125.0" style="-fx-background-color: white;">
                <children>
-                  <AnchorPane fx:id="helpTopPane" layoutY="-3.0" minHeight="0.0" minWidth="0.0" prefHeight="144.0" prefWidth="1125.0" style="-fx-background-color: #3399ff;">
+                  <AnchorPane fx:id="helpTopPane" layoutY="-3.0" minHeight="0.0" minWidth="0.0" prefHeight="113.0" prefWidth="1125.0" style="-fx-background-color: #3399ff;">
                      <children>
                         <Label fx:id="kassanTxt3" alignment="CENTER" layoutX="448.0" layoutY="-6.0" prefHeight="65.0" prefWidth="211.0" text="Hjälp">
                            <font>
                               <Font size="40.0" />
                            </font>
                         </Label>
-                        <Label alignment="CENTER" layoutX="433.0" layoutY="51.0" prefHeight="86.0" prefWidth="241.0" text="Här har du en guide till hur vårat program funkar, du stegar dig igenom bilderna till du känner dig nöjd. Du kan närsomhelst avsluta guiden genom knappen längst ner på denna sidan." textAlignment="CENTER" wrapText="true" />
+                        <Label alignment="CENTER" layoutX="305.0" layoutY="43.0" prefHeight="58.0" prefWidth="498.0" text="Här har du en guide till hur vårat program funkar, du stegar dig igenom bilderna till du känner dig nöjd. Du kan närsomhelst avsluta guiden genom knappen längst ner på denna sidan." textAlignment="CENTER" wrapText="true" />
                      </children>
                   </AnchorPane>
-                  <ImageView fx:id="imageHelp" fitHeight="543.0" fitWidth="699.0" layoutX="210.0" layoutY="142.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="imageHelp" fitHeight="456.0" fitWidth="600.0" layoutX="268.0" layoutY="119.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../../../../Downloads/iMat.PNG" />
                      </image>
                   </ImageView>
-                  <Button layoutX="919.0" layoutY="400.0" mnemonicParsing="false" onAction="#nextImage" text="&gt;" />
-                  <Button layoutX="175.0" layoutY="400.0" mnemonicParsing="false" onAction="#previousImage" text="&lt;" />
+                  <Button layoutX="902.0" layoutY="334.0" mnemonicParsing="false" onAction="#nextImage" text="&gt;" />
+                  <Button layoutX="212.0" layoutY="334.0" mnemonicParsing="false" onAction="#previousImage" text="&lt;" />
+                  <Label fx:id="helpText" alignment="CENTER" layoutX="424.0" layoutY="590.0" prefHeight="75.0" prefWidth="278.0" text="Label" textAlignment="CENTER" wrapText="true" />
                </children>
                <StackPane.margin>
                   <Insets top="215.0" />

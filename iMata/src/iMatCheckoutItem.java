@@ -49,8 +49,10 @@ public class iMatCheckoutItem extends AnchorPane {
 
             for(ShoppingItem s: sc){
                 if(s.getProduct() == product){
-                    if(s.getAmount() > 0){
+                    if(s.getAmount() > 0 && s.getAmount() != 1){
                         s.setAmount(s.getAmount() - 1);
+                    } else if(s.getAmount() == 1) {
+                        removeCheckoutItem();
                     }
                     break;
                 }

@@ -20,33 +20,6 @@
    <children>
       <StackPane fx:id="background" layoutY="10.0" minHeight="834.0" minWidth="1175.0" prefHeight="843.0" prefWidth="1175.0" AnchorPane.bottomAnchor="43.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="10.0">
          <children>
-            <AnchorPane fx:id="registerDemand" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="585.0" prefWidth="1105.0" style="-fx-background-color: #3399ff;">
-               <children>
-                  <Button fx:id="registerPlease" layoutX="445.0" layoutY="352.0" mnemonicParsing="false" onAction="#minaSidorShow" prefHeight="52.0" prefWidth="220.0" text="Registrera dig!" />
-                  <Button layoutX="1057.0" layoutY="16.0" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#closeRegisterDemand" prefHeight="30.0" prefWidth="30.0" style="-fx-background-color: inherit;">
-                     <graphic>
-                        <ImageView fitHeight="45.0" fitWidth="44.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@resources/cross.png" />
-                           </image>
-                        </ImageView>
-                     </graphic>
-                  </Button>
-                  <Label alignment="CENTER" layoutX="429.0" layoutY="140.0" prefHeight="52.0" prefWidth="251.0" text="Hej!" textFill="WHITE">
-                     <font>
-                        <Font name="Times New Roman" size="62.0" />
-                     </font>
-                  </Label>
-                  <Label fx:id="textRegisterPlease" alignment="CENTER" layoutX="306.0" layoutY="217.0" prefHeight="125.0" prefWidth="498.0" text="Käre kund, för att kunna slutföra ett köp behöver du registrera ett konto, detta gör du lätt genom att klicka knappen precis under detta meddelande!" textAlignment="CENTER" wrapText="true">
-                     <font>
-                        <Font size="18.0" />
-                     </font>
-                  </Label>
-               </children>
-               <StackPane.margin>
-                  <Insets top="115.0" />
-               </StackPane.margin>
-            </AnchorPane>
             <AnchorPane fx:id="orderConfirmation" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="703.0" prefWidth="1130.0" style="-fx-background-color: white;">
                <StackPane.margin>
                   <Insets top="200.0" />
@@ -84,10 +57,10 @@
                      <children>
                         <Button fx:id="setArrival1251730" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#onClickGridOrder" prefHeight="65.0" prefWidth="215.0" text="12 maj 17:30" />
                         <Button fx:id="setArrival1251800" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#onClickGridOrder" prefHeight="65.0" prefWidth="215.0" text="12 maj 18:00" GridPane.columnIndex="1" />
-                        <Button fx:id="setArrival1351730" alignment="CENTER" mnemonicParsing="false" prefHeight="65.0" prefWidth="215.0" text="13 maj 17:30" GridPane.rowIndex="1" />
-                        <Button fx:id="setArrival1351800" alignment="CENTER" mnemonicParsing="false" prefHeight="65.0" prefWidth="215.0" text="13 maj 18:00" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                        <Button fx:id="setArrival1451730" alignment="CENTER" mnemonicParsing="false" prefHeight="65.0" prefWidth="215.0" text="14 maj 17:30" GridPane.rowIndex="2" />
-                        <Button fx:id="setArrival1451800" alignment="CENTER" mnemonicParsing="false" prefHeight="65.0" prefWidth="215.0" text="14 maj 18:00" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                        <Button fx:id="setArrival1351730" alignment="CENTER" mnemonicParsing="false" onAction="#onClickGridOrder" prefHeight="65.0" prefWidth="215.0" text="13 maj 17:30" GridPane.rowIndex="1" />
+                        <Button fx:id="setArrival1351800" alignment="CENTER" mnemonicParsing="false" onAction="#onClickGridOrder" prefHeight="65.0" prefWidth="215.0" text="13 maj 18:00" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                        <Button fx:id="setArrival1451730" alignment="CENTER" mnemonicParsing="false" onAction="#onClickGridOrder" prefHeight="65.0" prefWidth="215.0" text="14 maj 17:30" GridPane.rowIndex="2" />
+                        <Button fx:id="setArrival1451800" alignment="CENTER" mnemonicParsing="false" onAction="#onClickGridOrder" prefHeight="65.0" prefWidth="215.0" text="14 maj 18:00" GridPane.columnIndex="1" GridPane.rowIndex="2" />
                      </children>
                   </GridPane>
                   <TextField fx:id="confirmationName" editable="false" layoutX="824.0" layoutY="253.0" prefHeight="25.0" prefWidth="149.0" />
@@ -127,6 +100,9 @@
                      </font>
                   </Label>
                </children>
+               <StackPane.margin>
+                  <Insets top="200.0" />
+               </StackPane.margin>
             </AnchorPane>
             <AnchorPane fx:id="minaSidor" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1130.0" style="-fx-background-color: white;">
                <StackPane.margin>
@@ -504,25 +480,53 @@
                   </AnchorPane>
                </children>
             </AnchorPane>
+            <AnchorPane fx:id="registerDemand" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="585.0" prefWidth="1105.0" style="-fx-background-color: #3399ff;">
+               <children>
+                  <Button fx:id="registerPlease" layoutX="445.0" layoutY="352.0" mnemonicParsing="false" onAction="#minaSidorShow" prefHeight="52.0" prefWidth="220.0" text="Registrera dig!" />
+                  <Button layoutX="1057.0" layoutY="16.0" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#closeRegisterDemand" prefHeight="30.0" prefWidth="30.0" style="-fx-background-color: inherit;">
+                     <graphic>
+                        <ImageView fitHeight="45.0" fitWidth="44.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@resources/cross.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+                  <Label alignment="CENTER" layoutX="429.0" layoutY="140.0" prefHeight="52.0" prefWidth="251.0" text="Hej!" textFill="WHITE">
+                     <font>
+                        <Font name="Times New Roman" size="62.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="textRegisterPlease" alignment="CENTER" layoutX="306.0" layoutY="217.0" prefHeight="125.0" prefWidth="498.0" text="Käre kund, för att kunna slutföra ett köp behöver du registrera ett konto, detta gör du lätt genom att klicka knappen precis under detta meddelande!" textAlignment="CENTER" wrapText="true">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+               </children>
+               <StackPane.margin>
+                  <Insets top="115.0" />
+               </StackPane.margin>
+            </AnchorPane>
             <AnchorPane fx:id="helpWindow" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="693.0" prefWidth="1125.0" style="-fx-background-color: white;">
                <children>
-                  <AnchorPane fx:id="helpTopPane" layoutY="-3.0" minHeight="0.0" minWidth="0.0" prefHeight="144.0" prefWidth="1130.0" style="-fx-background-color: #3399ff;">
+                  <AnchorPane fx:id="helpTopPane" layoutY="-3.0" minHeight="0.0" minWidth="0.0" prefHeight="113.0" prefWidth="1125.0" style="-fx-background-color: #3399ff;">
                      <children>
                         <Label fx:id="kassanTxt3" alignment="CENTER" layoutX="448.0" layoutY="-6.0" prefHeight="65.0" prefWidth="211.0" text="Hjälp">
                            <font>
                               <Font size="40.0" />
                            </font>
                         </Label>
-                        <Label alignment="CENTER" layoutX="433.0" layoutY="51.0" prefHeight="86.0" prefWidth="241.0" text="Här har du en guide till hur vårat program funkar, du stegar dig igenom bilderna till du känner dig nöjd. Du kan närsomhelst avsluta guiden genom knappen längst ner på denna sidan." textAlignment="CENTER" wrapText="true" />
+                        <Label alignment="CENTER" layoutX="305.0" layoutY="43.0" prefHeight="58.0" prefWidth="498.0" text="Här har du en guide till hur vårat program funkar, du stegar dig igenom bilderna till du känner dig nöjd. Du kan närsomhelst avsluta guiden genom knappen längst ner på denna sidan." textAlignment="CENTER" wrapText="true" />
                      </children>
                   </AnchorPane>
-                  <ImageView fitHeight="543.0" fitWidth="699.0" layoutX="210.0" layoutY="142.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="imageHelp" fitHeight="456.0" fitWidth="600.0" layoutX="268.0" layoutY="119.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../../../../Downloads/iMat.PNG" />
                      </image>
                   </ImageView>
-                  <Button layoutX="932.0" layoutY="400.0" mnemonicParsing="false" text="Button" />
-                  <Button layoutX="139.0" layoutY="400.0" mnemonicParsing="false" text="Button" />
+                  <Button layoutX="902.0" layoutY="334.0" mnemonicParsing="false" onAction="#nextImage" text="&gt;" />
+                  <Button layoutX="212.0" layoutY="334.0" mnemonicParsing="false" onAction="#previousImage" text="&lt;" />
+                  <Label fx:id="helpText" alignment="CENTER" layoutX="424.0" layoutY="590.0" prefHeight="75.0" prefWidth="278.0" text="Label" textAlignment="CENTER" wrapText="true" />
                </children>
                <StackPane.margin>
                   <Insets top="215.0" />

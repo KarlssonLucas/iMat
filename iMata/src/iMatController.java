@@ -119,11 +119,14 @@ public class  iMatController implements Initializable, ShoppingCartListener {
     //HELP
     @FXML private AnchorPane helpWindow;
     @FXML private ImageView imageHelp;
+    @FXML private Label helpText;
 
     private final IMatDataHandler dh = IMatDataHandler.getInstance();
     public ArrayList<Product> reaProducts = new ArrayList<>();
     public ArrayList<String> helpImages = new ArrayList<>();
+    public ArrayList<String> helpTexts = new ArrayList<>();
     private int nHelpImage = 0;
+    private int nHelpText = 0;
 
     //MINA SIDOR
     private List<Order> orderlista = dh.getOrders();
@@ -165,6 +168,8 @@ public class  iMatController implements Initializable, ShoppingCartListener {
         setHelpImages();
         all_category();
         updateCart();
+        updateHelpText();
+        updateImageHelp();
 
         scrollItemView.setFitToWidth(true);
         scrollItemView.setFitToHeight(true);
@@ -205,11 +210,46 @@ public class  iMatController implements Initializable, ShoppingCartListener {
         helpImages.add(s);
         s = "/resources/iMatOrderOrder.png";
         helpImages.add(s);
+
+        String a;
+        a = "Tar dig till applikationens startsida.";
+        helpTexts.add(a);
+        a = "Här kan du välja vilken kategori du vill visa i produktflödet.";
+        helpTexts.add(a);
+        a = "Välj antalet produkter du vill lägga till i kundvagnen antingen genom att skriva en siffra eller använda + och - och tryck sedan på knappen lägg till i kundvagn";
+        helpTexts.add(a);
+        a = "Här kan du söka efter en produkt i sortimentet";
+        helpTexts.add(a);
+        a = "Tar dig till dina sidor, fönstret där du kan se dina uppgifter eller skapa ett konto. Samt se dina tidigare köp i form av kvitton.";
+        helpTexts.add(a);
+        a = "Här kan skapa ett konto samt ändra dina uppgifter.";
+        helpTexts.add(a);
+        a = "Se tidigare köp du gjort och lägg snabbt till samma produkter i din köplista.";
+        helpTexts.add(a);
+        a = "Återställer hela programmet och tar bort alla dina kontouppgifter";
+        helpTexts.add(a);
+        a = "Tar dig till kundvagnen";
+        helpTexts.add(a);
+        a = "Ändra antalet av en produkt i kundvagnen och/eller ta bort den";
+        helpTexts.add(a);
+        a = "Tar dig vidare till nästa fönster i köpet eller tillbaka till startsidan.";
+        helpTexts.add(a);
+        a = "Bestäm när du vill att din beställning ska levereras.";
+        helpTexts.add(a);
+        a = "Bekräfta att dina uppgifter stämmer, gör det inte det kan du ta dig till mina sidor och ändra de";
+        helpTexts.add(a);
+        a = "Den här knappen bekräftar köpet och efter du tryckt på den är du färdig.";
+        helpTexts.add(a);
+
+
+
     }
 
     public void nextImage() {
         if (nHelpImage < helpImages.size() - 1) {
             nHelpImage++;
+            nHelpText++;
+            updateHelpText();
             updateImageHelp();
         }
     }
@@ -217,8 +257,14 @@ public class  iMatController implements Initializable, ShoppingCartListener {
     public void previousImage() {
         if (nHelpImage > 0) {
             nHelpImage--;
+            nHelpText--;
+            updateHelpText();
             updateImageHelp();
         }
+    }
+
+    public void updateHelpText() {
+        helpText.setText(helpTexts.get(nHelpText));
     }
 
     public void updateImageHelp() {
