@@ -1,9 +1,19 @@
-#minaSidorButton, #checkoutButton, #helpButton, #hemButton {
+#minaSidorButton, #checkoutButton, #helpButton, #hemButton{
     -fx-background-color:transparent;
     -fx-display: inline-block;
     -fx-cursor:pointer;
     -fx-color:#ffffff;
     -fx-font-size:15px;
+    -fx-text-decoration:none;
+}
+
+#left_btn, #right_btn {
+    -fx-background-color:#3399ff;
+    -fx-text-fill: white;
+    -fx-display: inline-block;
+    -fx-cursor:pointer;
+    -fx-color:#ffffff;
+    -fx-font-size:20px;
     -fx-text-decoration:none;
 }
 
@@ -16,13 +26,13 @@
     -fx-text-decoration:none;
 }
 
-#minaSidorButton:hover, #checkoutButton:hover, #helpButton:hover, #hemButton:hover, #skapaKontoBtn:hover, #orderBtn:hover  {
+#minaSidorButton:hover, #checkoutButton:hover, #helpButton:hover, #hemButton:hover, #skapaKontoBtn:hover, #orderBtn:hover, #left_btn:hover, #right_btn:hover  {
     -fx-background-color: #3366ff;
 }
 
-/* Add some cooler effect  */
+/* Pressed effect  */
 
-#minaSidorButton:pressed, #checkoutButton:pressed, #helpButton:pressed, #hemButton:pressed, #skapaKontoBtn:pressed, #orderBtn:pressed{
+#minaSidorButton:pressed, #checkoutButton:pressed, #helpButton:pressed, #hemButton:pressed, #skapaKontoBtn:pressed, #orderBtn:pressed, #left_btn:pressed, #right_btn:pressed{
     -fx-background-color: #0000ff;
 }
 

@@ -293,10 +293,7 @@
                            </image>
                         </ImageView>
                         <Button fx:id="hemButton" cacheShape="false" centerShape="false" focusTraversable="false" layoutX="2.0" layoutY="89.0" mnemonicParsing="false" onAction="#hemShow" prefHeight="70.0" prefWidth="169.0" scaleShape="false" text="Hem" AnchorPane.leftAnchor="2.0" AnchorPane.topAnchor="89.0" />
-                        <Button fx:id="helpButton" cacheShape="false" centerShape="false" focusTraversable="false" layoutX="169.0" layoutY="89.0" mnemonicParsing="false" onAction="#showHelp" prefHeight="70.0" prefWidth="169.0" scaleShape="false" text="Hjälp">
-                           <font>
-                              <Font size="15.0" />
-                           </font></Button>
+                        <Button fx:id="helpButton" cacheShape="false" centerShape="false" focusTraversable="false" layoutX="169.0" layoutY="89.0" mnemonicParsing="false" onAction="#showHelp" prefHeight="70.0" prefWidth="169.0" scaleShape="false" text="Hjälp" />
                         <Button fx:id="checkoutButton" cacheShape="false" centerShape="false" focusTraversable="false" layoutX="955.0" layoutY="87.0" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#varukorgShow" prefHeight="70.0" prefWidth="169.0" scaleShape="false" AnchorPane.bottomAnchor="2.0" AnchorPane.rightAnchor="1.0" AnchorPane.topAnchor="87.0">
                            <graphic>
                               <Label fx:id="cartTotal" alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="565.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="170.0" text="0.00 kr" textAlignment="RIGHT">
@@ -509,24 +506,31 @@
             </AnchorPane>
             <AnchorPane fx:id="helpWindow" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="693.0" prefWidth="1125.0" style="-fx-background-color: white;">
                <children>
-                  <AnchorPane fx:id="helpTopPane" layoutY="-3.0" minHeight="0.0" minWidth="0.0" prefHeight="113.0" prefWidth="1125.0" style="-fx-background-color: #3399ff;">
+                  <AnchorPane fx:id="helpTopPane" layoutY="-3.0" minHeight="0.0" minWidth="0.0" prefHeight="75.0" prefWidth="1125.0" style="-fx-background-color: #3399ff;">
                      <children>
-                        <Label fx:id="kassanTxt3" alignment="CENTER" layoutX="448.0" layoutY="-6.0" prefHeight="65.0" prefWidth="211.0" text="Hjälp">
+                        <Label fx:id="kassanTxt3" alignment="CENTER" layoutX="457.0" layoutY="5.0" prefHeight="65.0" prefWidth="211.0" text="Hjälp" textFill="WHITE">
                            <font>
                               <Font size="40.0" />
                            </font>
                         </Label>
-                        <Label alignment="CENTER" layoutX="305.0" layoutY="43.0" prefHeight="58.0" prefWidth="498.0" text="Här har du en guide till hur vårat program funkar, du stegar dig igenom bilderna till du känner dig nöjd. Du kan närsomhelst avsluta guiden genom knappen längst ner på denna sidan." textAlignment="CENTER" wrapText="true" />
                      </children>
                   </AnchorPane>
-                  <ImageView fx:id="imageHelp" fitHeight="456.0" fitWidth="600.0" layoutX="268.0" layoutY="119.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../../../../Downloads/iMat.PNG" />
-                     </image>
-                  </ImageView>
-                  <Button layoutX="902.0" layoutY="334.0" mnemonicParsing="false" onAction="#nextImage" text="&gt;" />
-                  <Button layoutX="212.0" layoutY="334.0" mnemonicParsing="false" onAction="#previousImage" text="&lt;" />
-                  <Label fx:id="helpText" alignment="CENTER" layoutX="424.0" layoutY="590.0" prefHeight="75.0" prefWidth="278.0" text="Label" textAlignment="CENTER" wrapText="true" />
+                  <ImageView fx:id="imageHelp" fitHeight="456.0" fitWidth="600.0" layoutX="269.0" layoutY="160.0" pickOnBounds="true" preserveRatio="true" />
+                  <Button fx:id="right_btn" layoutX="907.0" layoutY="349.0" mnemonicParsing="false" onAction="#nextImage" prefHeight="40.0" prefWidth="56.0" text="&gt;" />
+                  <Button fx:id="left_btn" layoutX="175.0" layoutY="349.0" mnemonicParsing="false" onAction="#previousImage" prefHeight="40.0" prefWidth="56.0" text="&lt;" />
+                  <Label fx:id="helpText" alignment="CENTER" layoutX="262.0" layoutY="616.0" prefHeight="75.0" prefWidth="615.0" text="Label" textAlignment="CENTER" wrapText="true">
+                     <font>
+                        <Font size="20.0" />
+                     </font></Label>
+                  <AnchorPane fx:id="helpTopPane1" layoutY="80.0" minHeight="0.0" minWidth="0.0" prefHeight="75.0" prefWidth="715.0" style="-fx-background-color: #3399ff;" AnchorPane.leftAnchor="150.0" AnchorPane.rightAnchor="150.0">
+                     <children>
+                        <Label fx:id="kassanTxt31" alignment="CENTER" layoutX="105.0" layoutY="5.0" prefHeight="65.0" prefWidth="615.0" text="Nedan är en guide som visar hur du handlar med iMat" textFill="WHITE">
+                           <font>
+                              <Font size="20.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </AnchorPane>
                </children>
                <StackPane.margin>
                   <Insets top="215.0" />

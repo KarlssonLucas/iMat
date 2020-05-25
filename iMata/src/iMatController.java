@@ -216,7 +216,7 @@ public class  iMatController implements Initializable, ShoppingCartListener {
         helpTexts.add(a);
         a = "Här kan du välja vilken kategori du vill visa i produktflödet.";
         helpTexts.add(a);
-        a = "Välj antalet produkter du vill lägga till i kundvagnen antingen genom att skriva en siffra eller använda + och - och tryck sedan på knappen lägg till i kundvagn";
+        a = "Välj antalet produkter du vill lägga i kundvagnen antingen genom att skriva en siffra eller använda + och - knapparna";
         helpTexts.add(a);
         a = "Här kan du söka efter en produkt i sortimentet";
         helpTexts.add(a);
