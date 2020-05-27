@@ -299,6 +299,7 @@ public class  iMatController implements Initializable, ShoppingCartListener {
     }
 
     @FXML private void showHelp() {
+        rodText.setText("");
         helpWindow.toFront();
         minaSidor.toBack();
         updateImageHelp();
@@ -389,13 +390,14 @@ public class  iMatController implements Initializable, ShoppingCartListener {
     @FXML
     public void hemShow() {
         hem.toFront();
+        rodText.setText("");
     }
 
     @FXML
     public void varukorgShow() {
         populateCheckout();
         updateCheckout();
-
+        rodText.setText("");
         varukorg.toFront();
     }
 
@@ -404,6 +406,7 @@ public class  iMatController implements Initializable, ShoppingCartListener {
     public void minaSidorShow() {
         if (dh.isCustomerComplete()) {
             skapaKontoBtn.setText("Uppdatera kontouppgifter");
+
         }
         minaSidor.toFront();
     }
