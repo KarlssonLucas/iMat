@@ -6,6 +6,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.KeyCode;
 import javafx.scene.layout.AnchorPane;
 import se.chalmers.cse.dat216.project.*;
 
@@ -49,14 +50,19 @@ public class iMatCheckoutItem extends AnchorPane {
 
             for(ShoppingItem s: sc){
                 if(s.getProduct() == product){
-                    if(s.getAmount() > 0 && s.getAmount() != 1){
+                    if (s.getAmount() > 1){
                         s.setAmount(s.getAmount() - 1);
-                    } else if(s.getAmount() == 1) {
+                    } else if(s.getAmount() <= 1) {
                         removeCheckoutItem();
                     }
+                    double roundOff = Math.round(s.getAmount() * 100.0) / 100.0;
+                    s.setAmount(roundOff);
+
                     break;
                 }
             }
+
+
             parentController.removeDup();
             parentController.populateCheckout();
             parentController.updateCheckout();
@@ -120,5 +126,33 @@ public class iMatCheckoutItem extends AnchorPane {
             checkoutPrice.setText(String.valueOf(product.getPrice()));
             checkoutName.setText(product.getName());
         }
+    /*
+    public void onEnterCheckout(javafx.scene.input.KeyEvent keyEvent) {
+        if (keyEvent.getCode().equals(KeyCode.ENTER)) {
+            List<ShoppingItem> sc = parentController.shoppingCart.getItems();
+            char[] s = checkoutAmount.getText().toCharArray();
+            StringBuilder sb = new StringBuilder();
+
+            for(ShoppingItem p: sc){
+                if(p.getProduct() == product){
+                    for (int i = 0; i<s.length; i++) {
+                        if (Character.isDigit(s[i]) && Character.isDigit(s[i+1]) && i<s.length-1) {
+                            sb.append(s[i]);
+                        } else if (Character.isDigit(s[i])) {
+                            sb.append(s[i]);
+                            break;
+                        }
+                    }
+                    int a = Integer.parseInt(sb.toString());
+                    p.setAmount(a);
+                }
+            }
+            parentController.removeDup();
+            parentController.populateCheckout();
+            parentController.updateCheckout();
+            parentController.updateCart();
+        }
     }
+     */
+}
 

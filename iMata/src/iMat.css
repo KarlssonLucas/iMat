@@ -89,7 +89,7 @@
     -fx-text-fill: white;
 }
 
-#bbb0:focused, #skapaKontoBtn:hover, #finishOrder:hover, #setArrival1251730:hover, #reaButton, #bbb01:focused, #bbb01:hover, #bbb1:focused, #bbb2:focused, #bbb3:focused, #bbb4:focused, #bbb5:focused, #bbb6:focused, #bbb7:focused, #bbb8:focused, #bbb9:focused,#bbb10:focused,
+#bbb0:focused, #returnToOrdering, #skapaKontoBtn:hover, #finishOrder:hover, #setArrival1251730:hover, #reaButton, #bbb01:focused, #bbb01:hover, #bbb1:focused, #bbb2:focused, #bbb3:focused, #bbb4:focused, #bbb5:focused, #bbb6:focused, #bbb7:focused, #bbb8:focused, #bbb9:focused,#bbb10:focused,
 #bbb0:hover, #bbb1:hover, #bbb2:hover, #bbb3:hover, #bbb4:hover, #bbb5:hover, #bbb6:hover, #bbb7:hover, #bbb8:hover, #bbb9:hover, #bbb10:hover, #registerPlease, #registerPlease1, #goBackButton:hover, #goToOrderButton:hover{
     -fx-text-fill: white;
     -fx-background-color: #3399ff;
@@ -114,7 +114,7 @@
     -fx-background-radius: 5px;
 }
 
-#registerPlease:hover, #registerPlease1:hover {
+#registerPlease:hover, #registerPlease1:hover, #returnToOrdering:hover {
     -fx-text-fill: inherit;
     -fx-background-color: white;
     -fx-border-color: #3399ff;

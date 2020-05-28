@@ -1,15 +1,23 @@
 import javafx.application.Platform;
+import javafx.event.ActionEvent;
 import javafx.event.Event;
+import javafx.event.EventHandler;
 import javafx.event.EventTarget;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.*;
 
 import se.chalmers.cse.dat216.project.*;
 
+import javax.swing.*;
+import javafx.scene.input.KeyCode;
+
+import java.awt.event.KeyListener;
 import java.net.URL;
 import java.util.*;
 
@@ -20,16 +28,6 @@ import static se.chalmers.cse.dat216.project.ProductCategory.*;
 
 public class  iMatController implements Initializable, ShoppingCartListener {
 
-    //TODO
- /* NEED FOR PROG
-    - välja font
-    - gå vidare med order
-    - logotyp
-    - rabatterade produkter logo svart istället
-    - hjälp fönstret
-    - spara upon exit (dubbelkolla funktionalitet)
- */
-
     @FXML private AnchorPane paneTop;
     @FXML private ImageView logo;
     @FXML private Label logoText;
@@ -38,7 +36,7 @@ public class  iMatController implements Initializable, ShoppingCartListener {
     @FXML private Button helpButton;
     @FXML private Button hemButton;
     @FXML private StackPane background;
-    @FXML private TextField searchField;
+    @FXML public TextField searchField;
 
     @FXML private StackPane gridPane;
     @FXML private Button reaButton;
@@ -82,6 +80,7 @@ public class  iMatController implements Initializable, ShoppingCartListener {
     @FXML private Label tidigareKopTxt;
     @FXML private ImageView cardImage;
     @FXML private Button resetButton;
+    @FXML private Button returnToOrdering;
 
     @FXML private TextField forNamnField;
     @FXML private TextField efterNamnField;
@@ -149,6 +148,14 @@ public class  iMatController implements Initializable, ShoppingCartListener {
     private Map<String, iMatCheckoutItem> checkoutListItemMap = new HashMap<String, iMatCheckoutItem>();
     private iMatCheckoutItem checkoutItem;
     public ArrayList<ShoppingItem> si = new ArrayList<>();
+
+    /*TODO
+    För programmet
+        - edita mängden items i kundvagn kanske?
+
+        - Favoriter ska utmärka sig
+        - tillbaka knapp om du kommer från utcheckningen *dubbelkolla så de inte är några problem*
+    */
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -302,6 +309,7 @@ public class  iMatController implements Initializable, ShoppingCartListener {
         rodText.setText("");
         helpWindow.toFront();
         minaSidor.toBack();
+        hem.toBack();
         updateImageHelp();
     }
 
@@ -309,6 +317,8 @@ public class  iMatController implements Initializable, ShoppingCartListener {
     private void startOrdering() {
         if (shoppingCart.getTotal() != 0.0) {
             if (dh.isCustomerComplete()) {
+                returnToOrdering.setVisible(false);
+
                 orderConfirmation.toFront();
 
                 confirmationAdress.setText(customer.getAddress());
@@ -318,6 +328,7 @@ public class  iMatController implements Initializable, ShoppingCartListener {
                 confirmationExpire.setText(String.valueOf(creditCard.getValidMonth()) + "/" + String.valueOf(creditCard.getValidYear()));
                 confirmationName.setText(creditCard.getHoldersName());
             } else {
+                returnToOrdering.setVisible(true);
                 registerDemand.toFront();
             }
         }
@@ -383,12 +394,24 @@ public class  iMatController implements Initializable, ShoppingCartListener {
     @FXML
     public void searchProduct() {
         String s = String.valueOf(searchField.getCharacters());
-        currentProductList = dh.findProducts(s);
-        search_category(s);
-        hemShow();
+        if (!s.isEmpty()) {
+            currentProductList = dh.findProducts(s);
+            search_category(s);
+            hemBack();
+        }
     }
     @FXML
     public void hemShow() {
+        hem.toFront();
+        if (!reaButton.isVisible()) {
+            all_category();
+            bbb0.requestFocus();
+        }
+        rodText.setText("");
+    }
+
+    @FXML
+    public void hemBack() {
         hem.toFront();
         rodText.setText("");
     }
@@ -712,8 +735,13 @@ public class  iMatController implements Initializable, ShoppingCartListener {
 
     //End of category method calls
 
-    public void startUser() {
-
+    public void returntoorder() {
+        if(dh.isCustomerComplete()) {
+            startOrdering();
+            returnToOrdering.setVisible(false);
+        } else {
+            rodText.setText("Fyll i samtliga uppgifter för att återgå till köp");
+        }
     }
 
     public void create_user(){
@@ -792,4 +820,12 @@ public class  iMatController implements Initializable, ShoppingCartListener {
     public void shoppingCartChanged(CartEvent cartEvent) {
         cartEvent.getShoppingItem();
     }
+
+    public void onEnter(javafx.scene.input.KeyEvent keyEvent) {
+        if (keyEvent.getCode().equals(KeyCode.ENTER)) {
+            searchProduct();
+        }
+    }
+
+
 }

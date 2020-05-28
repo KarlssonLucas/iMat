@@ -1,13 +1,23 @@
+import java.awt.*;
+import java.awt.event.KeyAdapter;
 import java.util.ResourceBundle;
 import javafx.application.Application;
+import javafx.event.EventHandler;
+import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyEvent;
 import javafx.stage.Stage;
 import se.chalmers.cse.dat216.project.IMatDataHandler;
 
 
 public class iMat extends Application {
+
+    iMatController im = new iMatController();
 
     @Override
     public void start(Stage stage) throws Exception {
@@ -24,8 +34,15 @@ public class iMat extends Application {
 
         stage.setMinHeight(950);
         stage.setMinWidth(1190);
+        stage.setMaxHeight(950);
+        stage.setMaxWidth(1190);
 
         root.requestFocus();
+
+        String iconPath = "./resources/programLogo.png";
+        Image icon = new Image(getClass().getClassLoader().getResourceAsStream(iconPath));
+        stage.getIcons().add(icon);
+
     }
 
     /**

@@ -6,6 +6,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.KeyCode;
 import javafx.scene.layout.AnchorPane;
 import se.chalmers.cse.dat216.project.IMatDataHandler;
 import se.chalmers.cse.dat216.project.Product;
@@ -23,7 +24,6 @@ public class iMatItem extends AnchorPane {
     @FXML private Label productPrice;
     @FXML private ImageView productPicture;
     @FXML private AnchorPane productItem;
-    @FXML private Label productUnit;
     @FXML private TextField amountProduct;
     @FXML private Label productCategory;
     @FXML public ImageView favoriteImage;
@@ -43,8 +43,14 @@ public class iMatItem extends AnchorPane {
     @FXML
     private void addCart() {
         if (amountProduct.getCharacters().length() != 0 && !Pattern.matches("[a-zA-Z]+", amountProduct.getCharacters())){
-            int amount = Integer.parseInt(String.valueOf(amountProduct.getCharacters()));
-            parentController.shoppingCart.addProduct(product, amount);
+            if (String.valueOf(product.getUnitSuffix()).equals("kg") || String.valueOf(product.getUnitSuffix()).equals("l")) {
+                double amount = Double.parseDouble(String.valueOf(amountProduct.getCharacters()));
+                parentController.shoppingCart.addProduct(product, amount);
+            } else {
+                int amount = Integer.parseInt(String.valueOf(amountProduct.getCharacters()));
+                parentController.shoppingCart.addProduct(product, amount);
+            }
+
             parentController.updateCart();
             amountProduct.clear();
 
@@ -104,18 +110,22 @@ public class iMatItem extends AnchorPane {
 
         if (parentController.reaProducts.contains(product)) {
             productPrice.setStyle("-fx-text-fill: red");
-            productUnit.setStyle("-fx-text-fill: red");
             ordinaryPrice.setVisible(true);
-            ordinaryPrice.setText("Ordinarie pris " + product.getPrice()*2 + " " + product.getUnit());
+            ordinaryPrice.setText("Ordinarie pris: " + product.getPrice()*2 + " " + product.getUnit());
 
             reaImageItem.setVisible(true);
 
         }
 
         amountProduct.setPromptText("antal " + product.getUnitSuffix());
-        productUnit.setText(product.getUnit());
         productPicture.setImage(dh.getFXImage(product));
-        productPrice.setText(String.valueOf(product.getPrice()));
+        productPrice.setText(String.valueOf(product.getPrice()) + " " + product.getUnit());
         productName.setText(product.getName());
+    }
+
+    public void onEnterItem(javafx.scene.input.KeyEvent keyEvent) {
+        if (keyEvent.getCode().equals(KeyCode.ENTER)) {
+            addCart();
+        }
     }
 }
