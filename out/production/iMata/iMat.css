@@ -161,3 +161,7 @@
     text-area-background: #3399ff;
     -fx-background-color: text-area-background;
 }
+
+.buttblack {
+    -fx-background-color: black;
+}

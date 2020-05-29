@@ -47,6 +47,10 @@ public class OrderItem extends AnchorPane {
         varorLbl.setText(String.valueOf(parentController.getAmountGivenList(order.getItems())) + " st");
         orderLbl.setText(Integer.toString(order.getOrderNumber()));
 
+        if (dh.getOrders().indexOf(order)%2 == 0) {
+            this.setStyle("-fx-background-color: #d9d9d9");
+        }
+
     }
 
     public void order_to_varukorg(){

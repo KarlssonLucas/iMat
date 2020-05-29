@@ -29,6 +29,7 @@ import static se.chalmers.cse.dat216.project.ProductCategory.*;
 public class  iMatController implements Initializable, ShoppingCartListener {
 
     @FXML private AnchorPane paneTop;
+    @FXML private AnchorPane hideBackground;
     @FXML private ImageView logo;
     @FXML private Label logoText;
     @FXML private Button minaSidorButton;
@@ -307,9 +308,8 @@ public class  iMatController implements Initializable, ShoppingCartListener {
 
     @FXML private void showHelp() {
         rodText.setText("");
+        hideBackground.toFront();
         helpWindow.toFront();
-        minaSidor.toBack();
-        hem.toBack();
         updateImageHelp();
     }
 
@@ -402,6 +402,7 @@ public class  iMatController implements Initializable, ShoppingCartListener {
     }
     @FXML
     public void hemShow() {
+        hideBackground.toFront();
         hem.toFront();
         if (!reaButton.isVisible()) {
             all_category();
@@ -421,6 +422,7 @@ public class  iMatController implements Initializable, ShoppingCartListener {
         populateCheckout();
         updateCheckout();
         rodText.setText("");
+        hideBackground.toFront();
         varukorg.toFront();
     }
 
@@ -431,6 +433,7 @@ public class  iMatController implements Initializable, ShoppingCartListener {
             skapaKontoBtn.setText("Uppdatera kontouppgifter");
 
         }
+        hideBackground.toFront();
         minaSidor.toFront();
     }
 
@@ -742,6 +745,10 @@ public class  iMatController implements Initializable, ShoppingCartListener {
         } else {
             rodText.setText("Fyll i samtliga uppgifter för att återgå till köp");
         }
+    }
+
+    public  void create_user_check() {
+
     }
 
     public void create_user(){

@@ -27,6 +27,9 @@
             <Font size="23.0" />
          </font>
       </Label>
-      <Button fx:id="orderBtn" layoutX="831.0" layoutY="17.0" mnemonicParsing="false" onAction="#order_to_varukorg" prefHeight="62.0" prefWidth="204.0" text="Placera order i varukorgen" />
+      <Button fx:id="orderBtn" layoutX="831.0" layoutY="17.0" mnemonicParsing="false" onAction="#order_to_varukorg" prefHeight="62.0" prefWidth="204.0" text="Placera order i varukorgen" textFill="WHITE">
+         <font>
+            <Font size="15.0" />
+         </font></Button>
    </children>
 </fx:root>
