@@ -134,6 +134,7 @@ public class  iMatController implements Initializable, ShoppingCartListener {
     private OrderItem orderItem;
     public Customer customer = dh.getCustomer();
     public CreditCard creditCard = dh.getCreditCard();
+    public boolean checkValid = true;
 
     //Startsida
     @FXML private AnchorPane hem;
@@ -317,6 +318,7 @@ public class  iMatController implements Initializable, ShoppingCartListener {
     private void startOrdering() {
         if (shoppingCart.getTotal() != 0.0) {
             if (dh.isCustomerComplete()) {
+                hideBackground.toFront();
                 returnToOrdering.setVisible(false);
 
                 orderConfirmation.toFront();
@@ -747,43 +749,168 @@ public class  iMatController implements Initializable, ShoppingCartListener {
         }
     }
 
-    public  void create_user_check() {
+    public boolean checkOnlyLetters(String s) {
+        char[] chars = s.toCharArray();
+        for (char c : chars) {
+            if (!Character.isLetter(c) && !Character.isWhitespace(c)) {
+                return false;
+            }
+        }
+        return true;
+    }
 
+    public boolean checkOnlyDigits(String s) {
+        char[] chars = s.toCharArray();
+        for (char c : chars) {
+            if (!Character.isDigit(c) && !Character.isWhitespace(c)) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    public boolean isValidEmailAddress(String email) {
+        String ePattern = "^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@((\\[[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}\\])|(([a-zA-Z\\-0-9]+\\.)+[a-zA-Z]{2,}))$";
+        java.util.regex.Pattern p = java.util.regex.Pattern.compile(ePattern);
+        java.util.regex.Matcher m = p.matcher(email);
+        return m.matches();
+    }
+
+    public boolean isValidPostnummer(String s) {
+        return s.length() == 5 && checkOnlyDigits(s);
+    }
+
+    public boolean isValidCardnumber(String s) {
+        return s.length() == 16 && checkOnlyDigits(s);
+    }
+
+    public boolean isValidCvc(String s) {
+        return s.length() == 3 && checkOnlyDigits(s);
+    }
+
+    public boolean isValidMonth(String s) {
+        return s.length() == 2 && checkOnlyDigits(s) && Integer.parseInt(s) < 13;
+    }
+
+    public boolean isValidYear(String s) {
+        return s.length() == 2 && checkOnlyDigits(s);
+    }
+
+    public boolean create_user_complement() {
+        checkValid = true;
+        if (!isValidEmailAddress(epostField.getText())) {
+            epostField.setStyle("-fx-border-color: red");
+            checkValid = false;
+        } else {
+            epostField.setStyle("-fx-border-width: 0px");
+        }
+        if (!isValidPostnummer(postnummerField.getText())) {
+            postnummerField.setStyle("-fx-border-color: red");
+            checkValid = false;
+        } else {
+            postnummerField.setStyle("-fx-border-width: 0px");
+        }
+        if (!checkOnlyLetters(forNamnField.getText())) {
+            forNamnField.setStyle("-fx-border-color: red");
+            checkValid = false;
+        } else {
+            forNamnField.setStyle("-fx-border-width: 0px");
+        }
+        if (!checkOnlyLetters(efterNamnField.getText())) {
+            efterNamnField.setStyle("-fx-border-color: red");
+            checkValid = false;
+        } else {
+            efterNamnField.setStyle("-fx-border-width: 0px");
+        }
+        if (!checkOnlyDigits(telefonField.getText())) {
+            telefonField.setStyle("-fx-border-color: red");
+            checkValid = false;
+        } else {
+            telefonField.setStyle("-fx-border-width: 0px");
+        }
+        if (!checkOnlyLetters(adressField.getText())) {
+            adressField.setStyle("-fx-border-color: red");
+            checkValid = false;
+        } else {
+            adressField.setStyle("-fx-border-width: 0px");
+        }
+        if (!checkOnlyDigits(adressNumberField.getText())) {
+            adressNumberField.setStyle("-fx-border-color: red");
+            checkValid = false;
+        } else {
+            adressNumberField.setStyle("-fx-border-width: 0px");
+        }
+        if (!isValidCardnumber(kortnummerField.getText())) {
+            kortnummerField.setStyle("-fx-border-color: red");
+            checkValid = false;
+        } else {
+            kortnummerField.setStyle("-fx-border-width: 0px");
+        }
+        if (!checkOnlyLetters(kortNamnField.getText())) {
+            kortNamnField.setStyle("-fx-border-color: red");
+            checkValid = false;
+        } else {
+            kortNamnField.setStyle("-fx-border-width: 0px");
+        }
+        if (!isValidMonth(kortDatumMonthField.getText())) {
+            kortDatumMonthField.setStyle("-fx-border-color: red");
+            checkValid = false;
+        } else {
+            kortDatumMonthField.setStyle("-fx-border-width: 0px");
+        }
+        if (!isValidYear(kortDatumYearField.getText())) {
+            kortDatumYearField.setStyle("-fx-border-color: red");
+            checkValid = false;
+        } else {
+            kortDatumYearField.setStyle("-fx-border-width: 0px");
+        }
+        if (!isValidCvc(cvcField.getText())) {
+            cvcField.setStyle("-fx-border-color: red");
+            checkValid = false;
+        } else {
+            cvcField.setStyle("-fx-border-width: 0px");
+        }
+
+        return checkValid;
     }
 
     public void create_user(){
-        if(forNamnField.getText().isEmpty() || efterNamnField.getText().isEmpty() || epostField.getText().isEmpty() || telefonField.getText().isEmpty() || postnummerField.getText().isEmpty() ||
-                adressField.getText().isEmpty() || kortnummerField.getText().isEmpty() || kortNamnField.getText().isEmpty() || kortDatumMonthField.getText().isEmpty() || kortDatumYearField.getText().isEmpty() || cvcField.getText().isEmpty() ){
-            rodText.setTextFill(RED);
-            if (dh.isCustomerComplete()) {
-                rodText.setText("Fyll i samtliga uppgifter för att uppdatera ditt konto");
+        if (create_user_complement()) {
+            if (forNamnField.getText().isEmpty() || efterNamnField.getText().isEmpty() || epostField.getText().isEmpty() || telefonField.getText().isEmpty() || postnummerField.getText().isEmpty() ||
+                    adressField.getText().isEmpty() || kortnummerField.getText().isEmpty() || kortNamnField.getText().isEmpty() || kortDatumMonthField.getText().isEmpty() || kortDatumYearField.getText().isEmpty() || cvcField.getText().isEmpty()) {
+                rodText.setTextFill(RED);
+                if (dh.isCustomerComplete()) {
+                    rodText.setText("Fyll i samtliga uppgifter för att uppdatera ditt konto");
+                } else {
+                    rodText.setText("Fyll i samtliga uppgifter för att skapa ett konto!");
+                }
             } else {
-                rodText.setText("Fyll i samtliga uppgifter för att skapa ett konto!");
-            }
-        } else{
-            rodText.setTextFill(GREEN);
-            if (dh.isCustomerComplete())  {
-                rodText.setText("Du har uppdaterat dina uppgifter");
-            } else {
-                rodText.setText("Ditt konto är skapat!");
-            }
-            customer.setAddress(adressField.getText());
-            customer.setPostAddress(adressNumberField.getText());
-            customer.setEmail(epostField.getText());
-            customer.setFirstName(forNamnField.getText());
-            customer.setLastName(efterNamnField.getText());
-            customer.setMobilePhoneNumber(telefonField.getText());
-            customer.setPhoneNumber(telefonField.getText());
-            customer.setPostCode(postnummerField.getText());
+                rodText.setTextFill(GREEN);
+                if (dh.isCustomerComplete()) {
+                    rodText.setText("Du har uppdaterat dina uppgifter");
+                } else {
+                    rodText.setText("Ditt konto är skapat!");
+                }
+                customer.setAddress(adressField.getText());
+                customer.setPostAddress(adressNumberField.getText());
+                customer.setEmail(epostField.getText());
+                customer.setFirstName(forNamnField.getText());
+                customer.setLastName(efterNamnField.getText());
+                customer.setMobilePhoneNumber(telefonField.getText());
+                customer.setPhoneNumber(telefonField.getText());
+                customer.setPostCode(postnummerField.getText());
 
-            setCardImage(kortnummerField.getText());
-            creditCard.setCardNumber(kortnummerField.getText());
-            creditCard.setHoldersName(kortNamnField.getText());
-            creditCard.setValidMonth(Integer.parseInt(kortDatumMonthField.getText()));
-            creditCard.setValidYear(Integer.parseInt(kortDatumYearField.getText()));
-            creditCard.setVerificationCode(Integer.parseInt(cvcField.getText()));
-            skapaKontoBtn.setText("Uppdatera kontouppgifter");
-            minaSidorButton.setText("Mina sidor");
+                setCardImage(kortnummerField.getText());
+                creditCard.setCardNumber(kortnummerField.getText());
+                creditCard.setHoldersName(kortNamnField.getText());
+                creditCard.setValidMonth(Integer.parseInt(kortDatumMonthField.getText()));
+                creditCard.setValidYear(Integer.parseInt(kortDatumYearField.getText()));
+                creditCard.setVerificationCode(Integer.parseInt(cvcField.getText()));
+                skapaKontoBtn.setText("Uppdatera kontouppgifter");
+                minaSidorButton.setText("Mina sidor");
+            }
+        } else {
+            rodText.setText("Några/någon uppgift är fel");
         }
     }
 
